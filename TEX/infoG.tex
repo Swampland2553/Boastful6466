@@ -1,0 +1,181 @@
+\documentclass{article}
+
+% General packages
+\usepackage{fontspec} % For \settextfont
+\usepackage{array}    % For m{} column type in tables
+\usepackage{geometry} % For adjusting page margins
+\geometry{a4paper, margin=1in} % Sensible default margins
+
+% TikZ package and libraries
+\usepackage{tikz}
+\usetikzlibrary{
+    shapes.geometric, % For shapes like rectangle
+    arrows.meta,      % For arrow tips like Stealth
+    positioning,      % For relative positioning (right=of, etc.)
+    fit,              % For drawing nodes that fit around other nodes (subgraphs)
+    calc              % For coordinate calculations if needed
+}
+
+% Xepersian - load after other general packages
+\usepackage{xepersian}
+\settextfont{Amiri} % Set Amiri as the main font
+                    % Note: Amiri might not support all emojis.
+                    % You might need a font like "XB Niloofar", "Vazirmatn",
+                    % or a comprehensive Unicode font for full emoji support.
+
+% Define colors (from your TikZ code)
+\definecolor{merFillAF}{HTML}{FF99FF} % #f9f
+\definecolor{merFillCD}{HTML}{CCCCFF} % #ccf
+\definecolor{merFillEF}{HTML}{99CCFF} % #9cf
+\definecolor{merStroke}{HTML}{333333} % #333
+
+% Define TikZ styles (from your TikZ code)
+\tikzset{
+    % Base style for all flowchart nodes
+    base_node/.style={
+        rectangle,
+        draw=merStroke,
+        line width=1.5pt, % Approximates stroke-width:2px
+        text centered,
+        minimum height=3.2cm, % Further increased height for more wrapped lines
+        text width=2.7cm,   % Further reduced text width
+        font=\footnotesize % Changed to smaller font
+    },
+    % Specific styles from Mermaid
+    nodeA/.style={base_node, fill=merFillAF},
+    nodeB/.style={base_node, fill=merFillAF},
+    nodeC/.style={base_node, fill=merFillCD},
+    nodeD/.style={base_node, fill=merFillCD},
+    nodeE/.style={base_node, fill=merFillEF},
+    nodeF/.style={base_node, fill=merFillEF},
+    % Arrow style
+    arrow/.style={
+        -Stealth, % Arrow tip
+        thick,
+        draw=merStroke
+    },
+    % Subgraph box style
+    subgraph_box/.style={
+        draw=black!60,
+        line width=1pt,
+        rounded corners,
+        inner sep=0.15cm, % Further reduced padding inside the subgraph box
+        label={[font=\footnotesize\bfseries, anchor=south, yshift=0.1em]above:#1} % Changed label font size
+    }
+}
+
+\begin{document}
+
+\begin{center}
+\begin{tabular}{|c|m{0.15\textwidth}|m{0.15\textwidth}|m{0.20\textwidth}|m{0.2\textwidth}|m{0.2\textwidth}|}
+\hline
+\textbf{گام} & \textbf{زمان برنامه‌ریزی} & \textbf{نحوه گزارش} & \textbf{متغیر کلیدی (تغییر اصلی)} & \textbf{هدف اصلی مرحله} & \textbf{پیش‌نیاز/مهارت کسب‌شده} \\
+\hline
+ \textit{۱} & گزارش نویسی (پس از انجام) & یک کاغذ معمولی &  \textit{آغاز گزارش‌نویسی} (فعالیت دلخواه) & ایجاد عادت پایش فعالیت‌ها & - \\
+\hline
+ \textit{۲} & از شب قبل & برگ برنامه ریزی سطح ۲ &  \textit{قالب‌بندی} (مکتوب کردن برنامه) & ایجاد نظم و ساختار اولیه & عادت به گزارش نویسی \\
+\hline
+ \textit{۳} & از شب قبل & برگ برنامه ریزی سطح ۳ &  \textit{اولویت‌بندی و لیست کارها} & آموزش تعادل و انتخاب هوشمندانه & برنامه‌ریزی ساختار یافته \\
+\hline
+ \textit{۴} & سه روزه & برگه برنامه ریزی سطح ۴ &  \textit{درج ساعت و زمان‌بندی دقیق‌تر} & آغاز برنامه‌ریزی میان‌مدت & اولویت‌بندی و لیست کارها \\
+\hline
+️ \textit{۵} & یک هفته & برگه برنامه ریزی سطح ۵ &  \textit{توجه به محدودیت زمان} & ادامه برنامه‌ریزی میان‌مدت & زمان‌بندی دقیق \\
+\hline
+ \textit{۶} & دو هفته & برگه برنامه ریزی سطح ۶ &  \textit{توجه به پروژه‌ها و مباحث} & برنامه‌ریزی بلندمدت‌تر، چینش مباحث & مدیریت زمان در بازه طولانی \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{2ex} % Add some vertical space after the table
+
+\noindent\textbf{چرا این جدول مؤثرتر است؟}
+
+\begin{itemize}
+    \item \textit{آیکون‌ها:} به سرعت مفهوم گام یا متغیر کلیدی را منتقل می‌کنند.
+    \item \textit{تأکید بر متغیر کلیدی:} ستون "متغیر کلیدی" به وضوح نشان می‌دهد که در هر مرحله چه مهارت یا مفهوم جدیدی اضافه می‌شود.
+    \item \textit{هدف اصلی مرحله:} به طور خلاصه بیان می‌کند که دانش‌آموز در هر گام چه چیزی را یاد می‌گیرد.
+    \item \textit{پیش‌نیاز/مهارت کسب‌شده:} ارتباط بین مراحل را نشان می‌دهد.
+\end{itemize}
+
+\vspace{4ex} % Space after the "چرا این جدول مؤثرتر است؟" itemize
+
+\noindent\textbf{گزینه ۲: دیاگرام روند یا فلوچارت (Roadmap/Flowchart)}
+
+\vspace{1ex} % Little space after this new title
+این روش برای نمایش پیشرفت مرحله به مرحله بسیار عالی است.
+\vspace{2ex} % Space before the flowchart figure
+
+\begin{figure}[htbp]
+\centering
+\makebox[\textwidth][c]{%
+\begin{tikzpicture}[
+    node distance = 0.7cm and 0.25cm, % Further reduced horizontal distance
+    scale=0.85, % Scaling to fit
+    transform shape, % Ensures text and node contents also scale
+    % every node/.style={on grid} % Optional: for easier alignment if needed
+  ]
+
+    % Define the nodes
+    \node (A) [nodeA] {گام ۱: گزارش‌نویسی پایه \\(فعالیت دلخواه، کاغذ معمولی)};
+    \node (B) [nodeB, right=of A] {گام ۲: ساختاردهی برنامه \\(قالب مکتوب، از شب قبل)};
+    \node (C) [nodeC, right=of B] {گام ۳: سازماندهی و اولویت‌بندی \\(لیست کارها، تعادل مطالعاتی)};
+    \node (D) [nodeD, right=of C] {گام ۴: مدیریت زمان اولیه \\(درج ساعت، برنامه‌ریزی سه‌روزه)};
+    \node (E) [nodeE, right=of D] {گام ۵: برنامه‌ریزی هفتگی ️\\(توجه به محدودیت زمان)};
+    \node (F) [nodeF, right=of E] {گام ۶: برنامه‌ریزی جامع دوهفته‌ای \\(توجه به پروژه‌ها و مباحث)};
+
+    % Draw the arrows
+    \draw [arrow] (A) -- (B);
+    \draw [arrow] (B) -- (C);
+    \draw [arrow] (C) -- (D);
+    \draw [arrow] (D) -- (E);
+    \draw [arrow] (E) -- (F);
+
+    % Define the subgraphs using the 'fit' library
+    % These are drawn on a background layer by default, so nodes appear on top.
+    % We draw them after the main nodes and arrows.
+    \node[subgraph_box="مهارت‌های پایه‌ای", fit=(A) (B)] {};
+    \node[subgraph_box="مهارت‌های پیشرفته", fit=(C) (D)] {};
+    \node[subgraph_box="تسلط و کاربرد", fit=(E) (F)] {};
+
+\end{tikzpicture}%
+}
+\caption{فلوچارت مراحل برنامه‌ریزی}
+\label{fig:flowchart_planning}
+\end{figure}
+
+\vspace{2ex} % Optional: add some vertical space after the figure
+
+\noindent\textbf{نکات کلیدی برای فلوچارت:}
+
+\begin{itemize}
+    \item \textit{مسیر واضح:} فلش‌ها به وضوح مسیر پیشرفت را نشان می‌دهند.
+    \item \textit{خلاصه‌سازی:} هر مرحله با یک عنوان کوتاه و آیکون مرتبط مشخص می‌شود.
+    \item \textit{گروه‌بندی (اختیاری):} می‌توان مراحل را بر اساس سطح مهارت (مثلاً پایه‌ای، متوسط، پیشرفته) گروه‌بندی کرد.
+    \item \textit{رنگ‌بندی:} استفاده از رنگ‌های مختلف برای تمایز مراحل یا گروه‌ها.
+\end{itemize}
+
+\vspace{4ex} % Add some vertical space
+\newpage
+\noindent\textbf{گزینه ۳: اینفوگرافیک پله‌ای یا هرمی}
+
+\vspace{1ex} % Little space after the title
+این روش رشد و ارتقا را به صورت بصری نشان می‌دهد.
+\vspace{2ex} % Space before the pyramid
+
+\begin{flushright} % To align the pyramid text to the right
+سطح ۶: برنامه‌ریزی جامع دوهفته‌ای (پروژه‌ها) \\
+-------------------------------------------------- \\
+سطح ۵: برنامه‌ریزی هفتگی (محدودیت زمان) \\
+------------------------------------------------ \\
+سطح ۴: مدیریت زمان اولیه (درج ساعت، سه‌روزه) \\
+---------------------------------------------- \\
+سطح ۳: سازماندهی و اولویت‌بندی (لیست کارها) \\
+-------------------------------------------- \\
+سطح ۲: ساختاردهی برنامه (قالب مکتوب) \\
+------------------------------------------ \\
+سطح ۱: گزارش‌نویسی پایه (فعالیت دلخواه) \\
+---------------------------------------- \\
+بنیان: ایجاد عادت \\
+\end{flushright}
+
+\end{document}

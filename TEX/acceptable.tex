@@ -1,0 +1,199 @@
+\documentclass[12pt,a4paper]{article}
+
+% Packages for math, lists, geometry, and title formatting
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem} % For customized lists
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm, top=2cm, bottom=2cm} % Adjust margins as needed
+
+\usepackage{titlesec} % To customize section titles
+\titleformat{\section}{\normalfont\Large\bfseries\filcenter}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% Persian language support with xepersian and Amiri font
+% As requested, load xepersian after other packages.
+% Note: xepersian itself loads fontspec.
+\usepackage{xepersian}
+\setmainfont{Amiri}
+\setdigitfont{Amiri} % Optional: use Amiri for digits as well
+\setsansfont{Amiri}  % Optional: use Amiri for sans-serif text
+\settextfont{Amiri}  % Set the font for Persian text
+
+% Custom command for study units for better structure (optional)
+\newcommand{\studyunit}[1]{\par\medskip\noindent\textbf{#1}\par\nopagebreak}
+\newcommand{\topics}{\par\medskip\noindent\textbf{مباحث:}\begin{itemize}[nosep,after=\vspace{-0.5\baselineskip}]}
+\newcommand{\activities}{\par\medskip\noindent\textbf{فعالیت:}\begin{itemize}[nosep,after=\vspace{-0.5\baselineskip}]}
+% Removed custom end commands - using standard \end{itemize} instead
+\newcommand{\breaktime}[1]{\par\smallskip\centerline{\textit{#1}}\smallskip}
+
+\begin{document}
+
+\begin{center}
+\Large\textbf{برنامه مطالعاتی دقیق برای کسب نمره قابل قبول ریاضی ۱ (جمعه ۲۶ اردیبهشت تا یکشنبه ۲۸ اردیبهشت)}
+\end{center}
+\hrulefill
+\vspace{1em}
+
+\section*{اولویت‌بندی مباحث بر اساس اهمیت و آسانی نسبی برای کسب نمره قابل قبول:}
+\begin{enumerate}[label=\arabic*., itemsep=0.2em, topsep=0.3em]
+    \item \textbf{فصل ۱ (مجموعه، الگو و دنباله):} مفاهیم اولیه و دنباله‌های حسابی معمولاً ساده‌تر هستند.
+    \item \textbf{فصل ۲ (مثلثات):} دایره مثلثاتی و نسبت‌های زوایای معروف.
+    \item \textbf{فصل ۴ (معادله‌ها و نامعادله‌ها):} حل معادله درجه دوم با دلتا و تعیین علامت درجه اول.
+    \item \textbf{فصل ۵ (تابع):} تشخیص تابع، پیدا کردن مقدار تابع، دامنه و برد از روی نمودار.
+    \item \textbf{فصل ۳ (توان‌های گویا و عبارت‌های جبری):} قوانین پایه توان و اتحادهای مربع و مزدوج.
+    \item \textbf{فصل ۶ و ۷ (شمارش و احتمال):} مفاهیم اولیه و سوالات ساده اصل ضرب و احتمال.
+\end{enumerate}
+\vspace{1em}
+
+\section*{برنامه مطالعاتی دقیق (جمعه ۲۶ اردیبهشت تا یکشنبه ۲۸ اردیبهشت):}
+\rule{\linewidth}{0.4pt}\vspace{1em}
+
+\section*{روز ۱: جمعه ۲۶ اردیبهشت}
+
+\subsection*{فرجه صبح (۲ واحد مطالعاتی):}
+    \studyunit{واحد ۱ (۹۰ دقیقه): فصل ۱ - مجموعه، الگو و دنباله (تمرکز بر مباحث پایه)}
+        \topics
+            \item نمایش مجموعه‌ها و بازه‌ها، اجتماع و اشتراک بازه‌ها روی محور، تشخیص الگوهای عددی ساده (به‌ویژه خطی)، نوشتن چند جمله اول دنباله‌های حسابی با داشتن جمله اول و قدر نسبت.
+        \end{itemize}
+        \activities
+            \item مرور درسنامه، حل مثال‌های کتاب و "کار در کلاس"ها، حل تمرینات ساده کتاب درسی مربوط به این بخش‌ها.
+        \end{itemize}
+
+    \breaktime{استراحت (۱۵ دقیقه)}
+
+    \studyunit{واحد ۲ (۹۰ دقیقه): فصل ۴ - معادله‌ها و نامعادله‌ها (تمرکز بر معادله درجه دوم)}
+        \topics
+            \item روش حل معادله درجه دوم با استفاده از فرمول کلی (دلتا)، تشخیص تعداد ریشه‌های حقیقی معادله.
+        \end{itemize}
+        \activities
+            \item تمرین زیاد بر روی حل معادلات درجه دوم با دلتا، توجه به محاسبه صحیح دلتا و ریشه‌ها. حل مثال‌های متنوع از کتاب.
+        \end{itemize}
+
+\subsection*{فرجه عصر (۲ واحد مطالعاتی):}
+    \studyunit{واحد ۱ (۹۰ دقیقه): فصل ۲ - مثلثات (تمرکز بر دایره مثلثاتی و زوایای معروف)}
+        \topics
+            \item تعریف نسبت‌های مثلثاتی در مثلث قائم‌الزاویه، مقادیر نسبت‌های مثلثاتی زوایای ۳۰، ۴۵ و ۶۰ درجه، دایره مثلثاتی، تعیین علامت نسبت‌های مثلثاتی در چهار ناحیه.
+        \end{itemize}
+        \activities
+            \item حفظ کردن جدول مقادیر مثلثاتی زوایای معروف، تمرین بر روی دایره مثلثاتی و پیدا کردن مقادیر و علامت‌ها.
+        \end{itemize}
+
+    \breaktime{استراحت (۱۵ دقیقه)}
+
+    \studyunit{واحد ۲ (۹۰ دقیقه): فصل ۵ - تابع (تمرکز بر تشخیص تابع و محاسبه مقدار)}
+        \topics
+            \item مفهوم تابع، تشخیص تابع از روی زوج مرتب و نمودار (آزمون خط عمودی)، محاسبه مقدار تابع با داشتن ضابطه برای ورودی‌های عددی ساده.
+        \end{itemize}
+        \activities
+            \item حل تمرینات مربوط به تشخیص تابع، جایگذاری اعداد در ضابطه تابع و محاسبه خروجی.
+        \end{itemize}
+
+\rule{\linewidth}{0.4pt}\vspace{1em} % Horizontal line between days
+
+\section*{روز ۲: شنبه ۲۷ اردیبهشت}
+
+\subsection*{فرجه صبح (۲ واحد مطالعاتی):}
+    \studyunit{واحد ۱ (۹۰ دقیقه): فصل ۳ - توان‌های گویا و عبارت‌های جبری (تمرکز بر قوانین پایه و اتحادهای ساده)}
+        \topics
+            \item قوانین پایه توان‌های صحیح، مفهوم ریشه nام، ساده‌سازی عبارت‌های رادیکالی ساده، اتحاد مربع دوجمله‌ای و اتحاد مزدوج.
+        \end{itemize}
+        \activities
+            \item تمرین بر روی قوانین توان، ساده‌سازی رادیکال‌ها، باز و بسته کردن اتحادهای مربع و مزدوج.
+        \end{itemize}
+
+    \breaktime{استراحت (۱۵ دقیقه)}
+
+    \studyunit{واحد ۲ (۹۰ دقیقه): فصل ۴ - معادله‌ها و نامعادله‌ها (ادامه - تعیین علامت و سهمی ساده)}
+        \topics
+            \item تعیین علامت عبارت درجه اول، رسم ساده سهمی (تشخیص جهت تقعر و محل برخورد با محور yها).
+        \end{itemize}
+        \activities
+            \item تمرین بر روی جدول تعیین علامت عبارت درجه اول، رسم چند سهمی ساده و پیدا کردن عرض از مبدأ.
+        \end{itemize}
+
+\subsection*{فرجه عصر (۲ واحد مطالعاتی):}
+    \studyunit{واحد ۱ (۹۰ دقیقه): فصل ۵ - تابع (ادامه - دامنه و برد از نمودار و انواع ساده تابع)}
+        \topics
+            \item پیدا کردن دامنه و برد تابع از روی نمودار داده شده، آشنایی با نمودار تابع خطی و ثابت.
+        \end{itemize}
+        \activities
+            \item تمرین بر روی خواندن دامنه و برد از روی نمودارهای مختلف، رسم چند تابع خطی ساده.
+        \end{itemize}
+
+    \breaktime{استراحت (۱۵ دقیقه)}
+
+    \studyunit{واحد ۲ (۹۰ دقیقه): فصل ۶ - شمارش، بدون شمردن و فصل ۷ - آمار و احتمال (مفاهیم اولیه)}
+        \par\medskip\noindent\textbf{مباحث فصل ۶:}
+        \begin{itemize}[nosep,after=\vspace{-0.5\baselineskip}]
+            \item اصل ضرب در مسائل ساده (مانند ساختن اعداد چند رقمی با ارقام متمایز یا با تکرار).
+        \end{itemize}
+        \par\medskip\noindent\textbf{مباحث فصل ۷:}
+        \begin{itemize}[nosep,after=\vspace{-0.5\baselineskip}]
+            \item تعریف فضای نمونه‌ای و پیشامد، محاسبه احتمال در آزمایش‌های ساده مانند پرتاب سکه و تاس (وقتی همه برآمدها هم‌شانس هستند).
+        \end{itemize}
+        \activities
+            \item حل مسائل ساده اصل ضرب، نوشتن فضای نمونه‌ای برای آزمایش‌های ابتدایی و محاسبه احتمال پیشامدهای ساده.
+        \end{itemize}
+
+\rule{\linewidth}{0.4pt}\vspace{1em} % Horizontal line between days
+
+\section*{روز ۳: یکشنبه ۲۸ اردیبهشت (روز مرور، حل نمونه سوال و جمع‌بندی)}
+
+\subsection*{فرجه صبح (۲ واحد مطالعاتی):}
+    \studyunit{واحد ۱ (۹۰ دقیقه): حل نمونه سوال امتحان نهایی (تمرکز بر تیپ سوالات پرتکرار و ساده‌تر)}
+        \activities
+            \item انتخاب یک نمونه سوال امتحان نهایی. تمرکز بر حل سوالاتی که مربوط به مباحث مطالعه شده و با سطح دشواری متوسط یا آسان هستند (معمولاً سوالات ابتدایی هر فصل یا سوالات محاسباتی مستقیم).
+        \end{itemize}
+
+    \breaktime{استراحت (۱۵ دقیقه)}
+
+    \studyunit{واحد ۲ (۹۰ دقیقه): ادامه حل نمونه سوال و شناسایی اشکالات}
+        \activities
+            \item ادامه حل نمونه سوال. مشخص کردن سوالاتی که در آن‌ها مشکل داشته‌اید یا نتوانسته‌اید حل کنید.
+        \end{itemize}
+
+\subsection*{فرجه عصر (۲ واحد مطالعاتی):}
+    \studyunit{واحد ۱ (۹۰ دقیقه): مرور و جمع‌بندی قسمت‌های مهم و رفع اشکال اولیه}
+        \activities
+            \item \textbf{مرور سریع فرمول‌ها و نکات کلیدی مباحثی که در نمونه سوال با آن‌ها مشکل داشتید یا برایتان مهم‌تر هستند} (مثلاً فرمول دلتا، جدول مقادیر مثلثاتی، تعریف تابع).
+            \item \textbf{بازخوانی مثال‌های حل شده مشابه در کتاب درسی} برای سوالاتی که اشتباه کرده‌اید.
+            \item \textbf{تمرکز بر قسمت‌های بارم‌خیز و با درک آسان‌تر} (مانند حل معادله با دلتا، تشخیص تابع از زوج مرتب، اصل ضرب).
+        \end{itemize}
+
+    \breaktime{استراحت (۱۵ دقیقه)}
+
+    \studyunit{واحد ۲ (۹۰ دقیقه): جمع‌بندی نهایی و نکات طلایی برای امتحان}
+        \activities
+            \item \textbf{تورق سریع جزوه یا خلاصه‌نویسی‌های خود.}
+            \item \textbf{مرور تیپ سوالاتی که بلد هستید و در امتحان احتمال آمدنشان زیاد است.}
+            \item \textbf{مطالعه "اشتباهات مهلک" و "نکات طلایی"} (که در پاسخ قبلی ذکر شد، با تمرکز بر مواردی که برای این سطح مناسب‌تر است).
+            \item \textbf{ایجاد آمادگی ذهنی و کاهش استرس.}
+        \end{itemize}
+
+\rule{\linewidth}{0.4pt}\vspace{1em}
+
+\section*{اشتباهات مهلک برای دانش‌آموزان با هدف نمره قابل قبول:}
+\begin{enumerate}[label=\arabic*., itemsep=0.2em, topsep=0.3em]
+    \item \textbf{درگیر شدن با مباحث بسیار سخت و کم‌اهمیت:} وقت خود را صرف مباحثی که درک آن‌ها برایتان دشوار است و بارم کمی دارند، نکنید.
+    \item \textbf{حفظ کردن بدون فهم:} سعی کنید مفاهیم اولیه را بفهمید، نه اینکه فقط فرمول‌ها را حفظ کنید.
+    \item \textbf{نادیده گرفتن تمرینات ساده کتاب:} بسیاری از سوالات امتحان از تمرینات ساده و متوسط کتاب الهام گرفته می‌شوند.
+    \item \textbf{عدم حل نمونه سوال:} حتماً با سبک سوالات امتحان نهایی آشنا شوید.
+    \item \textbf{ترس و اضطراب بیش از حد:} با برنامه‌ریزی و تلاش می‌توانید به نمره قابل قبولی برسید.
+\end{enumerate}
+
+\vspace{1em}
+\rule{\linewidth}{0.4pt}\vspace{1em}
+
+\section*{نکات طلایی برای دانش‌آموزان با هدف نمره قابل قبول:}
+\begin{enumerate}[label=\arabic*., itemsep=0.2em, topsep=0.3em]
+    \item \textbf{تمرکز بر مفاهیم کلیدی:} روی درک مفاهیم اصلی هر فصل که در برنامه ذکر شد، تمرکز کنید.
+    \item \textbf{حل مثال‌های کتاب:} مثال‌های حل شده کتاب بهترین راهنما برای یادگیری روش حل مسائل هستند.
+    \item \textbf{تمرینات طبقه‌بندی شده:} از تمرینات ساده شروع کنید و به تدریج به سراغ تمرینات کمی دشوارتر بروید.
+    \item \textbf{مرور فرمول‌های اصلی:} فرمول‌های مهم را یادداشت کرده و مرتب مرور کنید.
+    \item \textbf{مدیریت زمان:} یاد بگیرید که در زمان محدود به سوالات پاسخ دهید.
+    \item \textbf{سوالات پرتکرار:} با بررسی نمونه سوالات سال‌های قبل، سوالات پرتکرار را شناسایی و روی آن‌ها مسلط شوید.
+\end{enumerate}
+
+\end{document}

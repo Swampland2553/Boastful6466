@@ -51,3 +51,12 @@ Here are the "Problem-Solving Learnings & Heuristics" specific to this domain, b
     *   Heuristic: If a blank page appears before the title or there are unexpected spacing issues around \maketitle:
         *   Avoid wrapping \maketitle in a center environment. Place centering commands for title elements *inside* the title definition if needed, or apply \centering to specific lines after \maketitle.
         *   Be cautious with manual \vspace commands immediately before or after \maketitle as they can interact unexpectedly with page breaking. Standard class options or packages like titling are generally safer for title customization.
+
+9.  Managing Oversized Content (e.g., TikZ diagrams, wide tables):
+    *   Heuristic: When graphical elements (like TikZ pictures) or tables are wider than the text area (`\textwidth`) and get clipped or run off the page:
+        *   Symptom: Part of the diagram/table is not visible, extends into the margin, or causes "Overfull \hbox" warnings.
+        *   Solution: Use the `adjustbox` package.
+            *   Add `\usepackage{adjustbox}` to your preamble.
+            *   Wrap the oversized environment (e.g., `tikzpicture`, `tabular`) with `\begin{adjustbox}{max width=\textwidth} ... \end{adjustbox}`.
+            *   This will scale down the content *only if* it's wider than `\textwidth`, preserving its original size otherwise.
+        *   Context: This is a general LaTeX layout technique, extremely useful in XePersian documents when incorporating complex visual elements that might not inherently respect text width boundaries.

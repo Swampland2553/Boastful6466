@@ -10,7 +10,7 @@ Here are the "Problem-Solving Learnings & Heuristics" specific to this domain, b
 
 2.  XePersian/Bidi Loading Order is Critical (Load Late):
     *   Heuristic: When encountering Package bidi Error: Oops! you have loaded package [P] after bidi package... (where [P] is any other package like amsmath, geometry, etc.):
-        *   The primary strategy is to move \usepackage{xepersian} and its associated font setup commands (\settextfont{...}, \SepMark{...}, etc.) to be as late as possible in the document preamble, *after* most other \usepackage calls.
+        *   The primary strategy is to move \usepackage{xepersian} and its associated font setup commands (\settextfont{...}, \SepMark{...}, etc.) to be as late as possible in the document preamble, *after* most other \usepackage calls (e.g., amsmath, geometry, enumitem).
         *   This is because xepersian (which loads bidi) needs to modify the behavior of many other packages to work correctly with right-to-left text, and it can do this most effectively if those packages are already loaded.
 
 3.  Compiler Prerequisite:
@@ -28,17 +28,24 @@ Here are the "Problem-Solving Learnings & Heuristics" specific to this domain, b
                 *   First, try wrapping the Latin number in \lr{} (e.g., \lr{2.5}). This often fixes the order. Observe if digits become Persian and the separator changes as desired.
                 *   If \lr{2.5} yields Latin digits (e.g., 2.5 output) or correct Persian digits but still the wrong separator (e.g., ۲.۵ output when / is expected): The most robust, albeit manual, workaround is to type the *exact desired Persian output* within \lr{}. Example: \lr{۲/۵} to get ۲/۵.
         *   Standard Commands Note: Commands like \PersianNumber and \DefaultDigits *should* offer more control. If they are reported as "Undefined control sequence" (see Heuristic #6), this indicates a deeper issue, and simpler methods (\lr{} or manual input) become necessary.
-        6.  Troubleshooting Undefined XePersian Commands:
+
+6.  Troubleshooting Undefined XePersian Commands:
     *   Heuristic: If standard xepersian commands (e.g., \PersianNumber, \DefaultDigits) are reported as "Undefined control sequence" even though \usepackage{xepersian} is present and the log shows xepersian loading:
         *   Verify no outdated xepersian.sty or related files are in the local project directory (especially on Overleaf), as these can override system versions.
         *   Suggest clearing the TeX system's cache (e.g., texhash or Overleaf's "Clear Cache" option if available).
         *   Consider testing in a minimal new project to isolate the issue to the environment vs. the specific document. This points to a problem beyond typical document errors.
+        *   Be aware that some commands users might expect (e.g., specific counters for list labeling like `\farsialph`) may not actually be part of the standard XePersian distribution. Always verify command existence in official documentation or through minimal testing if "Undefined control sequence" errors persist with seemingly correct setup.
 
 7.  List Environment Customization (`enumerate` labels):
     *   Heuristic: When \begin{enumerate}[<label_option>] (e.g., [الف)]) causes an error like missing \item or similar list malfunction:
         *   Recognize that this custom label syntax often requires the enumitem package.
         *   A quick fix is to remove the option (e.g., use plain \begin{enumerate}). xepersian will then apply its default Persian list numbering (e.g., "الف.", "ب.").
-        *   If specific custom labels (like "الف)") are essential, advise adding \usepackage{enumitem} and using its syntax for label customization.
+        *   If specific custom labels (like "الف)") are essential:
+            *   Ensure \usepackage{enumitem} is loaded *before* \usepackage{xepersian}.
+            *   For Persian alphabetic labels (e.g., "الف)", "ب)"), avoid direct use of Persian characters like `label=\الف*)` as this will cause an "Undefined control sequence" error.
+            *   XePersian (as of recent versions) does *not* provide predefined counters like `\farsialph` or `\PersianAlpha` for direct use within `enumitem`'s `label` option.
+            *   **Solution 1 (Default XePersian numbering):** Remove the `label` option entirely from the nested `enumerate` environment. XePersian will then automatically apply its default Persian list numbering for sub-items (typically "الف.", "ب.", etc.). This is the quickest way to resolve "Undefined control sequence" errors related to custom Persian labels.
+            *   **Solution 2 (Custom Macro for Specific Formatting):** If a very specific format like "(الف)" is absolutely required, the user will need to define a custom LaTeX macro that converts a counter (e.g., `\arabic*`) to the desired Persian character and then use this macro within `enumitem`'s `label` option (e.g., `label=(\mycustompersianalph{\arabic*})`). This is a more advanced solution.
 
 8.  Title Area Formatting (`\maketitle` and blank pages):
     *   Heuristic: If a blank page appears before the title or there are unexpected spacing issues around \maketitle:

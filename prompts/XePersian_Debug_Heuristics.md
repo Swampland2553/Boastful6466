@@ -17,7 +17,9 @@ Here are the "Problem-Solving Learnings & Heuristics" specific to this domain, b
     *   Heuristic: Before diving into xepersian-specific errors, always confirm or remind the user that documents using xepersian *must* be compiled with XeLaTeX (or LuaLaTeX with appropriate setup, though XeLaTeX is more common for xepersian). A standard pdfLaTeX compiler will not work.
 
 4.  Isolate Errors by Log Analysis:
-    *   Heuristic: When presented with a LaTeX log, focus on the *first* significant error message related to fontspec, bidi, xepersian, or an "Undefined control sequence". Subsequent errors are often cascades from the initial problem. Address errors sequentially.
+    *   Heuristic: When presented with a LaTeX log, focus on the *first* significant error message.
+        *   Pay close attention to messages related to `fontspec`, `bidi`, `xepersian`, or "Undefined control sequence". Subsequent errors are often cascades from the initial problem. Address errors sequentially.
+        *   **Before suspecting complex package interactions (like those with XePersian or bidi), always double-check for common LaTeX syntax errors: mismatched `\begin{...}`/`\end{...}` pairs (e.g., `\begin{frame}` without a matching `\end{frame}` or vice-versa), typos in command names (e.g., `\end{{itemize}` instead of `\end{itemize}`), or missing/extra braces. These often manifest as "Runaway argument?", "File ended while scanning use of \...", or similar structural errors.**
 
 5.  Number Formatting Strategy for XePersian (Decimals, Order, Separator):
     *   Heuristic: For Persian numbers with custom decimal separators (e.g., rendering 2.5 as ۲/۵):
@@ -34,7 +36,7 @@ Here are the "Problem-Solving Learnings & Heuristics" specific to this domain, b
 
 6.  Troubleshooting Undefined XePersian Commands:
     *   Heuristic: If standard xepersian commands (e.g., \PersianNumber, \DefaultDigits) are reported as "Undefined control sequence" even though \usepackage{xepersian} is present and the log shows xepersian loading:
-        *   **First, consider if the command is strictly necessary for the desired output, especially if it aims to set a default behavior.** For instance, `\DefaultDigits` might be redundant as modern `xepersian` often defaults to Persian digits when a Persian font is active. Try removing the command and check if the output is already correct before further troubleshooting.
+        *   **First, consider if the command is strictly necessary for the desired output, especially if it aims to set a default behavior.** For instance, `\DefaultDigits` might be redundant as modern `xepersian` often defaults to Persian digits when a Persian font is active. **Similarly, `\setDefaultStream{RTL}` (or similar explicit direction-setting commands from `bidi`) may be unnecessary (and can cause "Undefined control sequence" errors) as XePersian typically establishes the correct Right-to-Left document direction automatically when a Persian font is set via `\settextfont`.** Try removing such commands and check if the output is already correct before further troubleshooting.
         *   Verify no outdated xepersian.sty or related files are in the local project directory (especially on Overleaf), as these can override system versions.
         *   Suggest clearing the TeX system's cache (e.g., texhash or Overleaf's "Clear Cache" option if available).
         *   Consider testing in a minimal new project to isolate the issue to the environment vs. the specific document. This points to a problem beyond typical document errors.

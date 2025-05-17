@@ -27,14 +27,18 @@ Here are the "Problem-Solving Learnings & Heuristics" specific to this domain, b
             *   If automatic rendering (just typing 2.5 in text) results in incorrect digit order (e.g., ۵.۲ or ۵/۲) or the wrong separator/digit shape:
                 *   First, try wrapping the Latin number in \lr{} (e.g., \lr{2.5}). This often fixes the order. Observe if digits become Persian and the separator changes as desired.
                 *   If \lr{2.5} yields Latin digits (e.g., 2.5 output) or correct Persian digits but still the wrong separator (e.g., ۲.۵ output when / is expected): The most robust, albeit manual, workaround is to type the *exact desired Persian output* within \lr{}. Example: \lr{۲/۵} to get ۲/۵.
-        *   Standard Commands Note: Commands like \PersianNumber and \DefaultDigits *should* offer more control. If they are reported as "Undefined control sequence" (see Heuristic #6), this indicates a deeper issue, and simpler methods (\lr{} or manual input) become necessary.
+        *   Standard Commands Note:
+            *   Commands like `\PersianNumber` can offer specific control over number rendering.
+            *   The command `\DefaultDigits` was historically used to ensure Persian digits by default. However, with modern `xepersian` setups, Persian digits are typically rendered by default when a Persian font is active and `xepersian` is loaded. **If `\DefaultDigits` causes an "Undefined control sequence" error, it's often safe (and correct) to remove it.** First, verify if numbers render correctly as Persian digits *without* this command.
+            *   If any of these (or other expected `xepersian` number formatting commands) are reported as "Undefined control sequence" (see Heuristic #6), and removing them (if they control default behavior) doesn't yield the correct output, then simpler methods (\lr{} or manual input for complex cases) become necessary, or the command might be obsolete or require a specific package option.
 
 6.  Troubleshooting Undefined XePersian Commands:
     *   Heuristic: If standard xepersian commands (e.g., \PersianNumber, \DefaultDigits) are reported as "Undefined control sequence" even though \usepackage{xepersian} is present and the log shows xepersian loading:
+        *   **First, consider if the command is strictly necessary for the desired output, especially if it aims to set a default behavior.** For instance, `\DefaultDigits` might be redundant as modern `xepersian` often defaults to Persian digits when a Persian font is active. Try removing the command and check if the output is already correct before further troubleshooting.
         *   Verify no outdated xepersian.sty or related files are in the local project directory (especially on Overleaf), as these can override system versions.
         *   Suggest clearing the TeX system's cache (e.g., texhash or Overleaf's "Clear Cache" option if available).
         *   Consider testing in a minimal new project to isolate the issue to the environment vs. the specific document. This points to a problem beyond typical document errors.
-        *   Be aware that some commands users might expect (e.g., specific counters for list labeling like `\farsialph`) may not actually be part of the standard XePersian distribution. Always verify command existence in official documentation or through minimal testing if "Undefined control sequence" errors persist with seemingly correct setup.
+        *   Be aware that some commands users might expect (e.g., specific counters for list labeling like `\farsialph`) may not actually be part of the standard XePersian distribution or might have been superseded. Always verify command existence in official documentation or through minimal testing if "Undefined control sequence" errors persist with seemingly correct setup.
 
 7.  List Environment Customization (`enumerate` labels):
     *   Heuristic: When \begin{enumerate}[<label_option>] (e.g., [الف)]) causes an error like missing \item or similar list malfunction:

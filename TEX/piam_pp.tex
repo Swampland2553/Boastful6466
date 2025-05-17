@@ -140,33 +140,36 @@
   \frametitle{همراه متخصص شما (ادامه)}
 
   \begin{block}{تجربه در عمل و مهارت‌های کاربردی}
+    % Make all text in this block smaller
+    \scriptsize
     \textbf{سوابق شغلی:}
-    \begin{itemize}
+    \begin{itemize}\setlength{\itemsep}{-3pt} % Further reduce spacing
       \item مشاور تحصیلی در مدارس و آموزشگاه‌های برتر (طاها، امام رضا، نگرش) (۱۴۰۰-۱۴۰۴)
       \item مدیر گروه کنکور و مدارس در کانون فرهنگی آموزش (۱۳۹۶-۱۳۹۹)
     \end{itemize}
     \textbf{دوره‌ها و گواهینامه‌ها:}
-    \begin{itemize}
+    \begin{itemize}\setlength{\itemsep}{-3pt} % Further reduce spacing
       \item دارای گواهینامه‌های تخصصی در اصول و فنون مشاوره، برنامه‌ریزی درسی، مهارت‌های مطالعه، کوچینگ تحصیلی و استعدادیابی.
     \end{itemize}
-    \textbf{مهارت‌های برجسته:}
-    \begin{itemize}
-      \item برنامه‌ریزی و مشاوره تخصصی کنکور
-      \item مدیریت و راهبری تحصیلی و انگیزشی
-      \item فن بیان و سخنوری موثر
-      \item افزایش تمرکز و انگیزه در دانش‌آموزان
-      \item آموزش روش‌های نوین مطالعه و یادگیری
-      \item انتخاب رشته تحصیلی هوشمندانه
-    \end{itemize}
-  \end{block}
 
-  \begin{block}{زبان انگلیسی}
-      \begin{itemize}
-          \item خواندن: بسیار خوب
-          \item نوشتن: متوسط
-          \item صحبت کردن: خوب
-          \item گوش دادن: بسیار خوب
-      \end{itemize}
+    % Add negative space to move table upward
+    \vspace{-0.5cm}
+
+    % Use a centered table for skills and language instead of columns with smaller font
+    \scriptsize % Even smaller than \small
+    \begin{center}
+      \begin{tabular}{r|r}
+        \multicolumn{1}{c|}{\textbf{مهارت‌های برجسته}} & \multicolumn{1}{c}{\textbf{زبان انگلیسی}} \\
+        \hline
+        برنامه‌ریزی و مشاوره تخصصی کنکور & خواندن: بسیار خوب \\
+        مدیریت و راهبری تحصیلی و انگیزشی & نوشتن: متوسط \\
+        فن بیان و سخنوری موثر & صحبت کردن: خوب \\
+        افزایش تمرکز و انگیزه در دانش‌آموزان & گوش دادن: بسیار خوب \\
+        آموزش روش‌های نوین مطالعه و یادگیری & ~ \\
+        انتخاب رشته تحصیلی هوشمندانه & ~ \\
+      \end{tabular}
+    \end{center}
+    \normalsize % Reset to normal size after the table
   \end{block}
 \end{frame}
 

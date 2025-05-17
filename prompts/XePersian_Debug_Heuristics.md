@@ -66,3 +66,9 @@ Here are the "Problem-Solving Learnings & Heuristics" specific to this domain, b
             *   Wrap the oversized environment (e.g., `tikzpicture`, `tabular`) with `\begin{adjustbox}{max width=\textwidth} ... \end{adjustbox}`.
             *   This will scale down the content *only if* it's wider than `\textwidth`, preserving its original size otherwise.
         *   Context: This is a general LaTeX layout technique, extremely useful in XePersian documents when incorporating complex visual elements that might not inherently respect text width boundaries.
+
+10. Achieving Widescreen (PowerPoint-like) Beamer Slides:
+    *   Heuristic: When the goal is to make Beamer slides visually emulate modern widescreen presentation formats (e.g., like PowerPoint defaults):
+        *   The direct and preferred method is to use the `aspectratio` option in the `\documentclass` command.
+        *   For a standard 16:9 widescreen format, specify: `\documentclass[aspectratio=169]{beamer}`.
+        *   This option directly sets the visual proportions of the slide content for optimal on-screen display, rather than just rotating a standard paper size.

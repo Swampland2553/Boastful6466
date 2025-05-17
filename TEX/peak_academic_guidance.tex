@@ -1,0 +1,262 @@
+\documentclass[aspectratio=169]{beamer}
+
+% ----------------------------------------------------------------------
+% THEME & APPEARANCE
+% ----------------------------------------------------------------------
+\usetheme{Madrid} % More elegant and modern theme
+\usecolortheme{dolphin} % Professional color scheme
+\useinnertheme{rectangles} % Changed from circles to rectangles for a slightly different look
+\useoutertheme{miniframes}
+
+\beamertemplatenavigationsymbolsempty
+
+\definecolor{myblue}{RGB}{0, 75, 150}
+\definecolor{mygold}{RGB}{230, 180, 80} % A slightly richer gold
+
+\setbeamercolor{frametitle}{bg=myblue, fg=white}
+\setbeamercolor{title}{fg=myblue, bg=} % Ensure title text is blue, no specific background for title itself
+\setbeamercolor{subtitle}{fg=myblue!75!black} % Make subtitle a slightly darker shade of blue/black
+\setbeamercolor{author}{fg=black}
+\setbeamercolor{institute}{fg=black}
+\setbeamercolor{date}{fg=black}
+
+\setbeamercolor{structure}{fg=myblue} % For bullets, item numbers etc.
+
+% Make footer elements less prominent if the footer feels too busy
+\setbeamercolor{author in foot}{fg=gray}
+\setbeamercolor{title in foot}{fg=gray}
+\setbeamercolor{date in foot}{fg=gray}
+\setbeamercolor{institute in foot}{fg=gray} % Madrid theme might show institute in foot
+
+% ----------------------------------------------------------------------
+% PACKAGES
+% ----------------------------------------------------------------------
+% General LaTeX Packages (load before xepersian if they might interact)
+% \usepackage{amsmath} % If you need advanced math
+% \usepackage{graphicx} % If you decide to add actual images later
+
+% XePersian for Persian typesetting
+\usepackage{xepersian}
+\settextfont{Amiri}
+
+\logo{\textcolor{mygold}{\textsf{\textbf{دبیرستان پیام}}}} % Changed font slightly for logo
+
+% ----------------------------------------------------------------------
+% PRESENTATION METADATA
+% ----------------------------------------------------------------------
+\title{همراهی برای اوج: طرح جامع مشاوره تحصیلی دبیرستان پیام}
+\subtitle{سال تحصیلی کنکور - ویژه دانش‌آموزان دوازدهم ریاضی فیزیک}
+\author{دبیرستان پیام} % You can change this to the counselor's name or department
+\institute{مشاوره تحصیلی دبیرستان پیام}
+\date{\today} % You can set a specific date, e.g., "پاییز ۱۴۰۳"
+
+% ----------------------------------------------------------------------
+% BEGIN DOCUMENT
+% ----------------------------------------------------------------------
+\begin{document}
+
+% ----------------------------------------------------------------------
+% SLIDE 1: TITLE
+% ----------------------------------------------------------------------
+\begin{frame}[plain] % Using [plain] to remove header/footer from the title slide for a cleaner look
+  \titlepage
+  % You can add a small, centered tagline below the titlepage if you wish
+  % For example:
+  % \vfill % Pushes the tagline to the bottom
+  % \begin{center}
+  %  \textcolor{mygold}{\large \textit{همراهی برای اوج}}
+  % \end{center}
+\end{frame}
+
+% ----------------------------------------------------------------------
+% SLIDE 2: INTRODUCTION AND COUNSELOR INFO
+% ----------------------------------------------------------------------
+\begin{frame}
+  \frametitle{\textcolor{white}{\textbf{چرا اینجا هستیم؟ هدف مشترک ما}}}
+
+  \begin{block}{اهداف ما}
+    \begin{itemize}
+      \item موفقیت درخشان در کنکور و ورود به دانشگاه‌های برتر.
+      \item رشد همه‌جانبه فردی و کسب مهارت‌های زندگی.
+      \item ایجاد یک تجربه مثبت و به‌یادماندنی از سال سرنوشت‌ساز کنکور.
+    \end{itemize}
+  \end{block}
+
+  \begin{alertblock}{معرفی کوتاه مشاور}
+    نام، تخصص، و سابقه (اشاره به ۱۰ سال تجربه).
+  \end{alertblock}
+\end{frame}
+
+% ----------------------------------------------------------------------
+% SLIDE 3: IMPORTANCE AND PILLARS OF THE PLAN
+% ----------------------------------------------------------------------
+\begin{frame}
+  \frametitle{\textcolor{white}{\textbf{نقشه راه موفقیت: ارکان کلیدی طرح}}}
+  \begin{itemize}
+    \item دانش‌آموز (مرکز و محور اصلی)
+    \item والدین (حامیان و پشتیبانان)
+    \item دبیران (راهنمایان علمی و تخصصی)
+    \item مشاور (همراه، تسهیل‌گر و برنامه‌ریز)
+    \item برنامه جامع دبیرستان پیام (چارچوب و مسیر)
+  \end{itemize}
+\end{frame}
+
+% ----------------------------------------------------------------------
+% SLIDE 4: PHASE 1: START AND INFRASTRUCTURE (SUMMER & EARLY YEAR)
+% ----------------------------------------------------------------------
+\begin{frame}
+  \frametitle{\textcolor{white}{\textbf{گام‌های نخست: بنا نهادن پایه موفقیت}}}
+  \textbf{تابستان و اوایل سال}
+  \begin{itemize}
+    \item جلسه توجیهی جامع و انگیزشی (دانش‌آموزان، والدین، دبیران).
+    \item مشاوره فردی اولیه: شناخت و تدوین "نقشه راه شخصی".
+    \item کارگاه‌های آموزشی برای والدین: ایجاد محیط حمایتی در خانه.
+    \item همکاری نزدیک با دبیران: هماهنگی و هم‌افزایی.
+  \end{itemize}
+\end{frame}
+
+% ----------------------------------------------------------------------
+% SLIDE 5: DETAILS OF INITIAL INDIVIDUAL CONSULTATION
+% ----------------------------------------------------------------------
+\begin{frame}
+  \frametitle{\textcolor{white}{\textbf{شناخت عمیق، برنامه دقیق: نقشه راه شخصی شما}}}
+  \textbf{اهداف مشاوره اولیه:}
+  \begin{itemize}
+    \item شناخت وضعیت تحصیلی، نقاط قوت و ضعف.
+    \item تعیین اهداف کنکوری و علایق.
+    \item بررسی چالش‌های احتمالی.
+  \end{itemize}
+  \medskip
+  \textbf{خروجی‌ها:}
+  \begin{itemize}
+    \item اهداف SMART (مشخص، قابل اندازه‌گیری، قابل دستیابی، مرتبط، زمان‌بندی شده).
+    \item برنامه مطالعاتی اولیه (با تاکید بر تابستان).
+    \item برنامه‌ریزی برای رفع نقاط ضعف پایه‌ای.
+  \end{itemize}
+\end{frame}
+
+% ----------------------------------------------------------------------
+% SLIDE 6: PHASE 2: EXECUTION, MONITORING, AND SUPPORT (THROUGHOUT THE ACADEMIC YEAR)
+% ----------------------------------------------------------------------
+\begin{frame}
+  \frametitle{\textcolor{white}{\textbf{در مسیر پیشرفت: یادگیری، تلاش، و همراهی}}}
+  \textbf{طول سال تحصیلی}
+  \begin{itemize}
+    \item جلسات مشاوره فردی و گروهی منظم (تحلیل آزمون، رفع اشکال، مهارت‌آموزی).
+    \item پایش مستمر عملکرد (آزمون‌های گزینه ۲، گزارش دبیران).
+    \item آموزش و پیگیری مهارت‌های تحصیلی (خلاصه‌نویسی، تست‌زنی، مدیریت زمان و...).
+    \item ارتباط مستمر و مؤثر با والدین.
+    \item همکاری در برنامه‌های ویژه مدرسه (جمع‌بندی، شبیه‌ساز کنکور).
+  \end{itemize}
+\end{frame}
+
+% ----------------------------------------------------------------------
+% SLIDE 7: IMPORTANCE OF STUDY SKILLS
+% ----------------------------------------------------------------------
+\begin{frame}
+  \frametitle{\textcolor{white}{\textbf{ابزارهای موفقیت: فراتر از دانش صرف}}}
+  \textbf{چرا مهارت‌های تحصیلی مهم هستند؟} (افزایش کارایی، کاهش استرس، یادگیری عمیق‌تر).
+  \medskip
+  \textbf{نمونه‌هایی از مهارت‌های کلیدی که آموزش داده خواهند شد:}
+  \begin{itemize}
+    \item هدف‌گذاری دقیق کنکوری و مدیریت انتظارات.
+    \item بهینه‌سازی زمان (تکنیک پومودورو، مدیریت انرژی).
+    \item خواندن تحلیلی و انتقادی.
+    \item یکپارچه‌سازی یادداشت‌ها و خلاصه‌نویسی کنکوری.
+    \item مدیریت استرس و حفظ تمرکز پایدار.
+    \item استراتژی‌های یادگیری تطبیقی.
+    \item و...
+  \end{itemize}
+\end{frame}
+
+% ----------------------------------------------------------------------
+% SLIDE 8: PHASE 3: REVIEW AND FINAL PREPARATION (FINAL MONTHS)
+% ----------------------------------------------------------------------
+\begin{frame}
+  \frametitle{خط پایان: تمرکز، آرامش، و آمادگی حداکثری}
+  \textbf{ماه‌های پایانی}
+  \begin{itemize}
+    \item مشاوره فشرده و هدفمند (برنامه جمع‌بندی، مرور سریع، رفع اشکال).
+    \item حمایت روانی ویژه (مدیریت اضطراب، افزایش اعتماد به نفس).
+    \item همراهی تا روز کنکور و پس از آن (انتخاب رشته آگاهانه).
+  \end{itemize}
+\end{frame}
+
+% ----------------------------------------------------------------------
+% SLIDE 9: ROLE OF THE COUNSELOR
+% ----------------------------------------------------------------------
+\begin{frame}
+  \frametitle{مشاور شما: تسهیل‌گر، راهنما، پشتیبان}
+  \begin{itemize}
+    \item \textbf{تسهیل‌گر:} ایجاد ارتباط مؤثر بین دانش‌آموز، والدین و دبیران.
+    \item \textbf{راهنما:} ارائه اطلاعات، آموزش مهارت‌ها، کمک در تصمیم‌گیری.
+    \item \textbf{همراه و پشتیبان:} حمایت عاطفی، ایجاد انگیزه، کمک به عبور از چالش‌ها.
+    \item \textbf{ناظر و تحلیل‌گر:} پایش پیشرفت، تحلیل نتایج، ارائه بازخوردهای سازنده.
+    \item \textbf{متخصص:} استفاده از دانش و تجربه برای ارائه بهترین راهکارها.
+  \end{itemize}
+\end{frame}
+
+% ----------------------------------------------------------------------
+% SLIDE 10: KEYS TO EXTRAORDINARY SUCCESS
+% ----------------------------------------------------------------------
+\begin{frame}
+  \frametitle{با هم برای بهترین نتیجه}
+  \begin{itemize}
+    \item شفافیت و ارتباط مستمر: همه در جریان باشیم.
+    \item انعطاف‌پذیری: برنامه برای شماست، نه شما برای برنامه.
+    \item تأکید بر فرآیند، نه فقط نتیجه: رشد و یادگیری پایدار.
+    \item ایجاد فضای مثبت و حمایتی: مدرسه، خانه دوم شما.
+    \item جشن گرفتن موفقیت‌های کوچک: هر گام، یک پیروزی.
+  \end{itemize}
+\end{frame}
+
+% ----------------------------------------------------------------------
+% SLIDE 11: Q&A
+% ----------------------------------------------------------------------
+\begin{frame}
+  \frametitle{آماده شنیدن شما هستیم}
+  \Large % Make text a bit larger for this slide
+  \centering
+  فرصت برای طرح سوالات و ابهامات.
+  \bigskip
+  \normalsize % Back to normal size for contact info
+  \textbf{اطلاعات تماس مشاور:}
+  \begin{itemize}
+      \item ایمیل: [آدرس ایمیل مشاور]
+      \item شماره تلفن دفتر مشاوره مدرسه: [شماره تلفن]
+  \end{itemize}
+  \vfill % Pushes content down if there's space
+\end{frame}
+
+% ----------------------------------------------------------------------
+% SLIDE 12: THANK YOU
+% ----------------------------------------------------------------------
+\begin{frame}[plain] % Keep plain for a clean final slide
+  \centering % Center all content on this slide
+  \vspace*{\fill} % Push content towards vertical center
+
+  \textcolor{myblue}{\Huge\textbf{با آرزوی موفقیت برای همه شما}}
+  \vspace{0.75cm}
+
+  \textcolor{mygold!90!black}{\Large از حضور و توجه شما سپاسگزاریم.} % Slightly darker gold
+  \vspace{1cm}
+
+  \begin{block}{} % Use a Beamer block for the quote; empty title for no explicit block title
+    \centering
+    \Large\textit{"آینده از آن کسانی است که به زیبایی رویاهایشان ایمان دارند."}
+  \end{block}
+  \setbeamercolor{block body}{bg=mygold!10,fg=black} % Subtle background for the block
+  \setbeamercolor{block title}{bg=myblue,fg=white} % In case you add a title to the block later
+
+  \vspace{1cm}
+  \textcolor{mygold}{\Large\textbf{دبیرستان پیام}}
+  \vspace{0.25cm}
+  \textcolor{myblue!75!black}{\normalsize\today}
+
+  \vspace*{\fill} % Balance vertical spacing
+\end{frame}
+
+% ----------------------------------------------------------------------
+% END DOCUMENT
+% ----------------------------------------------------------------------
+\end{document}

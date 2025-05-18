@@ -37,17 +37,23 @@ Here is the revised and enhanced list of "Problem-Solving Learnings & Heuristics
             This helps pinpoint the exact line or environment causing the unclosed group.
 
 5.  **Number Formatting Strategy for XePersian (Decimals, Order, Separator):**
-    *   Heuristic: For Persian numbers with custom decimal separators (e.g., rendering 2.5 as ۲/۵):
-        *   Preamble Setup: Ensure `\usepackage{xepersian}` is loaded, a Persian font is set with `\settextfont{FontName}`, and the decimal separator is defined using `\SepMark{/}` (or desired char) *after* `\settextfont`.
-        *   Input Method: Input decimal numbers in the .tex source using *Latin digits* and a standard dot (e.g., 2.5).
-        *   Directionality & Rendering:
-            *   If automatic rendering (just typing 2.5 in text) results in incorrect digit order (e.g., ۵.۲ or ۵/۲) or the wrong separator/digit shape:
-                *   First, try wrapping the Latin number in `\lr{}` (e.g., `\lr{2.5}`). This often fixes the order. Observe if digits become Persian and the separator changes as desired.
-                *   If `\lr{2.5}` yields Latin digits (e.g., 2.5 output) or correct Persian digits but still the wrong separator (e.g., ۲.۵ output when / is expected): The most robust, albeit manual, workaround is to type the *exact desired Persian output* within `\lr{}`. Example: `\lr{۲/۵}` to get ۲/۵.
-        *   Standard Commands Note:
-            *   Commands like `\PersianNumber` can offer specific control over number rendering.
-            *   The command `\DefaultDigits` was historically used to ensure Persian digits by default. However, with modern `xepersian` setups, Persian digits are typically rendered by default when a Persian font is active and `xepersian` is loaded. **If `\DefaultDigits` causes an "Undefined control sequence" error, it's often safe (and correct) to remove it.** First, verify if numbers render correctly as Persian digits *without* this command.
-            *   If any of these (or other expected `xepersian` number formatting commands) are reported as "Undefined control sequence" (see Heuristic #6), and removing them (if they control default behavior) doesn't yield the correct output, then simpler methods (`\lr{}` or manual input for complex cases) become necessary, or the command might be obsolete or require a specific package option.
+    *   Heuristic: For rendering Persian numbers, especially with custom decimal separators (e.g., `۲/۵` for `2.5`):
+        *   **Preamble Setup:**
+            *   Ensure `\usepackage{xepersian}` is loaded.
+            *   Set a Persian font with `\settextfont{FontName}`.
+            *   Define the *desired output decimal separator* using `\SepMark{/}` (or your chosen character) *after* `\settextfont`. This command primarily affects how LaTeX-generated numbers (like counters) or numbers formatted by specific packages (e.g., `siunitx` with appropriate options) are displayed.
+        *   **Direct Input of Decimal Numbers in Source Code:**
+            *   When typing decimal numbers *directly into your `.tex` file* (e.g., `1.5` in text like `1.5 ساعت`):
+                *   **The most robust method is to input the number using Latin digits but with the *desired output separator directly in the source*.** For example, to get `۱/۵` in the output, type `1/5` in your `.tex` file.
+                *   Relying on a dot (`.`) in the source (e.g., `2.5`) to be automatically converted by `\SepMark` for these directly typed numbers can be unreliable. It may result in a literal dot appearing in the output or incorrect digit/separator rendering, especially in mixed Latin/Persian contexts.
+        *   **Controlling Digit Order and Shape for Directly Input Numbers:**
+            *   If directly inputting a number like `1/5` (using your desired separator) still results in incorrect digit order (e.g., `۵/۱` instead of `۱/۵`) or Latin digits in the output:
+                *   Try wrapping the number in `\lr{}`: e.g., `\lr{1/5}`. This often helps XePersian process the number correctly for the RTL context while using the main Persian font.
+                *   If `\lr{}` still doesn't produce the desired Persian digits and separator, the ultimate manual workaround is to type the *exact desired Persian output* (Persian digits and separator) within `\lr{}`: e.g., `\lr{۱/۵}`.
+        *   **Standard XePersian Number Commands:**
+            *   Commands like `\PersianNumber{1.23}` can offer explicit control (note: it typically expects a dot as input for its argument, and `\SepMark` influences its output separator).
+            *   The command `\DefaultDigits` (to make Persian digits default) is often unnecessary with modern `xepersian` if a Persian font is active. If it causes an "Undefined control sequence" error, it's usually safe to remove it; first, verify if numbers render as Persian digits without this command.
+            *   If other expected number formatting commands are reported as "Undefined control sequence" (see Heuristic #6), and removing them (if they control default behavior) doesn't yield the correct output, then simpler methods (`\lr{}` or manual input for complex cases) become necessary, or the command might be obsolete or require a specific package option.
 
 6.  **Troubleshooting Undefined XePersian Commands:**
     *   Heuristic: If standard `xepersian` commands (e.g., `\PersianNumber`, `\DefaultDigits`) are reported as "Undefined control sequence" even though `\usepackage{xepersian}` is present and the log shows `xepersian` loading:

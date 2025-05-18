@@ -33,7 +33,7 @@
 % ----------------------------------------------------------------------
 % General LaTeX Packages (load before xepersian if they might interact)
 % \usepackage{amsmath} % If you need advanced math
-% \usepackage{graphicx} % If you decide to add actual images later
+\usepackage{graphicx} % If you decide to add actual images later
 \usepackage{adjustbox} % For auto-scaling content to fit available space
 \newsavebox{\mycounselorparttwobox} % For saving complex content before scaling
 
@@ -50,7 +50,7 @@
 \subtitle{سال تحصیلی کنکور - ویژه دانش‌آموزان دوازدهم ریاضی فیزیک}
 \author{دبیرستان پیام} % You can change this to the counselor's name or department
 \institute{مشاوره تحصیلی دبیرستان پیام}
-\date{\today} % You can set a specific date, e.g., "پاییز ۱۴۰۳"
+\date{۳۰ اردیبهشت ۱۴۰۴} % You can set a specific date, e.g., "پاییز ۱۴۰۳"
 
 % ----------------------------------------------------------------------
 % BEGIN DOCUMENT
@@ -62,12 +62,13 @@
 % ----------------------------------------------------------------------
 \begin{frame}[plain] % Using [plain] to remove header/footer from the title slide for a cleaner look
   \titlepage
-  % You can add a small, centered tagline below the titlepage if you wish
-  % For example:
-  % \vfill % Pushes the tagline to the bottom
-  % \begin{center}
-  %  \textcolor{mygold}{\large \textit{همراهی برای اوج}}
-  % \end{center}
+
+  % Add the image below the title information
+  \vfill % Push content down
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{v2.jpg} % Restored to original size
+  \end{center}
+  \vfill % Balance spacing
 \end{frame}
 
 % ----------------------------------------------------------------------
@@ -76,17 +77,23 @@
 \begin{frame}
   \frametitle{\textcolor{white}{\textbf{چرا اینجا هستیم؟ هدف مشترک ما}}}
 
+  % Use a single block that spans most of the width
   \begin{block}{اهداف ما}
-    \begin{itemize}
-      \item موفقیت درخشان در کنکور و ورود به دانشگاه‌های برتر.
-      \item رشد همه‌جانبه فردی و کسب مهارت‌های زندگی.
-      \item ایجاد یک تجربه مثبت و به‌یادماندنی از سال سرنوشت‌ساز کنکور.
-    \end{itemize}
-  \end{block}
+    \begin{columns}[T]
+      \begin{column}{0.6\textwidth}
+        \begin{itemize}
+          \item موفقیت درخشان در کنکور و ورود به دانشگاه‌های برتر.
+          \item رشد همه‌جانبه فردی و کسب مهارت‌های زندگی.
+          \item ایجاد یک تجربه مثبت و به‌یادماندنی از سال سرنوشت‌ساز کنکور.
+        \end{itemize}
+      \end{column}
 
-  \begin{alertblock}{معرفی کوتاه مشاور}
-    نام، تخصص، و سابقه (اشاره به ۱۰ سال تجربه).
-  \end{alertblock}
+      \begin{column}{0.35\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{v3.jpg}
+      \end{column}
+    \end{columns}
+  \end{block}
 \end{frame}
 
 % ----------------------------------------------------------------------
@@ -108,27 +115,19 @@
 
       \hfill\textbf{سوابق تحصیلی:}\hfill\mbox{}
       \begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt} % Tighter spacing
-        \item دانشجوی سال آخر دکتری تخصصی مهندسی مکانیک - گرایش تبدیل انرژی
-        \item کارشناسی ارشد مهندسی مکانیک - گرایش تبدیل انرژی (دانشگاه بیرجند، ۱۳۹۳-۱۳۹۶)
-        \item کارشناسی مهندسی مکانیک - گرایش حرارت و سیالات (دانشگاه شهید باهنر کرمان، ۱۳۸۳-۱۳۸۸)
+        \item دانشجوی سال آخر دکتری تخصصی مهندسی مکانیک - گرایش تبدیل انرژی (دانشگاه شهید باهنر کرمان)
+        \item کارشناسی ارشد مهندسی مکانیک - گرایش تبدیل انرژی (دانشگاه بیرجند)
+        \item کارشناسی مهندسی مکانیک - گرایش حرارت و سیالات (دانشگاه شهید باهنر کرمان)
       \end{itemize}
       \normalsize % Reset to normal size
     \end{column}
 
     \begin{column}{0.35\textwidth} % Right column for personal info (slightly narrower)
-      % Removed block environment to eliminate the gray box
+      % Improved image display
+      \vspace{0.5cm} % Add some space above the image
       \centering % Center the content
-      \textbf{مسلم ایوبی راد}
-      \par\smallskip
-      مشاور تحصیلی متخصص و با تجربه
-      \par\medskip
-      \textbf{اطلاعات تماس:}
-      \par\smallskip
-      \begin{tabular}{r}
-        ایمیل: M.AyubiRad@gmail.com \\
-      \end{tabular}
-      \par\smallskip
-      \footnotesize{(می‌توان به جای اطلاعات تماس شخصی، به راه‌های ارتباطی از طریق مدرسه اشاره کرد)}
+      \includegraphics[width=0.9\textwidth]{v.jpg} % Enlarged image to better fit the column
+      \vspace{0.5cm} % Add some space below the image
     \end{column}
   \end{columns}
 \end{frame}
@@ -139,38 +138,45 @@
 \begin{frame}[fragile]
   \frametitle{همراه متخصص شما (ادامه)}
 
-  \begin{block}{تجربه در عمل و مهارت‌های کاربردی}
-    % Make all text in this block smaller
-    \scriptsize
+  % Using a more compact layout to fit everything
+  \vspace{-0.2cm} % Reduce top spacing
+  \begin{columns}[T]
+    % Left column for skills only
+    \begin{column}{0.55\textwidth}
+      % Skills list with arrow markers - more compact
+      \begin{itemize}\setlength{\itemsep}{0pt}
+        \item[\textcolor{myblue}{$\blacktriangleright$}] برنامه‌ریزی و مشاوره تخصصی کنکور
+        \item[\textcolor{myblue}{$\blacktriangleright$}] مدیریت و راهبری تحصیلی و انگیزشی
+        \item[\textcolor{myblue}{$\blacktriangleright$}] فن بیان و سخنوری موثر
+        \item[\textcolor{myblue}{$\blacktriangleright$}] افزایش تمرکز و انگیزه در دانش‌آموزان
+        \item[\textcolor{myblue}{$\blacktriangleright$}] آموزش روش‌های نوین مطالعه و یادگیری
+        \item[\textcolor{myblue}{$\blacktriangleright$}] انتخاب رشته تحصیلی هوشمندانه
+      \end{itemize}
+    \end{column}
+
+    % Right column for certifications
+    \begin{column}{0.4\textwidth}
+      \begin{flushright}
+        \textbf{دوره‌ها و گواهینامه‌ها:}
+      \end{flushright}
+      \begin{itemize}\setlength{\itemsep}{-1pt} % Tighter spacing
+        \item دوره های تخصصی در اصول و فنون مشاوره، برنامه‌ریزی درسی، مهارت‌های مطالعه، کوچینگ تحصیلی و استعدادیابی.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+
+  % Add job history below both columns to maximize width
+  \vspace{-0.1cm}
+  \begin{flushright}
     \textbf{سوابق شغلی:}
-    \begin{itemize}\setlength{\itemsep}{-3pt} % Further reduce spacing
-      \item مشاور تحصیلی در مدارس و آموزشگاه‌های برتر (طاها، امام رضا، نگرش) (۱۴۰۰-۱۴۰۴)
-      \item مدیر گروه کنکور و مدارس در کانون فرهنگی آموزش (۱۳۹۶-۱۳۹۹)
-    \end{itemize}
-    \textbf{دوره‌ها و گواهینامه‌ها:}
-    \begin{itemize}\setlength{\itemsep}{-3pt} % Further reduce spacing
-      \item دارای گواهینامه‌های تخصصی در اصول و فنون مشاوره، برنامه‌ریزی درسی، مهارت‌های مطالعه، کوچینگ تحصیلی و استعدادیابی.
-    \end{itemize}
+  \end{flushright}
+  \begin{itemize}\setlength{\itemsep}{-2pt} % Very tight spacing
+    \item مشاور تحصیلی در مدارس و آموزشگاه‌های برتر (طاها، امام رضا، نگرش) (۱۴۰۰-۱۴۰۴)
+    \item مدیر گروه کنکور و مدارس در کانون فرهنگی آموزش (۱۳۹۶-۱۳۹۹)
+  \end{itemize}
 
-    % Add negative space to move table upward
-    \vspace{-0.5cm}
-
-    % Use a centered table for skills and language instead of columns with smaller font
-    \scriptsize % Even smaller than \small
-    \begin{center}
-      \begin{tabular}{r|r}
-        \multicolumn{1}{c|}{\textbf{مهارت‌های برجسته}} & \multicolumn{1}{c}{\textbf{زبان انگلیسی}} \\
-        \hline
-        برنامه‌ریزی و مشاوره تخصصی کنکور & خواندن: بسیار خوب \\
-        مدیریت و راهبری تحصیلی و انگیزشی & نوشتن: متوسط \\
-        فن بیان و سخنوری موثر & صحبت کردن: خوب \\
-        افزایش تمرکز و انگیزه در دانش‌آموزان & گوش دادن: بسیار خوب \\
-        آموزش روش‌های نوین مطالعه و یادگیری & ~ \\
-        انتخاب رشته تحصیلی هوشمندانه & ~ \\
-      \end{tabular}
-    \end{center}
-    \normalsize % Reset to normal size after the table
-  \end{block}
+  % Move the footer content higher
+  \vspace{-0.3cm}
 \end{frame}
 
 % ----------------------------------------------------------------------
@@ -178,13 +184,23 @@
 % ----------------------------------------------------------------------
 \begin{frame}[fragile]
   \frametitle{نقشه راه موفقیت: ارکان کلیدی طرح}
-  \begin{itemize}
-    \item دانش‌آموز (مرکز و محور اصلی)
-    \item والدین (حامیان و پشتیبانان)
-    \item دبیران (راهنمایان علمی و تخصصی)
-    \item مشاور (همراه، تسهیل‌گر و برنامه‌ریز)
-    \item برنامه جامع دبیرستان پیام (چارچوب و مسیر)
-  \end{itemize}
+
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      \begin{itemize}
+        \item دانش‌آموز (مرکز و محور اصلی)
+        \item والدین (حامیان و پشتیبانان)
+        \item دبیران (راهنمایان علمی و تخصصی)
+        \item مشاور (همراه، تسهیل‌گر و برنامه‌ریز)
+        \item برنامه جامع دبیرستان پیام (چارچوب و مسیر)
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      \vspace{0.5cm}
+      \includegraphics[width=\textwidth]{v4.jpg}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 % ----------------------------------------------------------------------
@@ -192,13 +208,27 @@
 % ----------------------------------------------------------------------
 \begin{frame}[fragile]
   \frametitle{گام‌های نخست: بنا نهادن پایه موفقیت}
-  \textbf{تابستان و اوایل سال}
-  \begin{itemize}
-    \item جلسه توجیهی جامع و انگیزشی (دانش‌آموزان، والدین، دبیران).
-    \item مشاوره فردی اولیه: شناخت و تدوین "نقشه راه شخصی".
-    \item کارگاه‌های آموزشی برای والدین: ایجاد محیط حمایتی در خانه.
-    \item همکاری نزدیک با دبیران: هماهنگی و هم‌افزایی.
-  \end{itemize}
+
+  % Center the heading above the columns
+  \begin{center}
+    \textbf{تابستان و اوایل سال}
+  \end{center}
+
+  \begin{columns}[T]
+    \begin{column}{0.35\textwidth}
+      \vspace{0.5cm}
+      \includegraphics[width=\textwidth]{v5.jpg}
+    \end{column}
+
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}
+        \item جلسه توجیهی جامع و انگیزشی (دانش‌آموزان، والدین، دبیران).
+        \item مشاوره فردی اولیه: شناخت و تدوین "نقشه راه شخصی".
+        \item کارگاه‌های آموزشی برای والدین: ایجاد محیط حمایتی در خانه.
+        \item همکاری نزدیک با دبیران: هماهنگی و هم‌افزایی.
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 % ----------------------------------------------------------------------
@@ -206,19 +236,32 @@
 % ----------------------------------------------------------------------
 \begin{frame}[fragile]
   \frametitle{شناخت عمیق، برنامه دقیق: نقشه راه شخصی شما}
-  \textbf{اهداف مشاوره اولیه:}
-  \begin{itemize}
-    \item شناخت وضعیت تحصیلی، نقاط قوت و ضعف.
-    \item تعیین اهداف کنکوری و علایق.
-    \item بررسی چالش‌های احتمالی.
-  \end{itemize}
-  \medskip
-  \textbf{خروجی‌ها:}
-  \begin{itemize}
-    \item اهداف SMART (مشخص، قابل اندازه‌گیری، قابل دستیابی، مرتبط، زمان‌بندی شده).
-    \item برنامه مطالعاتی اولیه (با تاکید بر تابستان).
-    \item برنامه‌ریزی برای رفع نقاط ضعف پایه‌ای.
-  \end{itemize}
+
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      \begin{flushright}
+        \textbf{اهداف مشاوره اولیه:}
+      \end{flushright}
+      \begin{itemize}\setlength{\itemsep}{-1pt}
+        \item شناخت وضعیت تحصیلی، نقاط قوت و ضعف.
+        \item تعیین اهداف کنکوری و علایق.
+        \item بررسی چالش‌های احتمالی.
+      \end{itemize}
+      \smallskip
+      \begin{flushright}
+        \textbf{خروجی‌ها:}
+      \end{flushright}
+      \begin{itemize}\setlength{\itemsep}{-1pt}
+        \item اهداف SMART (مشخص، قابل اندازه‌گیری، قابل دستیابی، مرتبط، زمان‌بندی شده).
+        \item برنامه مطالعاتی اولیه (با تاکید بر تابستان).
+        \item برنامه‌ریزی برای رفع نقاط ضعف پایه‌ای.
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      \includegraphics[width=0.95\textwidth]{v6.jpg}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 % ----------------------------------------------------------------------
@@ -226,14 +269,25 @@
 % ----------------------------------------------------------------------
 \begin{frame}[fragile]
   \frametitle{در مسیر پیشرفت: یادگیری، تلاش، و همراهی}
-  \textbf{طول سال تحصیلی}
-  \begin{itemize}
-    \item جلسات مشاوره فردی و گروهی منظم (تحلیل آزمون، رفع اشکال، مهارت‌آموزی).
-    \item پایش مستمر عملکرد (آزمون‌های گزینه ۲، گزارش دبیران).
-    \item آموزش و پیگیری مهارت‌های تحصیلی (خلاصه‌نویسی، تست‌زنی، مدیریت زمان و...).
-    \item ارتباط مستمر و مؤثر با والدین.
-    \item همکاری در برنامه‌های ویژه مدرسه (جمع‌بندی، شبیه‌ساز کنکور).
-  \end{itemize}
+
+  \begin{columns}[T]
+    \begin{column}{0.4\textwidth}
+      \includegraphics[width=\textwidth]{v7.jpg}
+    \end{column}
+
+    \begin{column}{0.55\textwidth}
+      \begin{flushright}
+        \textbf{طول سال تحصیلی}
+      \end{flushright}
+      \begin{itemize}\setlength{\itemsep}{3pt}\setlength{\parsep}{2pt}
+        \item جلسات مشاوره فردی و گروهی منظم\\(تحلیل آزمون، رفع اشکال، مهارت‌آموزی).
+        \item پایش مستمر عملکرد\\(آزمون‌های گزینه ۲، گزارش دبیران).
+        \item آموزش و پیگیری مهارت‌های تحصیلی\\(خلاصه‌نویسی، تست‌زنی، مدیریت زمان و...).
+        \item ارتباط مستمر و مؤثر با والدین.
+        \item همکاری در برنامه‌های ویژه مدرسه\\(جمع‌بندی، شبیه‌ساز کنکور).
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 % ----------------------------------------------------------------------
@@ -241,18 +295,33 @@
 % ----------------------------------------------------------------------
 \begin{frame}[fragile]
   \frametitle{ابزارهای موفقیت: فراتر از دانش صرف}
-  \textbf{چرا مهارت‌های تحصیلی مهم هستند؟} (افزایش کارایی، کاهش استرس، یادگیری عمیق‌تر).
-  \medskip
-  \textbf{نمونه‌هایی از مهارت‌های کلیدی که آموزش داده خواهند شد:}
-  \begin{itemize}
-    \item هدف‌گذاری دقیق کنکوری و مدیریت انتظارات.
-    \item بهینه‌سازی زمان (تکنیک پومودورو، مدیریت انرژی).
-    \item خواندن تحلیلی و انتقادی.
-    \item یکپارچه‌سازی یادداشت‌ها و خلاصه‌نویسی کنکوری.
-    \item مدیریت استرس و حفظ تمرکز پایدار.
-    \item استراتژی‌های یادگیری تطبیقی.
-    \item و...
-  \end{itemize}
+
+  \begin{columns}[T]
+    \begin{column}{0.4\textwidth}
+      \includegraphics[width=\textwidth]{v8.png}
+    \end{column}
+
+    \begin{column}{0.55\textwidth}
+      \begin{flushright}
+        \textbf{چرا مهارت‌های تحصیلی مهم هستند؟}
+      \end{flushright}
+      (افزایش کارایی، کاهش استرس، یادگیری عمیق‌تر)
+      \medskip
+
+      \begin{flushright}
+        \textbf{نمونه‌هایی از مهارت‌های کلیدی که آموزش داده خواهند شد:}
+      \end{flushright}
+      \begin{itemize}\setlength{\itemsep}{5pt}\setlength{\parsep}{3pt}
+        \item هدف‌گذاری دقیق کنکوری و مدیریت انتظارات.
+        \item بهینه‌سازی زمان\\(تکنیک پومودورو، مدیریت انرژی).
+        \item خواندن تحلیلی و انتقادی.
+        \item یکپارچه‌سازی یادداشت‌ها و خلاصه‌نویسی کنکوری.
+        \item مدیریت استرس و حفظ تمرکز پایدار.
+        \item استراتژی‌های یادگیری تطبیقی.
+        \item و...
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 % ----------------------------------------------------------------------
@@ -260,12 +329,23 @@
 % ----------------------------------------------------------------------
 \begin{frame}[fragile]
   \frametitle{خط پایان: تمرکز، آرامش، و آمادگی حداکثری}
-  \textbf{ماه‌های پایانی}
-  \begin{itemize}
-    \item مشاوره فشرده و هدفمند (برنامه جمع‌بندی، مرور سریع، رفع اشکال).
-    \item حمایت روانی ویژه (مدیریت اضطراب، افزایش اعتماد به نفس).
-    \item همراهی تا روز کنکور و پس از آن (انتخاب رشته آگاهانه).
-  \end{itemize}
+
+  \begin{columns}[T]
+    \begin{column}{0.4\textwidth}
+      \includegraphics[width=\textwidth]{v9.jpg}
+    \end{column}
+
+    \begin{column}{0.55\textwidth}
+      \begin{flushright}
+        \textbf{ماه‌های پایانی}
+      \end{flushright}
+      \begin{itemize}\setlength{\itemsep}{5pt}\setlength{\parsep}{3pt}
+        \item مشاوره فشرده و هدفمند\\(برنامه جمع‌بندی، مرور سریع، رفع اشکال).
+        \item حمایت روانی ویژه\\(مدیریت اضطراب، افزایش اعتماد به نفس).
+        \item همراهی تا روز کنکور و پس از آن\\(انتخاب رشته آگاهانه).
+      \end{itemize}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 % ----------------------------------------------------------------------
@@ -273,13 +353,22 @@
 % ----------------------------------------------------------------------
 \begin{frame}[fragile]
   \frametitle{مشاور شما: تسهیل‌گر، راهنما، پشتیبان}
-  \begin{itemize}
-    \item \textbf{تسهیل‌گر:} ایجاد ارتباط مؤثر بین دانش‌آموز، والدین و دبیران.
-    \item \textbf{راهنما:} ارائه اطلاعات، آموزش مهارت‌ها، کمک در تصمیم‌گیری.
-    \item \textbf{همراه و پشتیبان:} حمایت عاطفی، ایجاد انگیزه، کمک به عبور از چالش‌ها.
-    \item \textbf{ناظر و تحلیل‌گر:} پایش پیشرفت، تحلیل نتایج، ارائه بازخوردهای سازنده.
-    \item \textbf{متخصص:} استفاده از دانش و تجربه برای ارائه بهترین راهکارها.
-  \end{itemize}
+
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      \begin{itemize}\setlength{\itemsep}{3pt}\setlength{\parsep}{2pt}
+        \item \textbf{تسهیل‌گر:} ایجاد ارتباط مؤثر بین دانش‌آموز، والدین و دبیران.
+        \item \textbf{راهنما:} ارائه اطلاعات، آموزش مهارت‌ها، کمک در تصمیم‌گیری.
+        \item \textbf{همراه و پشتیبان:} حمایت عاطفی، ایجاد انگیزه، کمک به عبور از چالش‌ها.
+        \item \textbf{ناظر و تحلیل‌گر:} پایش پیشرفت، تحلیل نتایج، ارائه بازخوردهای سازنده.
+        \item \textbf{متخصص:} استفاده از دانش و تجربه برای ارائه بهترین راهکارها.
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      \includegraphics[width=\textwidth]{r1.jpg}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 % ----------------------------------------------------------------------
@@ -287,31 +376,47 @@
 % ----------------------------------------------------------------------
 \begin{frame}[fragile]
   \frametitle{با هم برای بهترین نتیجه}
-  \begin{itemize}
-    \item شفافیت و ارتباط مستمر: همه در جریان باشیم.
-    \item انعطاف‌پذیری: برنامه برای شماست، نه شما برای برنامه.
-    \item تأکید بر فرآیند، نه فقط نتیجه: رشد و یادگیری پایدار.
-    \item ایجاد فضای مثبت و حمایتی: مدرسه، خانه دوم شما.
-    \item جشن گرفتن موفقیت‌های کوچک: هر گام، یک پیروزی.
-  \end{itemize}
+
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      \begin{itemize}\setlength{\itemsep}{3pt}\setlength{\parsep}{2pt}
+        \item شفافیت و ارتباط مستمر: همه در جریان باشیم.
+        \item انعطاف‌پذیری: برنامه برای شماست، نه شما برای برنامه.
+        \item تأکید بر فرآیند، نه فقط نتیجه: رشد و یادگیری پایدار.
+        \item ایجاد فضای مثبت و حمایتی: مدرسه، خانه دوم شما.
+        \item جشن گرفتن موفقیت‌های کوچک: هر گام، یک پیروزی.
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      \includegraphics[width=\textwidth]{r2.jpg}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 % ----------------------------------------------------------------------
-% SLIDE 11: Q&A
+% SLIDE 11: Q&A SESSION
 % ----------------------------------------------------------------------
 \begin{frame}[fragile]
-  \frametitle{آماده شنیدن شما هستیم}
-  \Large % Make text a bit larger for this slide
-  \centering
-  فرصت برای طرح سوالات و ابهامات.
-  \bigskip
-  \normalsize % Back to normal size for contact info
-  \textbf{اطلاعات تماس مشاور:}
-  \begin{itemize}
-      \item ایمیل: [آدرس ایمیل مشاور]
-      \item شماره تلفن دفتر مشاوره مدرسه: [شماره تلفن]
-  \end{itemize}
-  \vfill % Pushes content down if there's space
+  \frametitle{\textcolor{white}{\textbf{پرسش و پاسخ}}}
+
+  \begin{center}
+    % Reduce top spacing to give more room for the image
+    \vspace{0.2cm}
+    % Reduce image width slightly to ensure it fits vertically
+    \includegraphics[width=0.65\textwidth,height=0.5\textheight,keepaspectratio]{s1.jpg}
+
+    % Move the block closer to the image
+    \vspace{0.2cm}
+    \begin{block}{}
+      \centering
+      \Large\textbf{فرصتی برای پاسخ به سوالات شما}
+    \end{block}
+
+    % Reduce spacing before the text
+    \vspace{0.1cm}
+    \normalsize\textit{لطفاً سوالات خود را مطرح کنید}
+  \end{center}
 \end{frame}
 
 % ----------------------------------------------------------------------
@@ -319,27 +424,30 @@
 % ----------------------------------------------------------------------
 \begin{frame}[plain] % Keep plain for a clean final slide
   \centering % Center all content on this slide
-  \vspace*{\fill} % Push content towards vertical center
+  \vspace*{0.2cm} % Reduced vertical spacing at top
 
   \textcolor{myblue}{\Huge\textbf{با آرزوی موفقیت برای همه شما}}
-  \vspace{0.75cm}
+  \vspace{0.5cm}
 
   \textcolor{mygold!90!black}{\Large از حضور و توجه شما سپاسگزاریم.} % Slightly darker gold
-  \vspace{1cm}
+  \vspace{0.3cm}
 
+  % Quote block before the image
   \begin{block}{} % Use a Beamer block for the quote; empty title for no explicit block title
     \centering
     \Large\textit{"آینده از آن کسانی است که به زیبایی رویاهایشان ایمان دارند."}
   \end{block}
   \setbeamercolor{block body}{bg=mygold!10,fg=black} % Subtle background for the block
   \setbeamercolor{block title}{bg=myblue,fg=white} % In case you add a title to the block later
+  \vspace{0.3cm}
 
-  \vspace{1cm}
+  % Add the graduation cap image
+  \includegraphics[width=0.55\textwidth]{f1.jpg}
+  \vspace{0.3cm}
+
   \textcolor{mygold}{\Large\textbf{دبیرستان پیام}}
-  \vspace{0.25cm}
-  \textcolor{myblue!75!black}{\normalsize\today}
-
-  \vspace*{\fill} % Balance vertical spacing
+  \vspace{0.2cm}
+  \textcolor{myblue!75!black}{\normalsize۳۰ اردیبهشت ۱۴۰۴}
 \end{frame}
 
 % ----------------------------------------------------------------------

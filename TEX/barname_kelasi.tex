@@ -1,9 +1,16 @@
-\documentclass[a4paper]{article}
+\documentclass[a4paper,14pt]{article}
 
 \usepackage{xepersian}
-\settextfont{Amiri} % A widely available and good Persian font
+\settextfont[Scale=1.2]{Amiri} % A widely available and good Persian font with increased size
 
 \renewcommand{\arraystretch}{1.3} % Make table rows 30% taller
+
+% Increase font size for all document
+\usepackage{anyfontsize}
+\usepackage{sectsty}
+\sectionfont{\fontsize{16}{20}\selectfont}
+\subsectionfont{\fontsize{14}{18}\selectfont}
+\subsubsectionfont{\fontsize{13}{16}\selectfont}
 
 \begin{document}
 
@@ -42,7 +49,7 @@
 \newpage
 
 \begin{center}
-\section*{برنامه هفتگی کلاس دوازدهم}
+{\Large برنامه هفتگی کلاس دوازدهم}
 \end{center}
 \vspace{1em}
 

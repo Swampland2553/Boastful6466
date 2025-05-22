@@ -38,14 +38,22 @@ Reflecting on all our interactions, including the specific challenges and soluti
             *   Ensure `\usepackage{xepersian}` is loaded.
             *   Set a Persian font with `\settextfont{FontName}`.
             *   Define the *desired output decimal separator* using `\SepMark{/}` (or your chosen character) *after* `\settextfont`. This command primarily affects how LaTeX-generated numbers (like counters, or numbers formatted by specific packages like `siunitx` with appropriate options) are displayed.
-        *   **Direct Input of Decimal Numbers in Source Code:**
-            *   When typing decimal numbers *directly into your `.tex` file* (e.g., `1.5` in text like `1.5 ساعت`):
-                *   **The most robust method is to input the number using Latin digits but with the *desired output separator directly in the source*.** For example, to get `۱/۵` in the output, type `1/5` in your `.tex` file (e.g., `1/5 ساعت`).
-                *   Relying on a dot (`.`) in the source (e.g., `2.5`) to be automatically converted by `\SepMark` for these directly typed numbers can be unreliable.
-        *   **Controlling Digit Order and Shape for Directly Input Numbers:**
-            *   If directly inputting a number like `1/5` still results in incorrect digit order or Latin digits:
-                *   Try wrapping the number in `\lr{}`: e.g., `\lr{1/5}`. (Note: User experience indicates this might sometimes produce Latin digits; direct input `1/5` was preferred in one case).
-                *   If issues persist, the ultimate manual workaround is to type the *exact desired Persian output* (Persian digits and separator) within `\lr{}`: e.g., `\lr{۱/۵}`.
+        *   **Direct Input of Numbers (Including Decimals) in Source Code for Inline Text:**
+            *   **Context:** When typing numbers (including those intended as decimals, like "1.5 hours") directly into your `.tex` file within Persian text, and you've set a custom decimal separator (e.g., `\SepMark{/}`).
+            *   **Most Robust Method (Recommended):**
+                *   **Input using Latin digits and the desired output separator directly in the source code.**
+                *   Example: To achieve the output `۱/۵ ساعت` (for 1.5 hours), type `1/5 ساعت` in your `.tex` file.
+                *   **Reasoning:** This method leverages XePersian's number processing capabilities most effectively. XePersian, with `\SepMark{/}` active, will:
+                    1.  Recognize the Latin digits (`1`, `5`).
+                    2.  Convert them to the active Persian font's digits (e.g., `۱`, `۵`).
+                    3.  Use the specified separator (`/`) as it appears in the source.
+            *   **Common Pitfalls & Clarifications:**
+                *   **Avoid typing Persian digits with a dot in the source (e.g., `۱.۵ ساعت`) if `\SepMark{/}` is active and you want a slash output.** This input might render as `۱.۵` or cause unexpected behavior because the dot is not the defined `SepMark`.
+                *   **Avoid typing Latin digits with a dot in the source (e.g., `1.5 ساعت`) if `\SepMark{/}` is active and you want a slash output.** While `\SepMark` *can* sometimes influence the output of such numbers, it's less reliable for directly typed numbers than explicitly using the desired separator in the source. The primary role of `\SepMark` is for LaTeX-generated numbers (counters, etc.).
+                *   **Typing Persian digits with the desired separator in the source (e.g., `۱/۵ ساعت`):** This *might* work if the font correctly renders it, but it bypasses XePersian's number conversion logic for the digits themselves. The Latin-digit-plus-separator method (`1/5 ساعت`) is generally preferred for consistency and leveraging XePersian's features.
+            *   **If `\lr{}` is considered:**
+                *   Using `\lr{1/5}` might sometimes result in Latin digits in the output, depending on font settings and context. Direct input of `1/5` (without `\lr{}`) within Persian text is usually more straightforward for achieving Persian digits with the custom separator.
+                *   `\lr{۱/۵}` (Persian digits inside `\lr{}`) forces LTR rendering of already-Persian characters, which is usually what `\lr{}` is for, but doesn't help with the core number conversion if that's the issue.
         *   **Standard XePersian Number Commands:**
             *   `\PersianNumber{1.23}` can offer explicit control.
             *   `\DefaultDigits` is often unnecessary with modern `xepersian` if a Persian font is active. If it causes an "Undefined control sequence" error, try removing it.

@@ -1,6 +1,7 @@
 Okay, the domain/topic is: "Debugging LaTeX documents using XePersian for Persian typesetting."
 
 Reflecting on all our interactions, including the specific challenges and solutions encountered during this current session regarding Table of Contents numbering, here is the revised, enhanced, and expanded list of "Problem-Solving Learnings & Heuristics":
+Reflecting on all our interactions, including the specific challenges and solutions encountered during this current session regarding Table of Contents numbering and successful mixed-script document patterns, here is the revised, enhanced, and expanded list of "Problem-Solving Learnings & Heuristics":
 
 1.  **Font Availability is Paramount:**
     *   Heuristic: When a `fontspec` error like `The font "X" cannot be found` occurs with XePersian:
@@ -72,6 +73,9 @@ Reflecting on all our interactions, including the specific challenges and soluti
         *   It often requires `\usepackage{enumitem}` (loaded *before* `xepersian`).
         *   A quick fix is to remove the option; `xepersian` will apply default Persian numbering.
         *   For custom Persian alphabetic labels, avoid direct Persian characters in `label=...`. XePersian (recent versions) may not provide predefined counters like `\farsialph` for `enumitem`. Default numbering or custom macros are alternatives.
+    *   **Successful Pattern for Latin Alphabetic Labels in Persian Documents:**
+        *   `\begin{enumerate}[label=\alph*)]` works reliably with `enumitem` package for Latin alphabetic numbering (a), b), c)) even in Persian documents.
+        *   This is particularly useful for sub-questions in exams or structured content where Latin alphabetic ordering is preferred over Persian numbering.
 
 8.  **Title Area Formatting (`\maketitle` and blank pages):**
     *   Heuristic: If a blank page appears before the title or there are spacing issues:
@@ -101,3 +105,62 @@ Reflecting on all our interactions, including the specific challenges and soluti
             *   Usually, `\thesection` and `\arabic{subsection}` (when the main font is Persian) suffice. For example, `\renewcommand{\thesubsection}{\thesection-\arabic{subsection}}` would typically yield "۱-۱", "۱-۲".
         *   **Cache Clearing (Critical):** Remember to clear cached files on Overleaf (or run `texhash` and delete `.aux` files locally) and recompile multiple times (2-3 times is common), as ToC generation and counter displays depend heavily on auxiliary files. (Reinforces Heuristic #4).
         *   **Verify Logic vs. Visuals:** Confirm the desired *logical structure* of the numbering (e.g., "section-subsection" like `\arabic{section}-\arabic{subsection}` vs. "subsection-section" like `\arabic{subsection}-\arabic{section}`) if visual examples provided by the user are ambiguous or seem non-standard. (Reinforces Heuristic #4).
+
+12. **Mixed-Script Document Patterns (Persian + Latin + Scientific Content):**
+    *   **Successful Document Structure Pattern:**
+        *   Load packages in this order: scientific packages (e.g., `amsmath`, `mhchem`, `graphicx`) → layout packages (e.g., `geometry`, `enumitem`, `adjustbox`) → `xepersian` (last).
+        *   Use `\lr{...}` consistently for left-to-right content within Persian text, especially for:
+            *   Chemical formulas with `mhchem`: `\lr{\ce{N2O5}}`
+            *   Mathematical expressions: `\lr{(N=14, H=1 g/mol)}`
+            *   Latin abbreviations or technical terms: `\lr{MRI}`
+        *   **Custom Command Strategy:** Define formatting commands for repeated structures (e.g., `\newcommand{\sectionheader}[1]{...}`, `\newcommand{\questionpart}[1]{...}`) to maintain consistency and reduce repetitive formatting code.
+    *   **Chemical Formula Integration:**
+        *   Combine `mhchem` package with `\lr{...}` wrapper for reliable chemical formula rendering in Persian text.
+        *   Pattern: `\lr{\ce{Chemical_Formula}}` ensures proper left-to-right rendering and chemical typesetting.
+        *   For molecular formulas in running text, this combination prevents bidi conflicts and maintains readability.
+    *   **Spacing and Layout in Mixed-Script Documents:**
+        *   Use `\vspace{...}` judiciously around custom commands and section breaks to maintain visual hierarchy.
+        *   `\noindent` is useful for special formatting like exam headers where paragraph indentation is undesired.
+        *   Consider `\newpage` for major section breaks, especially in exam or formal document layouts.
+        *   Include graphical content with `\includegraphics` within `center` environment for proper alignment in Persian documents.
+
+13. **Document Type-Specific Patterns:**
+    *   **Academic/Exam Document Pattern:**
+        *   Structure: Title area → Instructions → Numbered sections with custom headers → Mixed question types (multiple choice, fill-in-blank, essay).
+        *   Use `enumerate` with `[resume]` option to continue numbering across different sections seamlessly.
+        *   Implement consistent formatting through custom commands rather than inline formatting for maintainability.
+        *   Include metadata (time limits, point values) in a standardized format at the document header.
+
+14. **Scientific Notation and Units in Mixed-Script Documents:**
+    *   **Decimal Notation with Custom Separators:**
+        *   When using `\SepMark{/}` for Persian decimal notation, input numbers with the desired separator directly in source: `۵/۶ گرم` or `1/5 ساعت` renders correctly as Persian digits with slash separator.
+        *   For percentage notation, combine Persian digits with Persian percent symbol: `۷۵/۷۷٪` works reliably.
+    *   **Scientific Units and Measurements:**
+        *   Wrap scientific units and molecular weights in `\lr{...}` for proper directionality: `\lr{(N=14, H=1 g/mol)}`.
+        *   Temperature units: Use Persian digits with Persian text: `۴۰ درجه سانتی‌گراد` rather than mixing scripts unnecessarily.
+        *   Chemical equations in numbered lists: Place entire equation in `\lr{\ce{...}}` wrapper for complex reactions.
+    *   **Academic Notation Conventions:**
+        *   For atomic notation (isotopes), use pattern like `Cl-35` within `\lr{...}` to maintain scientific convention.
+        *   Mathematical variables and scientific notation should be consistently wrapped with `\lr{...}` when embedded in Persian text.
+
+15. **Academic Document Metadata and Header Patterns:**
+    *   **Exam Document Headers:**
+        *   Use `\noindent` for header information to prevent unwanted indentation.
+        *   Pattern for student info: `\noindent نام و نام خانوادگی: ...................................... مدت زمان: ۱۲۰ دقیقه`
+        *   Separate instruction blocks with `\vspace{0.5cm}` and use `\textbf{هدف:}` pattern for objectives.
+        *   Leave `\author{}` and `\date{}` empty in exam documents to avoid unwanted spacing in title area.
+    *   **Point Value Documentation:**
+        *   Consistently use `\textbf{(نمره)}` pattern at end of questions: `\textbf{(۱/۵ نمره)}`
+        *   Include point summaries in section headers: `(هر مورد ۰/۵ نمره - مجموع ۵ نمره)`
+    *   **Document Structure Conventions:**
+        *   Use strategic `\newpage` placement before major sections (like "بخش سوم") rather than cramming content.
+        *   End documents with centered motivational text: `\begin{center}\textbf{موفق باشید!}\end{center}`
+
+16. **Image Integration in Persian Academic Documents:**
+    *   **Standard Image Inclusion Pattern:**
+        *   Wrap `\includegraphics` in `center` environment for proper alignment in Persian documents.
+        *   Use relative width sizing: `\includegraphics[width=0.8\textwidth]{filename}` for responsive scaling.
+        *   Place images immediately after question text, before sub-questions, for logical flow.
+    *   **Figure Reference Context:**
+        *   Refer to images with phrases like `با توجه به نمودار انحلال‌پذیری زیر` (referring to the solubility graph below).
+        *   Place image-dependent questions immediately after the image to maintain context.

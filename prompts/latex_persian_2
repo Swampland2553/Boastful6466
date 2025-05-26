@@ -128,3 +128,105 @@ Always start with this proven template structure:
 - **Keep this reference handy** for future Persian LaTeX projects
 
 These lessons will prevent the common pitfalls and ensure smooth Persian document creation in LaTeX.
+
+## Additional Troubleshooting: Table and Structure Issues
+
+### 13. Table Package Selection and Common Errors
+
+#### longtabu vs longtable Issue
+- **Error**: "Environment longtabu undefined" 
+- **Cause**: Using `longtabu` package syntax without loading the package, or package conflicts
+- **Solution**: Use `longtable` instead of `longtabu` for Persian documents with xepersian
+- **Best Practice**: Always use `longtable` with xepersian - it's more reliable and well-supported
+
+```latex
+% WRONG - longtabu syntax
+\begin{longtabu}{ X[r,c] X[c] X[l] }
+
+% CORRECT - longtable syntax  
+\begin{longtable}{|p{6cm}|p{3cm}|p{7cm}|}
+```
+
+#### Misplaced \noalign Error in Tables
+- **Error**: "Misplaced \noalign. You have used a \hline command in the wrong place"
+- **Common Causes**:
+  1. Empty lines between `\\` and `\hline`
+  2. Empty lines after `\endhead` or `\endfirsthead`
+  3. Missing `\\` before `\hline`
+
+- **Solutions**:
+  ```latex
+  % WRONG - empty line causes error
+  \textbf{Content} & & Description \\
+  
+  \hline
+  
+  % CORRECT - no empty lines
+  \textbf{Content} & & Description \\
+  \hline
+  
+  % WRONG - empty line after \endhead
+  \endhead
+  
+  \textbf{First row} & & Content \\
+  
+  % CORRECT - no empty line after \endhead  
+  \endhead
+  \textbf{First row} & & Content \\
+  ```
+
+### 14. Document Structure for Include Files
+
+#### Section Headers in Include Files
+- **Error**: Using `\section{}` in included files can cause structural issues
+- **Problem**: When files are included with `\input{}`, section commands can interfere with document hierarchy
+- **Solution**: Use `\textbf{}` for section headers in included files instead of `\section{}`
+
+```latex
+% WRONG - in included file
+\section{بخش اول: محتوا}
+
+% CORRECT - in included file  
+\textbf{بخش اول: محتوا}
+```
+
+### 15. Persian Table Debugging Checklist
+
+When encountering table errors in Persian documents:
+
+1. **Check for empty lines**:
+   - Remove empty lines between `\\` and `\hline`
+   - Remove empty lines after `\endhead` and `\endfirsthead`
+   
+2. **Verify table package**:
+   - Use `longtable` not `longtabu`
+   - Ensure `longtable` is loaded in preamble
+   
+3. **Check column specifications**:
+   - Use `p{width}` for paragraph columns with Persian text
+   - Ensure total width doesn't exceed page width
+   
+4. **Verify table structure**:
+   - Every row must end with `\\`
+   - `\hline` must come immediately after `\\`
+   - No empty lines within table environment
+
+### 16. File Organization Best Practices
+
+#### Include File Management
+- **Use descriptive filenames**: `header.tex`, `section1.tex`, etc.
+- **Consistent structure**: All section files should use same format
+- **No document commands**: Included files should contain only content, no `\documentclass` or `\begin{document}`
+- **Section headers**: Use `\textbf{}` not `\section{}` in included files
+
+#### Error Prevention Strategy
+1. **Start minimal**: Test basic table structure before adding content
+2. **Incremental addition**: Add one row at a time and test compilation
+3. **Template approach**: Use working table as template for new tables
+4. **Systematic debugging**: When errors occur, check items in this order:
+   - Empty lines around `\hline`
+   - Package loading
+   - Column specifications
+   - Table syntax
+
+These additional guidelines will help prevent and quickly resolve common table and structure errors in Persian LaTeX documents.

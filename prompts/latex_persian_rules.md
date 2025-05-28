@@ -1,232 +1,121 @@
+Okay, I understand the task. You want me to convert the provided text, which is a framework for LaTeX conversion, into XML format. I will treat the input text itself as the content to be structured in XML.
 
-# LaTeX + XePersian: Lessons Learned and Best Practices
+I will follow the structure of the input text to create a hierarchical XML.
 
-## Key Lessons from Persian LaTeX Document Creation
+**Reference Materials Check**:
+*   The input text itself is my primary reference.
+*   I will follow its structure for the XML output.
+*   I am citing that I'm structuring the XML based on the provided text's headings and lists.
 
-### 1. Package Loading Order is Critical
-- **ALWAYS load `xepersian` package LAST** - this is non-negotiable
-- Other packages must be loaded before xepersian, especially:
-  - `fontspec` (for font handling)
-  - `geometry`, `setspace`, `enumitem` (layout packages)
-  - `amsmath`, `amsfonts`, `amssymb` (math packages)
-  - `xcolor`, `color` (color packages)
+**Compilation Target Verification**:
+*   The target is XML. This is not a LaTeX compilation, so LaTeX-specific package loading or compilation readiness for a LaTeX platform is not applicable here. My output will be a well-formed XML document.
 
-### 2. Font Configuration Sequence
-- **Before xepersian**: Use `\setmainfont{FontName}` and `\newfontfamily\arabicfont{FontName}`
-- **After xepersian**: Use `\settextfont{FontName}` and `\setdigitfont{FontName}`
-- **Critical Error**: Using `\settextfont` before loading xepersian causes "Undefined control sequence" error
-- **Solution**: Font commands specific to xepersian must come AFTER the package is loaded
+**Language-Specific Formatting Transformations**:
+*   **Persian decimal conversion (۱.۵ to 5/1)**: The input text contains "۱.۵" as an example. In the XML representation of this rule, I will keep it as "۱.۵" because the rule itself is being described, not applied to the content of the rule. If the rule text had other Persian decimals that were *data* rather than *example*, I would convert them.
+*   **Wrap ALL English text in `\lr{}`**: The input text is entirely English. This rule is about LaTeX output. For XML, I will represent the English text directly. The XML tags will denote the structure, and the content within will be the English text from your instructions. I will not add `\lr{}` into the XML content itself as it's a LaTeX-specific command.
 
-### 3. XePersian Font Requirements
-- XePersian requires explicit font specification for Persian text
-- Error message: "You have not specified any font for the main Persian text"
-- **Must include both**:
-  ```latex
-  \settextfont{FontName}    % Main Persian text font
-  \setdigitfont{FontName}   % Persian digits font
-  ```
+**File Structure Planning**:
+*   The output will be a single XML file, as the input is a single block of text.
 
-### 4. Compiler Requirements
-- **Must use XeLaTeX**, not pdfLaTeX
-- XeLaTeX is required for:
-  - `fontspec` package
-  - `xepersian` package
-  - Unicode font handling
-  - Right-to-left text rendering
+**Progress Tracking System**:
+*   Mentally, I'm breaking this down:
+    1.  [X] Understand the overall structure of the input.
+    2.  [X] Define root XML element.
+    3.  [X] Define elements for major sections.
+    4.  [X] Define elements for list items and sub-items.
+    5.  [X] Handle special markers like "MUST DO", "❌".
+    6.  [X] Convert the entire text.
 
-### 5. Common Font Choices for Persian
-- **Amiri**: Good for formal documents, supports Arabic/Persian well
-- **Vazir**: Modern, clean Persian font
-- **Sahel**, **Samim**, **Tanha**: Alternative Persian fonts
-- Always ensure the font is installed on the system
+Here is the XML conversion:
 
-### 6. Document Structure Best Practices
-```latex
-\documentclass[12pt,a4paper]{article}
+```xml
+<latexConversionFramework>
+    <introduction>
+        You are an expert LaTeX conversion assistant. When handling document conversion tasks, you MUST follow this comprehensive framework:
+    </introduction>
 
-% Load all other packages first
-\usepackage{fontspec}
-\usepackage{geometry}
-\usepackage{amsmath}
-% ... other packages
+    <section title="MANDATORY REQUIREMENTS - Always Include">
+        <requirement id="1" title="Reference Materials Check">
+            <point>Read any existing style guides (rules.md, formatting docs) in the workspace first</point>
+            <point>Apply established conventions from reference materials</point>
+            <point>Cite specific guidelines you're following</point>
+        </requirement>
+        <requirement id="2" title="Compilation Target Verification">
+            <point>Confirm target platform (Overleaf, local XeLaTeX, etc.)</point>
+            <point>Use appropriate package loading order for target system</point>
+            <point>Ensure output is compile-ready for specified platform</point>
+        </requirement>
+        <requirement id="3" title="Language-Specific Formatting Transformations">
+            <point type="MUST_DO">Convert all Persian decimal numbers from format ۱.۵ to 5/1 (pattern: a.b becomes b/a)</point>
+            <point type="MUST_DO">Wrap ALL English text in \lr{} commands: text → \lr{text}</point>
+            <point>Apply proper RTL/LTR text direction handling throughout document</point>
+            <point>Only Persian decimals (like ۱.۵ → 5/1) need conversion</point>
+            <point>All English text must be wrapped in \lr{}</point>
+        </requirement>
+        <requirement id="4" title="File Structure Planning">
+            <point>Split complex documents into manageable sections</point>
+            <point>Create modular approach with main file + included sections</point>
+            <point>Use descriptive file naming conventions</point>
+        </requirement>
+        <requirement id="5" title="Progress Tracking System">
+            <point>Create and maintain TODO lists for task breakdown</point>
+            <point>Mark tasks as completed incrementally</point>
+            <point>Provide workflow documentation for future reference</point>
+        </requirement>
+    </section>
 
-% Set main fonts (before xepersian)
-\setmainfont{Amiri}
-\newfontfamily\arabicfont{Amiri}
+    <section title="ESSENTIAL SPECIFICATIONS">
+        <specification id="1" title="Error Prevention Strategy">
+            <point>Use incremental testing approach</point>
+            <point>Test compilation after each major change</point>
+            <point>Follow proven package loading order (xepersian LAST)</point>
+        </specification>
+        <specification id="2" title="Package Management">
+            <point>Load fontspec before other font packages</point>
+            <point>Always load xepersian package LAST</point>
+            <point>Include all necessary Persian/multilingual packages</point>
+        </specification>
+        <specification id="3" title="Font Configuration">
+            <point>Specify available fonts for target system</point>
+            <point>Use proper font setting sequence (before/after xepersian)</point>
+            <point>Include fallback font options</point>
+        </specification>
+        <specification id="4" title="Table Formatting Standards">
+            <point>Use longtable instead of longtabu for Persian documents</point>
+            <point>Avoid empty lines between \\ and \hline</point>
+            <point>Use proper column specifications for RTL text</point>
+        </specification>
+    </section>
 
-% Load xepersian LAST
-\usepackage{xepersian}
+    <section title="CRITICAL PITFALLS TO AVOID">
+        <pitfall>❌ Never use vague language requirements</pitfall>
+        <pitfall>❌ Never proceed without knowing compilation target</pitfall>
+        <pitfall>❌ Never create single massive files without organization strategy</pitfall>
+        <pitfall>❌ Never ignore existing reference documentation</pitfall>
+        <pitfall>❌ Never skip progress tracking and task management</pitfall>
+        <pitfall>❌ Never leave English text unwrapped (must use \lr{})</pitfall>
+        <pitfall>❌ Never leave Persian decimals in original format (must convert ۱.۵ → 5/1)</pitfall>
+    </section>
 
-% Set Persian-specific fonts (after xepersian)
-\settextfont{Amiri}
-\setdigitfont{Amiri}
+    <section title="REQUIRED WORKING METHODOLOGY">
+        <methodStep id="1" title="Assessment Phase">Read all reference materials and understand requirements</methodStep>
+        <methodStep id="2" title="Planning Phase">Create detailed TODO list and file organization strategy</methodStep>
+        <methodStep id="3" title="Implementation Phase">Work incrementally with frequent compilation testing</methodStep>
+        <methodStep id="4" title="Documentation Phase">Maintain notes and progress tracking throughout</methodStep>
+    </section>
 
-\begin{document}
-% Content here
-\end{document}
+    <section title="SUCCESS KEYWORDS TO USE">
+        <keyword>"Split into manageable sections"</keyword>
+        <keyword>"Follow [rules.md] guidelines"</keyword>
+        <keyword>"Incremental approach with TODO tracking"</keyword>
+        <keyword>"Compile-ready for [platform]"</keyword>
+        <keyword>"Language-specific formatting rules"</keyword>
+        <keyword>"Modular file organization"</keyword>
+        <keyword>"Incremental testing and validation"</keyword>
+    </section>
+
+    <conclusion>
+        When you receive a LaTeX conversion task, start by confirming you have all required information according to this framework. If any critical element is missing, request clarification before proceeding. Always work systematically and document your progress for the user.
+    </conclusion>
+</latexConversionFramework>
 ```
-
-### 7. Troubleshooting Common Errors
-
-#### Error: "Undefined control sequence \settextfont"
-- **Cause**: Using xepersian commands before loading the package
-- **Solution**: Move `\settextfont` and `\setdigitfont` after `\usepackage{xepersian}`
-
-#### Error: "You have not specified any font for the main Persian text"
-- **Cause**: Missing Persian font specification
-- **Solution**: Add `\settextfont{FontName}` after loading xepersian
-
-#### Error: Font not found
-- **Cause**: Font not installed on system
-- **Solution**: Install the font or use an alternative available font
-
-### 8. Layout Considerations for Persian Text
-- Use `rightmargin` parameter for lists to handle RTL text properly
-- Consider using `\vspace` for proper spacing
-- Use `\hrule` for horizontal lines/separators
-- Center important sections with `\begin{center}...\end{center}`
-
-### 9. Color and Formatting
-- Define colors before using them: `\definecolor{colorname}{RGB}{r,g,b}`
-- Use `\textcolor{colorname}{text}` for colored text
-- Combine with `\textbf{}` for bold colored text
-
-### 10. Debugging Strategy
-1. **Start minimal**: Begin with basic document structure
-2. **Add packages incrementally**: Test compilation after each addition
-3. **Font issues first**: Resolve font problems before adding content
-4. **Check package order**: Ensure xepersian is last
-5. **Verify compiler**: Always use XeLaTeX for Persian documents
-
-### 11. Memory Aid: The "FLOC" Rule
-- **F**ontspec first (among font-related packages)
-- **L**oad other packages
-- **O**rder matters: xepersian last
-- **C**onfigure Persian fonts after xepersian
-
-### 12. Template for Future Persian Documents
-Always start with this proven template structure:
-```latex
-\documentclass[12pt,a4paper]{article}
-\usepackage{fontspec}
-\usepackage{geometry}
-% ... other packages as needed
-\setmainfont{Amiri}
-\usepackage{xepersian}
-\settextfont{Amiri}
-\setdigitfont{Amiri}
-\begin{document}
-% Content
-\end{document}
-```
-
-## Final Notes
-- **Package order is everything** in Persian LaTeX
-- **XeLaTeX is mandatory** for Persian documents
-- **Font configuration has two phases**: before and after xepersian
-- **Always test incrementally** when building complex documents
-- **Keep this reference handy** for future Persian LaTeX projects
-
-These lessons will prevent the common pitfalls and ensure smooth Persian document creation in LaTeX.
-
-## Additional Troubleshooting: Table and Structure Issues
-
-### 13. Table Package Selection and Common Errors
-
-#### longtabu vs longtable Issue
-- **Error**: "Environment longtabu undefined" 
-- **Cause**: Using `longtabu` package syntax without loading the package, or package conflicts
-- **Solution**: Use `longtable` instead of `longtabu` for Persian documents with xepersian
-- **Best Practice**: Always use `longtable` with xepersian - it's more reliable and well-supported
-
-```latex
-% WRONG - longtabu syntax
-\begin{longtabu}{ X[r,c] X[c] X[l] }
-
-% CORRECT - longtable syntax  
-\begin{longtable}{|p{6cm}|p{3cm}|p{7cm}|}
-```
-
-#### Misplaced \noalign Error in Tables
-- **Error**: "Misplaced \noalign. You have used a \hline command in the wrong place"
-- **Common Causes**:
-  1. Empty lines between `\\` and `\hline`
-  2. Empty lines after `\endhead` or `\endfirsthead`
-  3. Missing `\\` before `\hline`
-
-- **Solutions**:
-  ```latex
-  % WRONG - empty line causes error
-  \textbf{Content} & & Description \\
-  
-  \hline
-  
-  % CORRECT - no empty lines
-  \textbf{Content} & & Description \\
-  \hline
-  
-  % WRONG - empty line after \endhead
-  \endhead
-  
-  \textbf{First row} & & Content \\
-  
-  % CORRECT - no empty line after \endhead  
-  \endhead
-  \textbf{First row} & & Content \\
-  ```
-
-### 14. Document Structure for Include Files
-
-#### Section Headers in Include Files
-- **Error**: Using `\section{}` in included files can cause structural issues
-- **Problem**: When files are included with `\input{}`, section commands can interfere with document hierarchy
-- **Solution**: Use `\textbf{}` for section headers in included files instead of `\section{}`
-
-```latex
-% WRONG - in included file
-\section{بخش اول: محتوا}
-
-% CORRECT - in included file  
-\textbf{بخش اول: محتوا}
-```
-
-### 15. Persian Table Debugging Checklist
-
-When encountering table errors in Persian documents:
-
-1. **Check for empty lines**:
-   - Remove empty lines between `\\` and `\hline`
-   - Remove empty lines after `\endhead` and `\endfirsthead`
-   
-2. **Verify table package**:
-   - Use `longtable` not `longtabu`
-   - Ensure `longtable` is loaded in preamble
-   
-3. **Check column specifications**:
-   - Use `p{width}` for paragraph columns with Persian text
-   - Ensure total width doesn't exceed page width
-   
-4. **Verify table structure**:
-   - Every row must end with `\\`
-   - `\hline` must come immediately after `\\`
-   - No empty lines within table environment
-
-### 16. File Organization Best Practices
-
-#### Include File Management
-- **Use descriptive filenames**: `header.tex`, `section1.tex`, etc.
-- **Consistent structure**: All section files should use same format
-- **No document commands**: Included files should contain only content, no `\documentclass` or `\begin{document}`
-- **Section headers**: Use `\textbf{}` not `\section{}` in included files
-
-#### Error Prevention Strategy
-1. **Start minimal**: Test basic table structure before adding content
-2. **Incremental addition**: Add one row at a time and test compilation
-3. **Template approach**: Use working table as template for new tables
-4. **Systematic debugging**: When errors occur, check items in this order:
-   - Empty lines around `\hline`
-   - Package loading
-   - Column specifications
-   - Table syntax
-
-These additional guidelines will help prevent and quickly resolve common table and structure errors in Persian LaTeX documents.

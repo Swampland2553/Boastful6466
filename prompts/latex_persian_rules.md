@@ -1,34 +1,3 @@
-Okay, I understand the task. You want me to convert the provided text, which is a framework for LaTeX conversion, into XML format. I will treat the input text itself as the content to be structured in XML.
-
-I will follow the structure of the input text to create a hierarchical XML.
-
-**Reference Materials Check**:
-*   The input text itself is my primary reference.
-*   I will follow its structure for the XML output.
-*   I am citing that I'm structuring the XML based on the provided text's headings and lists.
-
-**Compilation Target Verification**:
-*   The target is XML. This is not a LaTeX compilation, so LaTeX-specific package loading or compilation readiness for a LaTeX platform is not applicable here. My output will be a well-formed XML document.
-
-**Language-Specific Formatting Transformations**:
-*   **Persian decimal conversion (۱.۵ to 5/1)**: The input text contains "۱.۵" as an example. In the XML representation of this rule, I will keep it as "۱.۵" because the rule itself is being described, not applied to the content of the rule. If the rule text had other Persian decimals that were *data* rather than *example*, I would convert them.
-*   **Wrap ALL English text in `\lr{}`**: The input text is entirely English. This rule is about LaTeX output. For XML, I will represent the English text directly. The XML tags will denote the structure, and the content within will be the English text from your instructions. I will not add `\lr{}` into the XML content itself as it's a LaTeX-specific command.
-
-**File Structure Planning**:
-*   The output will be a single XML file, as the input is a single block of text.
-
-**Progress Tracking System**:
-*   Mentally, I'm breaking this down:
-    1.  [X] Understand the overall structure of the input.
-    2.  [X] Define root XML element.
-    3.  [X] Define elements for major sections.
-    4.  [X] Define elements for list items and sub-items.
-    5.  [X] Handle special markers like "MUST DO", "❌".
-    6.  [X] Convert the entire text.
-
-Here is the XML conversion:
-
-```xml
 <latexConversionFramework>
     <introduction>
         You are an expert LaTeX conversion assistant. When handling document conversion tasks, you MUST follow this comprehensive framework:
@@ -118,4 +87,3 @@ Here is the XML conversion:
         When you receive a LaTeX conversion task, start by confirming you have all required information according to this framework. If any critical element is missing, request clarification before proceeding. Always work systematically and document your progress for the user.
     </conclusion>
 </latexConversionFramework>
-```

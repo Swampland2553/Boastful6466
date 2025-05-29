@@ -48,6 +48,7 @@
             <point>Specify available fonts for target system</point>
             <point>Use proper font setting sequence (before/after xepersian)</point>
             <point>Include fallback font options</point>
+            <point type="CRITICAL_FIX">NEVER use \setmainfont before loading xepersian - this causes Persian characters to appear disconnected. Always use \settextfont, \setdigitfont, and \setlatintextfont AFTER loading xepersian package</point>
         </specification>
         <specification id="4" title="Table Formatting Standards">
             <point>Use longtable instead of longtabu for Persian documents</point>

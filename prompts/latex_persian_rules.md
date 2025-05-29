@@ -20,6 +20,7 @@
             <point>Apply proper RTL/LTR text direction handling throughout document</point>
             <point>Only Persian decimals (like ۱.۵ → 5/1) need conversion</point>
             <point>All English text must be wrapped in \lr{}</point>
+            <point type="CRITICAL_WARNING">Do NOT convert Persian decimals to their mathematical equivalent (e.g., ۱.۵ ≠ 3/2). Always follow the strict pattern: ۱.۵ → 5/1, NOT 3/2. The rule is positional swap (a.b → b/a), not mathematical conversion.</point>
         </requirement>
         <requirement id="4" title="File Structure Planning">
             <point>Split complex documents into manageable sections</point>

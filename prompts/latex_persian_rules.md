@@ -51,7 +51,14 @@
             <point>Include fallback font options</point>
             <point type="CRITICAL_FIX">NEVER use \setmainfont before loading xepersian - this causes Persian characters to appear disconnected. Always use \settextfont, \setdigitfont, and \setlatintextfont AFTER loading xepersian package</point>
         </specification>
-        <specification id="4" title="Table Formatting Standards">
+        <specification id="4" title="Mathematical Notation Standards">
+            <point type="CRITICAL_MATH">All mathematical symbols and expressions MUST be wrapped in math mode using $ ... $</point>
+            <point>Replace × with \times, ≠ with \neq, ² with ^2, ³ with ^3, etc.</point>
+            <point>Mathematical variables like x, y, a, b should be in math mode: \lr{$x$}, \lr{$y$}</point>
+            <point>Mathematical expressions like equations, inequalities, formulas must use math mode</point>
+            <point>Load amsmath, amssymb, mathtools packages for complete mathematical symbol support</point>
+        </specification>
+        <specification id="5" title="Table Formatting Standards">
             <point>Use longtable instead of longtabu for Persian documents</point>
             <point>Avoid empty lines between \\ and \hline</point>
             <point>Use proper column specifications for RTL text</point>

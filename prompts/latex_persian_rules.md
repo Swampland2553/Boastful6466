@@ -21,6 +21,8 @@
             <point>Only Persian decimals (like ۱.۵ → 5/1) need conversion</point>
             <point>All English text must be wrapped in \lr{}</point>
             <point type="CRITICAL_WARNING">Do NOT convert Persian decimals to their mathematical equivalent (e.g., ۱.۵ ≠ 3/2). Always follow the strict pattern: ۱.۵ → 5/1, NOT 3/2. The rule is positional swap (a.b → b/a), not mathematical conversion.</point>
+            <point type="CRITICAL_WARNING">IMPORTANT: Do NOT convert dash symbols in number ranges (e.g., "2-3 نمره" meaning "2 to 3 points"). The dash in ranges must be preserved as is. Only convert actual Persian decimal numbers that use the dot notation (۱.۵).</point>
+            <point type="CRITICAL_WARNING">IMPORTANT: ONLY wrap English text in \lr{} commands, NOT Arabic text. Arabic text is already compatible with RTL direction and does not need \lr{} wrapping. For example, wrap "text" as \lr{text} but leave "إنَّ" as is without \lr{}.</point>
         </requirement>
         <requirement id="4" title="File Structure Planning">
             <point>Split complex documents into manageable sections</point>

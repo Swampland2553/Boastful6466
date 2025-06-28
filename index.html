@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>برنامه ریزی دو هفته‌ای</title>
+    <title>پروژه‌های وب</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background-color: var(--container-bg);
             padding: 40px;
@@ -49,48 +49,45 @@
             color: #666;
         }
 
-        .nav-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
-        .nav-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: var(--secondary-color);
+        .project-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            padding: 30px;
+            border-radius: 15px;
             text-decoration: none;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .nav-button:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .nav-button.secondary {
-            background-color: var(--primary-color);
-            box-shadow: 0 2px 10px rgba(44, 62, 80, 0.3);
+        .project-card h3 {
+            margin: 0 0 15px 0;
+            font-size: 1.5rem;
         }
 
-        .nav-button.secondary:hover {
-            background-color: #1a252f;
-            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.4);
-        }
-
-        .nav-button small {
-            display: block;
-            margin-top: 5px;
-            font-size: 0.85rem;
+        .project-card p {
+            margin: 0;
             opacity: 0.9;
-            font-weight: normal;
+            line-height: 1.6;
+        }
+
+        .project-card.secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .project-card.tertiary {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
         }
 
         footer {
@@ -105,37 +102,38 @@
             .container {
                 padding: 20px;
             }
-            .nav-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            .nav-button {
-                width: 100%;
-                max-width: 300px;
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>برنامه ریزی دو هفته‌ای</h1>
+        <h1>پروژه‌های وب</h1>
         <p class="description">
-            به سیستم برنامه‌ریزی دو هفته‌ای خوش آمدید. لطفاً برنامه مناسب پایه تحصیلی خود را انتخاب کنید:
+            به مجموعه پروژه‌های وب خوش آمدید. لطفاً یکی از پروژه‌های زیر را انتخاب کنید:
         </p>
         
-        <div class="nav-buttons">
-            <a href="k1.html" class="nav-button">
-                برنامه ریزی عمومی
-                <br><small>مناسب برای دانش‌آموزان دهم و یازدهم</small>
+        <div class="projects-grid">
+            <a href="planning-website/index.html" class="project-card">
+                <h3>سایت برنامه‌ریزی دو هفته‌ای</h3>
+                <p>ابزاری برای کمک به دانش‌آموزان در برنامه‌ریزی و مدیریت زمان تحصیلی</p>
             </a>
-            <a href="k2.html" class="nav-button secondary">
-                برنامه ریزی پایه یازدهم
-                <br><small>فقط برای دانش‌آموزان یازدهم</small>
+            
+            <a href="#" class="project-card secondary">
+                <h3>پروژه آینده</h3>
+                <p>پروژه‌های جدید به زودی اضافه خواهند شد...</p>
+            </a>
+            
+            <a href="#" class="project-card tertiary">
+                <h3>پروژه آینده</h3>
+                <p>پروژه‌های جدید به زودی اضافه خواهند شد...</p>
             </a>
         </div>
         
         <footer>
-            <p>این وب‌سایت برای کمک به برنامه‌ریزی و مدیریت زمان طراحی شده است.</p>
+            <p>این repository شامل مجموعه‌ای از پروژه‌های وب مختلف است که هر کدام در پوشه مخصوص خود قرار دارند.</p>
         </footer>
     </div>
 </body>

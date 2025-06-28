@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامه ریزی دو هفته‌ای</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS Variables for Theming --- */
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg-color: #ffffff;
+            --text-color: #212529;
+            --header-bg-color: #e9ecef;
+            --border-color: #dee2e6;
+            --primary-color: #007bff;
+            --priority-high: #dc3545;
+            --priority-medium: #fd7e14;
+            --priority-low: #28a745;
+            --progress-bar-bg: #e9ecef;
+            --progress-bar-fill: #007bff;
+            --completed-text-color: #6c757d;
+            --shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        body.dark-mode {
+            --bg-color: #121212;
+            --card-bg-color: #1e1e1e;
+            --text-color: #e0e0e0;
+            --header-bg-color: #2c2c2c;
+            --border-color: #3a3a3a;
+            --primary-color: #4dabf7;
+            --progress-bar-bg: #3a3a3a;
+            --progress-bar-fill: #4dabf7;
+            --completed-text-color: #888;
+        }
+
+        /* --- General Styles --- */
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        h1, h2, h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        h1 { font-size: 2.2rem; }
+        h2 { font-size: 1.8rem; }
+
+        .card {
+            background-color: var(--card-bg-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        /* --- Theme Switcher --- */
+        .theme-switcher {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* --- Progress Bar --- */
+        .progress-container {
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: var(--progress-bar-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            height: 30px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background-color: var(--progress-bar-fill);
+            border-radius: 10px 0 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: width 0.5s ease-in-out;
+        }
+
+        /* --- Tables --- */
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            text-align: right;
+            vertical-align: middle;
+        }
+        thead {
+            background-color: var(--header-bg-color);
+            font-weight: bold;
+        }
+        tbody tr:nth-child(even) {
+            background-color: rgba(0,0,0,0.03);
+        }
+        body.dark-mode tbody tr:nth-child(even) {
+            background-color: rgba(255,255,255,0.03);
+        }
+
+        /* --- Priority Badges --- */
+        .priority-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 15px;
+            color: white;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        .priority-very-high { background-color: #e74c3c; }
+        .priority-high { background-color: #f39c12; }
+        .priority-medium { background-color: #3498db; }
+        .priority-low { background-color: #2ecc71; }
+
+        /* --- Weekly Schedule Specifics --- */
+        .weekly-schedule td {
+            vertical-align: top;
+        }
+        .task-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            transition: opacity 0.3s, color 0.3s;
+        }
+        .task-item.completed {
+            opacity: 0.6;
+            color: var(--completed-text-color);
+        }
+        .task-item.completed .task-text {
+            text-decoration: line-through;
+        }
+        .task-item input[type="checkbox"] {
+            margin-left: 10px;
+            min-width: 18px;
+            min-height: 18px;
+            cursor: pointer;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.5rem; }
+            .theme-switcher { top: 10px; left: 10px; }
+            th, td { padding: 8px 10px; font-size: 0.9rem; }
+        }
+
+        /* START: CSS for Footer */
+        .site-footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 0 20px 20px 20px;
+            font-size: 0.9em;
+            color: var(--completed-text-color);
+        }
+        /* END: CSS for Footer */
+    </style>
+</head>
+<body>
+
+    <div class="theme-switcher">
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="container">
+        <h1>برنامه ریزی درسی (۸ تا ۱۹ تیر)</h1>
+
+        <div class="card">
+            <h3>قوانین کلی</h3>
+            <ul>
+                <li><strong>کل زمان مطالعه روزانه:</strong> حدود ۶ تا ۸ ساعت (قابل شخصی‌سازی).</li>
+                <li><strong>واحد زمانی:</strong> هر پارت مطالعاتی <strong>۹۰ دقیقه</strong> است (۷۵ دقیقه مطالعه/تست + ۱۵ دقیقه استراحت کوتاه).</li>
+                <li><strong>روزهای جمعه:</strong> برای مرور هفتگی و آزمون‌های شخصی‌سازی شده در نظر گرفته می‌شود.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>تخصیص زمان کل (دو هفته)</h2>
+            <div class="table-container">
+                <table id="allocation-table">
+                    <thead>
+                        <tr>
+                            <th>نام درس</th>
+                            <th>مبحث آزمون</th>
+                            <th>مطالعه (ساعت)</th>
+                            <th>تست (ساعت)</th>
+                            <th>مرور (ساعت)</th>
+                            <th>مجموع (ساعت)</th>
+                            <th>اولویت</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- JS will populate this -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>نمونه برنامه هفتگی (هفته اول: ۸ تا ۱۳ تیر)</h2>
+            <div class="progress-container">
+                <h3>پیشرفت هفته اول:</h3>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" id="progress-fill">0%</div>
+                </div>
+            </div>
+            <div class="table-container">
+                <table id="weekly-schedule-table" class="weekly-schedule">
+                    <thead>
+                        <tr>
+                            <th>روز</th>
+                            <th>صبح (۸:۰۰ - ۱۳:۰۰)</th>
+                            <th>عصر (۱۶:۰۰ - ۲۰:۰۰)</th>
+                            <th>شب</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- JS will populate this -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>
+            کلیه حقوق مادی و معنوی این طرح متعلق به مسلم ایوبی راد است و هرگونه استفاده از آن منوط به کسب اجازه کتبی و عقد قرارداد می‌باشد.
+        </p>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- DATA ---
+        // Data is stored here to separate it from the presentation layer (HTML)
+
+        const allocationData = [
+            { subject: 'حسابان ۱', topic: 'فصل ۱ تا انتهای درس ۴', study: 4.5, test: 6, review: 1.5, priority: 'بسیار بالا' },
+            { subject: 'فیزیک ۱', topic: 'فصل ۱ تا ۳ (شاره‌ها)', study: 4.5, test: 4.5, review: 1.5, priority: 'بسیار بالا' },
+            { subject: 'شیمی ۱', topic: 'فصل ۱ تا انتهای نشر نور', study: 3, test: 4.5, review: 1.5, priority: 'بالا' },
+            { subject: 'هندسه ۱', topic: 'فصل ۱ تا درس ۲', study: 3, test: 3, review: 1.5, priority: 'بالا' },
+            { subject: 'فیزیک ۲', topic: 'فصل ۱ (الکتریسیته ساکن)', study: 3, test: 3, review: 1.5, priority: 'متوسط' },
+            { subject: 'آمار و احتمال', topic: 'فصل ۱ درس ۱', study: 1.5, test: 3, review: 1.5, priority: 'متوسط' },
+            { subject: 'ریاضی ۱', topic: 'فصل ۱ درس‌های ۱ و ۲', study: 1.5, test: 3, review: 1.5, priority: 'متوسط' },
+            { subject: 'شیمی ۲', topic: 'فصل ۱ (ساختار اتم)', study: 1.5, test: 1.5, review: 1.5, priority: 'پایین' },
+            { subject: 'هندسه ۲', topic: 'فصل ۱ درس ۱ (ماتریس)', study: 1.5, test: 1.5, review: 1.5, priority: 'پایین' }
+        ];
+
+        const weeklyScheduleData = [
+            {
+                day: 'یکشنبه (۸ تیر)',
+                morning: [
+                    { id: 'd1_m1', text: 'پارت ۱: حسابان (مطالعه)' },
+                    { id: 'd1_m2', text: 'پارت ۲: هندسه ۱ (مطالعه)' }
+                ],
+                afternoon: [
+                    { id: 'd1_a1', text: 'پارت ۳: فیزیک ۱ (مطالعه)' },
+                    { id: 'd1_a2', text: 'پارت ۴: آمار و احتمال (مطالعه و تست)' }
+                ],
+                evening: 'مرور روزانه (۳۰ دقیقه)'
+            },
+            {
+                day: 'دوشنبه (۹ تیر)',
+                morning: [
+                    { id: 'd2_m1', text: 'پارت ۱: حسابان (تست)' },
+                    { id: 'd2_m2', text: 'پارت ۲: ریاضی ۱ (مطالعه و تست)' }
+                ],
+                afternoon: [
+                    { id: 'd2_a1', text: 'پارت ۳: شیمی ۱ (مطالعه)' },
+                    { id: 'd2_a2', text: 'پارت ۴: فیزیک ۲ (مطالعه)' }
+                ],
+                evening: 'مرور روزانه'
+            },
+            {
+                day: 'سه‌شنبه (۱۰ تیر)',
+                morning: [
+                    { id: 'd3_m1', text: 'پارت ۱: فیزیک ۱ (تست)' },
+                    { id: 'd3_m2', text: 'پارت ۲: هندسه ۲ (مطالعه و تست)' }
+                ],
+                afternoon: [
+                    { id: 'd3_a1', text: 'پارت ۳: هندسه ۱ (تست)' },
+                    { id: 'd3_a2', text: 'پارت ۴: شیمی ۲ (مطالعه و تست)' }
+                ],
+                evening: 'مرور روزانه'
+            },
+            {
+                day: 'چهارشنبه (۱۱ تیر)',
+                morning: [
+                    { id: 'd4_m1', text: 'پارت ۱: حسابان (تست)' },
+                    { id: 'd4_m2', text: 'پارت ۲: فیزیک ۱ (مطالعه)' }
+                ],
+                afternoon: [
+                    { id: 'd4_a1', text: 'پارت ۳: شیمی ۱ (تست)' },
+                    { id: 'd4_a2', text: 'پارت ۴: آمار و احتمال (تست)' }
+                ],
+                evening: 'مرور روزانه'
+            },
+            {
+                day: 'پنج‌شنبه (۱۲ تیر)',
+                morning: [
+                    { id: 'd5_m1', text: 'پارت ۱: فیزیک ۲ (تست)' },
+                    { id: 'd5_m2', text: 'پارت ۲: ریاضی ۱ (تست)' }
+                ],
+                afternoon: [
+                    { id: 'd5_a1', text: 'پارت ۳: حسابان (مرور و تست تکمیلی)' },
+                    { id: 'd5_a2', text: 'پارت ۴: جبرانی / انعطافی' }
+                ],
+                evening: 'مرور روزانه'
+            },
+            {
+                day: 'جمعه (۱۳ تیر)',
+                morning: [{ id: 'd6_m1', text: 'آزمون شخصی‌سازی شده (از مباحث هفته)' }],
+                afternoon: [{ id: 'd6_a1', text: 'تحلیل آزمون' }],
+                evening: 'مرور کلی هفته و برنامه‌ریزی هفته بعد'
+            }
+        ];
+
+        // --- DOM Elements ---
+        const allocationTableBody = document.querySelector('#allocation-table tbody');
+        const weeklyScheduleTableBody = document.querySelector('#weekly-schedule-table tbody');
+        const themeToggle = document.getElementById('theme-toggle');
+        const progressBarFill = document.getElementById('progress-fill');
+
+        // --- Functions ---
+
+        /**
+         * Returns a CSS class based on priority text.
+         * @param {string} priority - The priority text.
+         * @returns {string} - The corresponding CSS class.
+         */
+        function getPriorityClass(priority) {
+            switch (priority) {
+                case 'بسیار بالا': return 'priority-very-high';
+                case 'بالا': return 'priority-high';
+                case 'متوسط': return 'priority-medium';
+                case 'پایین': return 'priority-low';
+                default: return '';
+            }
+        }
+
+        /**
+         * Renders the main allocation table from data.
+         */
+        function renderAllocationTable() {
+            allocationData.forEach(item => {
+                const total = item.study + item.test + item.review;
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.subject}</td>
+                    <td>${item.topic}</td>
+                    <td>${item.study}</td>
+                    <td>${item.test}</td>
+                    <td>${item.review}</td>
+                    <td><strong>${total}</strong></td>
+                    <td><span class="priority-badge ${getPriorityClass(item.priority)}">${item.priority}</span></td>
+                `;
+                allocationTableBody.appendChild(row);
+            });
+        }
+
+        /**
+         * Creates HTML for a list of tasks with checkboxes.
+         * @param {Array} tasks - Array of task objects.
+         * @returns {string} - HTML string.
+         */
+        function createTaskHtml(tasks) {
+            if (!Array.isArray(tasks) || tasks.length === 0) return '';
+            return tasks.map(task => `
+                <div class="task-item" data-task-id="${task.id}">
+                    <input type="checkbox" id="task-${task.id}" class="task-checkbox">
+                    <label for="task-${task.id}" class="task-text">${task.text}</label>
+                </div>
+            `).join('');
+        }
+
+        /**
+         * Renders the weekly schedule table from data.
+         */
+        function renderWeeklySchedule() {
+            weeklyScheduleData.forEach(dayData => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><strong>${dayData.day}</strong></td>
+                    <td>${createTaskHtml(dayData.morning)}</td>
+                    <td>${createTaskHtml(dayData.afternoon)}</td>
+                    <td>${dayData.evening}</td>
+                `;
+                weeklyScheduleTableBody.appendChild(row);
+            });
+        }
+        
+        /**
+         * Updates the progress bar based on completed tasks.
+         */
+        function updateProgressBar() {
+            const checkboxes = document.querySelectorAll('.task-checkbox');
+            const totalTasks = checkboxes.length;
+            if (totalTasks === 0) return;
+
+            const completedTasks = document.querySelectorAll('.task-checkbox:checked').length;
+            const percentage = Math.round((completedTasks / totalTasks) * 100);
+            
+            progressBarFill.style.width = `${percentage}%`;
+            progressBarFill.textContent = `${percentage}%`;
+        }
+
+        /**
+         * Handles the checking/unchecking of a task.
+         * @param {Event} e - The change event from the checkbox.
+         */
+        function handleTaskToggle(e) {
+            if (!e.target.classList.contains('task-checkbox')) return;
+            
+            const taskItem = e.target.closest('.task-item');
+            const taskId = taskItem.dataset.taskId;
+            
+            if (e.target.checked) {
+                taskItem.classList.add('completed');
+                saveTaskState(taskId, true);
+            } else {
+                taskItem.classList.remove('completed');
+                saveTaskState(taskId, false);
+            }
+            updateProgressBar();
+        }
+
+        /**
+         * Saves the state of a single task to localStorage.
+         * @param {string} taskId - The unique ID of the task.
+         * @param {boolean} isCompleted - The completion status.
+         */
+        function saveTaskState(taskId, isCompleted) {
+            let tasksState = JSON.parse(localStorage.getItem('tasksState')) || {};
+            tasksState[taskId] = isCompleted;
+            localStorage.setItem('tasksState', JSON.stringify(tasksState));
+        }
+
+        /**
+         * Loads all task states from localStorage and applies them to the UI.
+         */
+        function loadTasksState() {
+            let tasksState = JSON.parse(localStorage.getItem('tasksState')) || {};
+            for (const taskId in tasksState) {
+                if (tasksState[taskId]) {
+                    const checkbox = document.getElementById(`task-${taskId}`);
+                    if (checkbox) {
+                        checkbox.checked = true;
+                        checkbox.closest('.task-item').classList.add('completed');
+                    }
+                }
+            }
+        }
+        
+        /**
+         * Handles theme toggling and saves the preference.
+         */
+        function handleThemeToggle() {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            themeToggle.checked = isDarkMode;
+        }
+
+        /**
+         * Loads the theme preference from localStorage.
+         */
+        function loadTheme() {
+            const darkMode = localStorage.getItem('darkMode') === 'true';
+            if (darkMode) {
+                document.body.classList.add('dark-mode');
+                themeToggle.checked = true;
+            }
+        }
+
+
+        // --- Initialization ---
+
+        // 1. Render the static parts of the page
+        renderAllocationTable();
+        renderWeeklySchedule();
+
+        // 2. Load saved states from localStorage
+        loadTheme();
+        loadTasksState();
+
+        // 3. Update dynamic elements based on loaded state
+        updateProgressBar();
+        
+        // 4. Add event listeners for interactivity
+        themeToggle.addEventListener('change', handleThemeToggle);
+        weeklyScheduleTableBody.addEventListener('change', handleTaskToggle);
+
+    });
+    </script>
+</body>
+</html>

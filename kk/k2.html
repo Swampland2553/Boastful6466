@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامه ریزی دو هفته‌ای - پایه یازدهم</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #ecf0f1;
+            --container-bg: #ffffff;
+            --text-color: #34495e;
+            --header-color: #ffffff;
+            --border-color: #bdc3c7;
+            --hover-color: #f8f9fa;
+            --completed-color: #2ecc71;
+            --completed-bg: #e8f5e9;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: var(--container-bg);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        .intro-section p {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-right: 4px solid var(--secondary-color);
+            border-radius: 5px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: right;
+            border: 1px solid var(--border-color);
+        }
+
+        thead {
+            background-color: var(--primary-color);
+            color: var(--header-color);
+        }
+        
+        th {
+            font-weight: 700;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tbody tr:hover {
+            background-color: var(--hover-color);
+        }
+        
+        .priority {
+            font-weight: bold;
+            text-align: center;
+        }
+        .priority-high { color: #e74c3c; } /* قرمز */
+        .priority-medium { color: #f39c12; } /* نارنجی */
+        .priority-low { color: #27ae60; } /* سبز */
+
+        /* Tab System Styles */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            margin-top: 30px;
+        }
+
+        .tab-button {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-color);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button:hover {
+            background-color: var(--hover-color);
+        }
+        
+        .tab-button.active {
+            color: var(--secondary-color);
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .tab-content {
+            display: none;
+            padding-top: 20px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Interactive Checklist Styles */
+        .schedule-table td:first-child {
+            display: flex;
+            align-items: center;
+        }
+        .schedule-table input[type="checkbox"] {
+            margin-left: 10px;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+        
+        .schedule-table tr.completed {
+            background-color: var(--completed-bg);
+            text-decoration: line-through;
+            color: #777;
+        }
+        .schedule-table tr.completed td {
+             opacity: 0.7;
+        }
+        .schedule-table tr.completed:hover {
+            background-color: #d1e7dd;
+        }
+        
+        .final-notes {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #fffbe6;
+            border: 1px solid #ffe58f;
+            border-radius: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            .tabs {
+                flex-direction: column;
+            }
+            .tab-button {
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .tab-button.active {
+                 border-bottom: 3px solid var(--secondary-color);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>برنامه ریزی دو هفته‌ای (۸ تا ۱۹ تیر)</h1>
+            <p>تمرکز بر پایه یازدهم</p>
+        </header>
+
+        <main>
+            <section class="intro-section">
+                <h2>راهنمای کلی برنامه</h2>
+                <p>
+                    <strong>کل زمان مطالعه روزانه:</strong> حدود ۶ تا ۷.۵ ساعت.<br>
+                    <strong>واحد زمانی:</strong> هر پارت مطالعاتی <strong>۹۰ دقیقه</strong> است (۷۵ دقیقه مطالعه/تست + ۱۵ دقیقه استراحت).<br>
+                    <strong>تعادل:</strong> برنامه به گونه‌ای طراحی شده که هر روز ترکیبی از دروس مفهومی و حل‌کردنی باشد.
+                </p>
+            </section>
+
+            <section>
+                <h2>تخصیص زمان پیشنهادی برای هر مبحث</h2>
+                <div class="table-responsive">
+                    <table id="subject-allocation-table">
+                        <thead>
+                            <tr>
+                                <th>نام درس</th>
+                                <th>مبحث آزمون</th>
+                                <th>زمان مطالعه (ساعت)</th>
+                                <th>زمان تست‌زنی (ساعت)</th>
+                                <th>زمان مرور (ساعت)</th>
+                                <th>مجموع (ساعت)</th>
+                                <th>اولویت</th>
+                            </tr>
+                        </thead>
+                        <tbody id="subject-allocation-tbody">
+                            <!-- Data will be injected by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <section class="weekly-schedule">
+                <h2>برنامه هفتگی</h2>
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="week1">هفته اول (۸ تا ۱۳ تیر)</button>
+                    <button class="tab-button" data-tab="week2">هفته دوم (۱۵ تا ۱۹ تیر)</button>
+                </div>
+
+                <div id="week1" class="tab-content active">
+                    <div class="table-responsive">
+                        <table class="schedule-table" id="week1-schedule-table">
+                            <thead>
+                                <tr>
+                                    <th>روز</th>
+                                    <th>صبح (۸:۰۰ - ۱۳:۰۰)</th>
+                                    <th>ظهر</th>
+                                    <th>عصر (۱۶:۰۰ - ۲۰:۰۰)</th>
+                                    <th>شب</th>
+                                </tr>
+                            </thead>
+                            <tbody id="week1-schedule-tbody">
+                                <!-- Data will be injected by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="week2" class="tab-content">
+                     <div class="table-responsive">
+                        <table class="schedule-table" id="week2-schedule-table">
+                             <thead>
+                                <tr>
+                                    <th>روز</th>
+                                    <th>برنامه</th>
+                                </tr>
+                            </thead>
+                            <tbody id="week2-schedule-tbody">
+                                <!-- Data will be injected by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="final-notes">
+                        <p><strong>نکات هفته دوم:</strong></p>
+                        <ul>
+                            <li>ادامه روند مطالعه، تست‌زنی و مرور مباحث باقی‌مانده.</li>
+                            <li>تمرکز اصلی بر <strong>افزایش حجم و سرعت تست‌زنی</strong> و <strong>مرورهای تلفیقی</strong> است.</li>
+                            <li><strong>جمعه (۲۰ تیر):</strong> روز آزمون اصلی گزینه دو.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>کلیه حقوق مادی و معنوی این طرح متعلق به مسلم ایوبی راد است و هرگونه استفاده از آن منوط به کسب اجازه کتبی و عقد قرارداد می‌باشد.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // --- DATA ---
+            const subjectData = [
+                { name: 'حسابان ۱', topic: 'فصل ۱ تا انتهای درس ۴', study: '۶ (۴ پارت)', test: '۷.۵ (۵ پارت)', review: '۳ (۲ پارت)', total: '۱۶.۵', priority: 'بسیار بالا' },
+                { name: 'فیزیک ۲', topic: 'فصل ۱ (الکتریسیته ساکن)', study: '۴.۵ (۳ پارت)', test: '۶ (۴ پارت)', review: '۳ (۲ پارت)', total: '۱۳.۵', priority: 'بسیار بالا' },
+                { name: 'شیمی ۲', topic: 'فصل ۱ (ساختار اتم)', study: '۴.۵ (۳ پارت)', test: '۴.۵ (۳ پارت)', review: '۱.۵ (۱ پارت)', total: '۱۰.۵', priority: 'بالا' },
+                { name: 'آمار و احتمال', topic: 'فصل ۱، درس ۱', study: '۳ (۲ پارت)', test: '۴.۵ (۳ پارت)', review: '۱.۵ (۱ پارت)', total: '۹', priority: 'بالا' },
+                { name: 'هندسه ۲', topic: 'فصل ۱، درس ۱ (ماتریس)', study: '۳ (۲ پارت)', test: '۳ (۲ پارت)', review: '۱.۵ (۱ پارت)', total: '۷.۵', priority: 'متوسط' }
+            ];
+
+            const week1Data = [
+                { day: 'یکشنبه (۸ تیر)', morning: '<strong>پارت ۱:</strong> حسابان (مطالعه)<br><strong>پارت ۲:</strong> فیزیک ۲ (مطالعه)', noon: '۱-۲ ساعت استراحت', evening: '<strong>پارت ۳:</strong> شیمی ۲ (مطالعه)<br><strong>پارت ۴:</strong> آمار و احتمال (مطالعه)', night: 'مرور روزانه (۳۰ دقیقه)' },
+                { day: 'دوشنبه (۹ تیر)', morning: '<strong>پارت ۱:</strong> حسابان (مطالعه)<br><strong>پارت ۲:</strong> هندسه ۲ (مطالعه)', noon: '', evening: '<strong>پارت ۳:</strong> فیزیک ۲ (تست)<br><strong>پارت ۴:</strong> شیمی ۲ (تست)', night: 'مرور روزانه' },
+                { day: 'سه‌شنبه (۱۰ تیر)', morning: '<strong>پارت ۱:</strong> آمار و احتمال (تست)<br><strong>پارت ۲:</strong> فیزیک ۲ (مطالعه)', noon: '', evening: '<strong>پارت ۳:</strong> حسابان (تست)<br><strong>پارت ۴:</strong> هندسه ۲ (تست)', night: 'مرور روزانه' },
+                { day: 'چهارشنبه (۱۱ تیر)', morning: '<strong>پارت ۱:</strong> شیمی ۲ (مطالعه و مرور)<br><strong>پارت ۲:</strong> فیزیک ۲ (تست)', noon: '', evening: '<strong>پارت ۳:</strong> حسابان (تست)<br><strong>پارت ۴:</strong> آمار و احتمال (تست)', night: 'مرور روزانه' },
+                { day: 'پنج‌شنبه (۱۲ تیر)', morning: '<strong>پارت ۱:</strong> حسابان (مرور و تست تکمیلی)<br><strong>پارت ۲:</strong> جبرانی / انعطافی', noon: '', evening: '<strong>پارت ۳:</strong> فیزیک ۲ (مرور و تست تکمیلی)<br><strong>پارت ۴:</strong> جبرانی / انعطافی', night: 'مرور روزانه' },
+                { day: 'جمعه (۱۳ تیر)', morning: '<strong>آزمون شخصی‌سازی شده ۱</strong><br>(از مباحث حسابان و فیزیک)', noon: '', evening: '<strong>تحلیل آزمون</strong>', night: '<strong>مرور کلی هفته</strong><br>و برنامه‌ریزی هفته بعد' }
+            ];
+            
+            const week2Data = [
+                { day: 'شنبه تا چهارشنبه', plan: 'ادامه روند مطالعه، تست‌زنی و مرور مباحث باقی‌مانده با تمرکز بر <strong>افزایش حجم و سرعت تست‌زنی</strong> و <strong>مرورهای تلفیقی</strong>.' },
+                { day: 'پنج‌شنبه (۱۹ تیر)', plan: '<strong>صبح:</strong> آزمون جامع شبیه‌ساز شماره ۲ (شامل تمام مباحث یازدهم در بودجه‌بندی).<br><strong>عصر:</strong> تحلیل کامل و عمیق آزمون شبیه‌ساز و رفع اشکال نهایی.' }
+            ];
+
+
+            // --- FUNCTIONS ---
+            
+            function getPriorityClass(priority) {
+                if (priority.includes('بسیار بالا')) return 'priority-high';
+                if (priority.includes('بالا')) return 'priority-high';
+                if (priority.includes('متوسط')) return 'priority-medium';
+                return '';
+            }
+
+            function renderSubjectTable() {
+                const tbody = document.getElementById('subject-allocation-tbody');
+                tbody.innerHTML = '';
+                subjectData.forEach(subject => {
+                    const row = document.createElement('tr');
+                    const priorityClass = getPriorityClass(subject.priority);
+                    row.innerHTML = `
+                        <td><strong>${subject.name}</strong></td>
+                        <td>${subject.topic}</td>
+                        <td style="text-align:center;">${subject.study}</td>
+                        <td style="text-align:center;">${subject.test}</td>
+                        <td style="text-align:center;">${subject.review}</td>
+                        <td style="text-align:center;"><strong>${subject.total}</strong></td>
+                        <td class="priority ${priorityClass}">${subject.priority}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+
+            function renderWeek1Table() {
+                const tbody = document.getElementById('week1-schedule-tbody');
+                tbody.innerHTML = '';
+                week1Data.forEach((day, index) => {
+                    const row = document.createElement('tr');
+                    const rowId = `week1-day${index}`;
+                    row.id = rowId;
+                    row.innerHTML = `
+                        <td><input type="checkbox" data-id="${rowId}"> <strong>${day.day}</strong></td>
+                        <td>${day.morning}</td>
+                        <td>${day.noon}</td>
+                        <td>${day.evening}</td>
+                        <td>${day.night}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+
+            function renderWeek2Table() {
+                const tbody = document.getElementById('week2-schedule-tbody');
+                tbody.innerHTML = '';
+                week2Data.forEach((day, index) => {
+                    const row = document.createElement('tr');
+                    const rowId = `week2-day${index}`;
+                    row.id = rowId;
+                    row.innerHTML = `
+                        <td><input type="checkbox" data-id="${rowId}"> <strong>${day.day}</strong></td>
+                        <td>${day.plan}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+            
+            // Tab switching logic
+            const tabs = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = document.getElementById(tab.dataset.tab);
+
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    target.classList.add('active');
+                });
+            });
+            
+            // Checklist and LocalStorage Logic
+            const state = JSON.parse(localStorage.getItem('studyPlanState')) || {};
+
+            function saveState() {
+                localStorage.setItem('studyPlanState', JSON.stringify(state));
+            }
+
+            function handleCheckboxClick(e) {
+                if (e.target.matches('input[type="checkbox"]')) {
+                    const checkbox = e.target;
+                    const id = checkbox.dataset.id;
+                    const row = document.getElementById(id);
+                    
+                    if (checkbox.checked) {
+                        row.classList.add('completed');
+                        state[id] = true;
+                    } else {
+                        row.classList.remove('completed');
+                        state[id] = false;
+                    }
+                    saveState();
+                }
+            }
+            
+            function loadState() {
+                Object.keys(state).forEach(id => {
+                    const row = document.getElementById(id);
+                    if (row && state[id]) {
+                        row.classList.add('completed');
+                        const checkbox = row.querySelector(`input[data-id="${id}"]`);
+                        if (checkbox) checkbox.checked = true;
+                    }
+                });
+            }
+
+            // --- INITIALIZATION ---
+            renderSubjectTable();
+            renderWeek1Table();
+            renderWeek2Table();
+            
+            document.getElementById('week1-schedule-table').addEventListener('click', handleCheckboxClick);
+            document.getElementById('week2-schedule-table').addEventListener('click', handleCheckboxClick);
+            
+            loadState(); // Load saved state on page load
+
+        });
+    </script>
+
+</body>
+</html>

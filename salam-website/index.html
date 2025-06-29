@@ -3,56 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سلام</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Vazirmatn', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-        }
-        
-        .container {
-            text-align: center;
-        }
-        
-        h1 {
-            font-size: 4rem;
-            margin: 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 2s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            margin-top: 20px;
-            opacity: 0.8;
-        }
-    </style>
+    <title>برگ برنامه‌ریزی استراتژیک و پیمان دو ساله</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- فونت وزیر برای نمایش بهتر فارسی -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div class="container">
-        <h1>سلام</h1>
-        <p class="subtitle">به وب‌سایت من خوش آمدید</p>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+        <em>تغییر تم</em>
     </div>
+    
+    <div class="container">
+        <header>
+            <h1>«برگ برنامه‌ریزی استراتژیک و پیمان دو ساله»</h1>
+            <h2>(ویژه دانش‌آموزان ورودی به پایه یازدهم)</h2>
+            <p class="quote">«سال یازدهم، دیگر یک پایه معمولی نیست؛ سکوی پرتاب شما برای امتحانات نهایی و کنکور است. این گفتگو، اولین گام ما برای ساختن یک سکوی محکم و یک پرتاب قدرتمند است.»</p>
+        </header>
+
+        <main>
+            <form id="strategic-form">
+                <!-- بخش 1: اطلاعات پایه و معرفی -->
+                <section id="section-1">
+                    <h3>بخش ۱: اطلاعات پایه و معرفی</h3>
+                    <div class="form-group">
+                        <label for="fullname">نام و نام خانوادگی:</label>
+                        <input type="text" id="fullname" name="fullname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="major">رشته تحصیلی:</label>
+                        <input type="text" id="major" name="major" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="today-date">تاریخ امروز:</label>
+                        <input type="text" id="today-date" name="today-date" class="auto-date" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">بهترین راه تماس با شما (تلفن/پیام‌رسان):</label>
+                        <input type="text" id="contact" name="contact" required>
+                    </div>
+                </section>
+
+                <!-- بخش 2: ارزیابی استراتژیک پایه دهم -->
+                <section id="section-2">
+                    <h3>بخش ۲: ارزیابی استراتژیک پایه دهم (نگاهی به فونداسیون)</h3>
+                    <div class="form-group">
+                        <label>۱. کارنامه دهم شما: لطفاً معدل کل و نمرات نهایی خود در سه درس کلیدی زیر در پایه دهم را بنویسید:</label>
+                        <div class="sub-form-group">
+                            <label for="key-course-1">درس کلیدی ۱ (مثلاً: ریاضی ۱):</label>
+                            <input type="text" id="key-course-1" name="key-course-1">
+                        </div>
+                        <div class="sub-form-group">
+                            <label for="key-course-2">درس کلیدی ۲ (مثلاً: فیزیک ۱ / زیست ۱):</label>
+                            <input type="text" id="key-course-2" name="key-course-2">
+                        </div>
+                        <div class="sub-form-group">
+                            <label for="key-course-3">درس کلیدی ۳ (مثلاً: شیمی ۱):</label>
+                            <input type="text" id="key-course-3" name="key-course-3">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>۲. تحلیل عملکرد شما:</label>
+                        <div class="sub-form-group">
+                            <label for="strong-courses">در کدام درس(های) پایه دهم احساس می‌کنید پایه‌ی بسیار قوی دارید و کاملاً مسلط هستید؟</label>
+                            <textarea id="strong-courses" name="strong-courses" rows="3"></textarea>
+                        </div>
+                        <div class="sub-form-group">
+                            <label for="weak-courses">در کدام درس(های) پایه دهم، احساس می‌کنید مفاهیم را به صورت سطحی یاد گرفته‌اید و نیاز به مرور جدی دارید؟</label>
+                            <textarea id="weak-courses" name="weak-courses" rows="3"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="test-experience">۳. تجربه آزمون: آیا در سال دهم، تجربه شرکت در آزمون‌های تستی (آزمایشی یا کتاب تست) را داشته‌اید؟ لطفاً به طور خلاصه توضیح دهید.</label>
+                        <textarea id="test-experience" name="test-experience" rows="4"></textarea>
+                    </div>
+                </section>
+                
+                <!-- بخش 3: ترسیم چشم‌انداز دو ساله -->
+                <section id="section-3">
+                    <h3>بخش ۳: ترسیم چشم‌انداز دو ساله (هدف‌گذاری برای قله)</h3>
+                    
+                    <div class="form-group">
+                        <label for="awareness-rating">۴. آگاهی از تغییرات: چقدر با اهمیت و تاثیر مستقیم نمرات امتحانات نهایی یازدهم در نتیجه نهایی کنکورتان آشنا هستید؟ (از ۱ تا ۵ نمره دهید؛ ۱=خیلی کم، ۵=کاملاً آگاهم)</label>
+                        <div class="rating">
+                            <input type="radio" id="rating-1" name="awareness-rating" value="1">
+                            <label for="rating-1">۱</label>
+                            <input type="radio" id="rating-2" name="awareness-rating" value="2">
+                            <label for="rating-2">۲</label>
+                            <input type="radio" id="rating-3" name="awareness-rating" value="3">
+                            <label for="rating-3">۳</label>
+                            <input type="radio" id="rating-4" name="awareness-rating" value="4">
+                            <label for="rating-4">۴</label>
+                            <input type="radio" id="rating-5" name="awareness-rating" value="5">
+                            <label for="rating-5">۵</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="final-dream">۵. رویای نهایی شما: اگر همه چیز طبق برنامه پیش برود، دوست دارید در کنکور سال آینده به چه رشته و دانشگاهی برسید؟ (حتی اگر رویایی به نظر برسد، بنویسید).</label>
+                        <textarea id="final-dream" name="final-dream" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="grade-goal">۶. هدف‌گذاری برای یازدهم: با توجه به اهمیت امتحانات نهایی، دوست دارید در پایان سال یازدهم به چه معدلی دست پیدا کنید؟ (یک عدد واقع‌بینانه اما چالشی بنویسید).</label>
+                        <input type="text" id="grade-goal" name="grade-goal">
+                    </div>
+                </section>
+                
+                <!-- بخش 4: دنیای مطالعه شما -->
+                <section id="section-4">
+                    <h3>بخش ۴: دنیای مطالعه شما (عادت‌ها و ابزارها)</h3>
+                    
+                    <div class="form-group">
+                        <label for="study-strategy">۷. استراتژی مطالعه شما: وقتی یک فصل جدید را شروع می‌کنید، معمولاً چگونه آن را مطالعه می‌کنید؟ (مثلاً: فقط کتاب درسی، جزوه معلم، ویدئوی آموزشی، کتاب کمک‌درسی و...)</label>
+                        <textarea id="study-strategy" name="study-strategy" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>۸. مطالعه تشریحی در مقابل تستی:</label>
+                        <div class="sub-form-group">
+                            <label for="descriptive-time">چقدر برای حل تمرین‌های تشریحی و پایان فصل کتاب درسی وقت می‌گذارید؟</label>
+                            <textarea id="descriptive-time" name="descriptive-time" rows="3"></textarea>
+                        </div>
+                        <div class="sub-form-group">
+                            <label for="test-time">چقدر برای حل تست‌های مربوط به آن فصل وقت می‌گذارید؟</label>
+                            <textarea id="test-time" name="test-time" rows="3"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="summer-plan">۹. برنامه تابستان شما: آیا برای تابستان پیش رو (بین دهم و یازدهم) برنامه مطالعاتی خاصی دارید؟ اگر بله، لطفاً به طور خلاصه توضیح دهید.</label>
+                        <textarea id="summer-plan" name="summer-plan" rows="4"></textarea>
+                    </div>
+                </section>
+                
+                <!-- بخش 5: فراتر از کتاب‌ها -->
+                <section id="section-5">
+                    <h3>بخش ۵: فراتر از کتاب‌ها (مهارت‌های نرم و سیستم حمایتی)</h3>
+                    
+                    <div class="form-group">
+                        <label for="time-waster">۱۰. مدیریت زمان و انرژی: بزرگترین عاملی که باعث اتلاف وقت شما در طول روز می‌شود چیست؟ (مثلاً: گوشی موبایل، معاشرت بیش از حد، اهمال‌کاری و...)</label>
+                        <textarea id="time-waster" name="time-waster" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="support-system">۱۱. سیستم حمایتی شما: خانواده و دوستانتان تا چه حد در مسیر تحصیلی شما مشوق و حامی هستند؟</label>
+                        <textarea id="support-system" name="support-system" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="biggest-concern">۱۲. بزرگترین دغدغه شما: بزرگترین نگرانی یا سوالی که در مورد سال یازدهم و مسیر پیش رو دارید چیست؟</label>
+                        <textarea id="biggest-concern" name="biggest-concern" rows="3"></textarea>
+                    </div>
+                </section>
+                
+                <!-- بخش 6: پیمان مشترک ما -->
+                <section id="section-6">
+                    <h3>بخش ۶: پیمان مشترک ما (آغاز همکاری استراتژیک)</h3>
+                    
+                    <div class="form-group">
+                        <label for="expectation">۱۳. انتظار شما از این شراکت: برای اینکه این همکاری دو ساله ما به بهترین نتیجه ممکن برسد، مهم‌ترین انتظاری که از من به عنوان مشاور دارید چیست؟</label>
+                        <textarea id="expectation" name="expectation" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="first-step">۱۴. اولین گام عملی شما: اولین و مهم‌ترین قولی که برای شروع قدرتمند تابستان و سال یازدهم به خودتان می‌دهید چیست؟</label>
+                        <textarea id="first-step" name="first-step" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>تاییدیه:</label>
+                        <div class="confirmation">
+                            <p>اینجانب <input type="text" id="confirmation-name" name="confirmation-name" class="inline-input"> با آگاهی کامل از اهمیت سال یازدهم، اطلاعات این فرم را با صداقت و با هدف برنامه‌ریزی برای آینده‌ام تکمیل نمودم.</p>
+                            <div class="signature">
+                                <label for="signature">امضا:</label>
+                                <input type="text" id="signature" name="signature">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- دکمه‌های عملیاتی -->
+                <div class="form-actions">
+                    <button type="button" id="save-form">ذخیره فرم</button>
+                    <button type="button" id="print-form">چاپ فرم</button>
+                    <button type="button" id="reset-form">پاک کردن فرم</button>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <p>تمامی حقوق محفوظ است &copy; ۱۴۰۳</p>
+        </footer>
+    </div>
+
+    <script src="assets/js/script.js"></script>
 </body>
 </html> 

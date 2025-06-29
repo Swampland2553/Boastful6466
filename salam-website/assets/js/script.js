@@ -1,12 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // تنظیم تاریخ امروز به صورت خودکار
-    const today = new Date();
-    const persianDate = new Intl.DateTimeFormat('fa-IR').format(today);
-    
-    const dateFields = document.querySelectorAll('.auto-date');
-    dateFields.forEach(field => {
-        if (field) field.value = persianDate;
-    });
     
     // مدیریت تغییر تم (روشن/تاریک)
     const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');

@@ -84,11 +84,8 @@ li {
 
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 0;
     margin-top: 30px;
-    background-color: var(--secondary-color);
-    color: white;
-    border-radius: var(--border-radius);
 }
 
 /* استایل‌های فرم */
@@ -224,7 +221,7 @@ button:hover {
         padding: 0;
     }
     
-    header, section, footer {
+    header, section {
         box-shadow: none;
         border: 1px solid #ddd;
         margin-bottom: 20px;

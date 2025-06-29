@@ -1,27 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // مدیریت تغییر تم (روشن/تاریک)
-    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-    
-    // بررسی تم ذخیره شده در localStorage
-    if (localStorage.getItem('theme') === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        toggleSwitch.checked = true;
-    }
-    
-    // تابع تغییر تم
-    function switchTheme(e) {
-        if (e.target.checked) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-        }    
-    }
-    
-    // اضافه کردن رویداد برای تغییر تم
-    toggleSwitch.addEventListener('change', switchTheme);
+
 
     // ذخیره‌سازی خودکار فرم در localStorage
     const formElements = document.querySelectorAll('input, textarea, select');

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قرارداد همکاری مدت معین (طرح پشتیبانی)</title>
+    <style>
+        /* Import Vazirmatn Font */
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --border-color: #bdc3c7;
+            --background-color: #f4f7f6;
+            --container-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: var(--container-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        h2 {
+            font-size: 1.3em;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.1em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-align: right;
+            color: var(--secondary-color);
+            border-right: 3px solid var(--secondary-color);
+            padding-right: 10px;
+        }
+
+        p, li {
+            text-align: justify;
+            font-size: 1em;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 30px 0;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .form-group label {
+            font-weight: 700;
+            margin-left: 10px;
+            white-space: nowrap;
+            min-width: 150px; /* Adjust as needed */
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="date"] {
+            flex-grow: 1;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.95em;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+        
+        ol {
+            padding-right: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .signature-area {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .signature-box {
+            width: 45%;
+        }
+
+        .signature-box p {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .actions {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 0 10px;
+        }
+
+        button.print-btn {
+            background-color: #27ae60;
+        }
+        
+        button.print-btn:hover {
+            background-color: #2ecc71;
+        }
+
+        button.reset-btn {
+            background-color: #e74c3c;
+        }
+
+        button.reset-btn:hover {
+            background-color: #c0392b;
+        }
+
+        #fee-amount-words {
+            font-weight: bold;
+            color: #27ae60;
+        }
+        
+        @media print {
+            body {
+                background-color: #fff;
+                padding: 0;
+                font-size: 12pt;
+            }
+            .container {
+                box-shadow: none;
+                border: none;
+                margin: 0;
+                max-width: 100%;
+                padding: 0;
+            }
+            .actions {
+                display: none;
+            }
+            h2 {
+                border-bottom: 2px solid #000;
+            }
+            h3 {
+                border-color: #000;
+                color: #000;
+            }
+            input[type="text"],
+            input[type="tel"],
+            input[type="date"] {
+                border: none;
+                border-bottom: 1px dotted #000;
+                border-radius: 0;
+                padding: 2px 0;
+                background-color: #fff;
+            }
+            .form-group {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>بسمه تعالی</h1>
+        <h2>قرارداد همکاری مدت معین (طرح پشتیبانی و پایش تحصیلی)</h2>
+        <p>این قرارداد فی‌مابین طرفین، بر اساس ماده ۱۰ قانون مدنی و با رعایت سایر قوانین و مقررات جاری کشور منعقد می‌گردد و برای طرفین لازم‌الاجرا می‌باشد.</p>
+        <hr>
+
+        <form id="contract-form">
+            <section>
+                <h3>ماده ۱: مشخصات طرفین</h3>
+                <h4>الف) کارفرما:</h4>
+                <div class="form-group">
+                    <label for="institute-name">نام آموزشگاه/موسسه:</label>
+                    <input type="text" id="institute-name">
+                </div>
+                <div class="form-group">
+                    <label for="manager-name">به مدیریت آقای/خانم:</label>
+                    <input type="text" id="manager-name">
+                </div>
+                <div class="form-group">
+                    <label for="institute-address">به نشانی:</label>
+                    <input type="text" id="institute-address">
+                </div>
+                <div class="form-group">
+                    <label for="institute-phone">تلفن:</label>
+                    <input type="tel" id="institute-phone">
+                </div>
+                <p style="font-size:0.9em;">که در این قرارداد «کارفرما» نامیده می‌شود.</p>
+
+                <h4>ب) همیار (پشتیبان):</h4>
+                <div class="form-group">
+                    <label for="supporter-name">نام و نام خانوادگی:</label>
+                    <input type="text" id="supporter-name">
+                </div>
+                 <div class="form-group">
+                    <label for="supporter-nid">کد ملی:</label>
+                    <input type="text" id="supporter-nid" pattern="[0-9]{10}">
+                </div>
+                 <div class="form-group">
+                    <label for="father-name">فرزند:</label>
+                    <input type="text" id="father-name">
+                </div>
+                <div class="form-group">
+                    <label for="supporter-degree">مدرک و رشته تحصیلی:</label>
+                    <input type="text" id="supporter-degree">
+                </div>
+                <div class="form-group">
+                    <label for="supporter-address">به نشانی:</label>
+                    <input type="text" id="supporter-address">
+                </div>
+                <div class="form-group">
+                    <label for="supporter-phone">شماره تماس:</label>
+                    <input type="tel" id="supporter-phone">
+                </div>
+                <p style="font-size:0.9em;">که در این قرارداد «همیار» نامیده می‌شود.</p>
+            </section>
+
+            <section>
+                <h3>ماده ۲: موضوع قرارداد</h3>
+                <p>موضوع قرارداد عبارت است از ارائه خدمات پشتیبانی، پایش و پیگیری تحصیلی به دانش‌آموزان معرفی شده از سوی کارفرما، در چارچوب طرح مشاوره یکساله تحصیلی (سال ۱۴۰۵-۱۴۰۴).</p>
+            </section>
+
+            <section>
+                <h3>ماده ۳: مدت قرارداد</h3>
+                <p>این قرارداد از تاریخ 
+                    <input type="date" id="start-date" style="width: 150px;"> 
+                    لغایت 
+                    <input type="date" id="end-date" style="width: 150px;"> 
+                    به مدت یک سال تحصیلی کامل معتبر می‌باشد.
+                </p>
+            </section>
+
+            <section>
+                <h3>ماده ۴: شرح وظایف و تعهدات همیار</h3>
+                <p>همیار موظف است وظایف زیر را به ازای هر دانش‌آموز تحت پوشش، با دقت و به صورت منظم به انجام رساند:</p>
+                <ol>
+                    <li><strong>پایش شبانه (روزانه):</strong> بررسی گزارش کار روزانه دانش‌آموز در گروه مجازی مشخص شده و ثبت وضعیت در چک‌لیست داخلی.</li>
+                    <li><strong>ارتباط با دانش‌آموز (هفتگی):</strong> برقراری یک تماس تلفنی حداکثر ۲۰ دقیقه‌ای در هر هفته با دانش‌آموز با هدف پیگیری اجرای برنامه‌ها، رفع موانع فوری و تقویت انگیزه.</li>
+                    <li><strong>ارتباط با والدین (ماهانه):</strong> برقراری یک تماس تلفنی حداکثر ۲۰ دقیقه‌ای در هر ماه با والد پیگیر معرفی شده، جهت ارائه گزارش کلی از روند دانش‌آموز و پاسخ به سوالات.</li>
+                    <li><strong>اطمینان از اطلاع‌رسانی:</strong> حصول اطمینان از اینکه اخبار مهم، برنامه‌ها و تغییرات احتمالی به اطلاع دانش‌آموز و والدین رسیده است.</li>
+                    <li><strong>گزارش‌دهی به مشاور اصلی:</strong> ثبت خلاصه‌ای از تماس‌ها و نکات مهم در پرونده دیجیتال دانش‌آموز و هماهنگی با مشاور اصلی در موارد ضروری.</li>
+                    <li><strong>حفظ حریم خصوصی:</strong> تعهد کامل به حفظ محرمانگی کلیه اطلاعات مربوط به دانش‌آموزان، خانواده‌ها و برنامه‌های داخلی کارفرما.</li>
+                    <li><strong>پروتکل عدم ارسال گزارش:</strong> اجرای دقیق پروتکل سه مرحله‌ای تذکر (پیامک، تماس با دانش‌آموز، تماس با والدین) در صورت عدم ارسال گزارش توسط دانش‌آموز.</li>
+                </ol>
+            </section>
+
+            <section>
+                <h3>ماده ۵: حق‌الزحمه و نحوه پرداخت</h3>
+                <p>
+                    حق‌الزحمه همیار به صورت ماهانه و بر مبنای تعداد دانش‌آموزان تحت پوشش محاسبه می‌گردد. به ازای هر دانش‌آموز، مبلغ 
+                    <input type="text" id="fee-amount-num" style="width: 150px; text-align: center;"> ریال
+                    (به حروف: <span id="fee-amount-words">...................................</span> ریال)، 
+                    پس از تایید تکمیل وظایف مندرج در ماده ۴ توسط کارفرما، تا پنجم هر ماه به حساب همیار واریز خواهد شد.
+                </p>
+            </section>
+            
+            <section>
+                <h3>ماده ۶: شرایط فسخ</h3>
+                <p>در صورت عدم انجام تعهدات مندرج در ماده ۴ توسط همیار به صورت مکرر و پس از دو تذکر کتبی، کارفرما حق فسخ یک‌طرفه قرارداد را خواهد داشت.</p>
+            </section>
+
+            <section>
+                <h3>ماده ۷: نسخ قرارداد</h3>
+                <p>این قرارداد در ۷ ماده و در دو نسخه متحدالمتن و با اعتبار یکسان تنظیم گردیده و پس از امضا، بین طرفین مبادله شد.</p>
+            </section>
+
+            <div class="signature-area">
+                <div class="signature-box">
+                    <strong>امضای کارفرما (مدیر)</strong>
+                    <p>نام و نام خانوادگی:</p>
+                    <p>تاریخ و امضا:</p>
+                </div>
+                <div class="signature-box">
+                    <strong>امضای همیار (پشتیبان)</strong>
+                    <p>نام و نام خانوادگی:</p>
+                    <p>تاریخ و امضا:</p>
+                </div>
+            </div>
+            
+            <div class="actions">
+                <button type="button" class="print-btn" onclick="window.print()">چاپ قرارداد</button>
+                <button type="reset" class="reset-btn">پاک کردن فرم</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const feeInput = document.getElementById('fee-amount-num');
+        const feeWordsSpan = document.getElementById('fee-amount-words');
+
+        feeInput.addEventListener('input', function() {
+            const number = this.value.replace(/,/g, '');
+            if (number) {
+                // Add comma separators for better readability
+                this.value = parseInt(number, 10).toLocaleString('en-US');
+                const words = numberToWordsPersian(number);
+                feeWordsSpan.textContent = words ? words : '...................................';
+            } else {
+                feeWordsSpan.textContent = '...................................';
+            }
+        });
+
+        // Reset button functionality
+        document.querySelector('button[type="reset"]').addEventListener('click', function() {
+            feeWordsSpan.textContent = '...................................';
+        });
+
+        function numberToWordsPersian(numStr) {
+            const num = parseInt(numStr, 10);
+            if (isNaN(num) || num === 0) return 'صفر';
+            if (num < 0) return 'منفی ' + numberToWordsPersian(Math.abs(num));
+
+            const ones = ['', 'یک', 'دو', 'سه', 'چهار', 'پنج', 'شش', 'هفت', 'هشت', 'نه'];
+            const teens = ['ده', 'یازده', 'دوازده', 'سیزده', 'چهارده', 'پانزده', 'شانزده', 'هفده', 'هجده', 'نوزده'];
+            const tens = ['', 'ده', 'بیست', 'سی', 'چهل', 'پنجاه', 'شصت', 'هفتاد', 'هشتاد', 'نود'];
+            const hundreds = ['', 'یکصد', 'دویست', 'سیصد', 'چهارصد', 'پانصد', 'ششصد', 'هفتصد', 'هشتصد', 'نهصد'];
+            const scales = ['', 'هزار', 'میلیون', 'میلیارد', 'تریلیون'];
+
+            function convertThreeDigits(n) {
+                let str = '';
+                const h = Math.floor(n / 100);
+                const t = Math.floor((n % 100) / 10);
+                const o = n % 10;
+
+                if (h > 0) {
+                    str += hundreds[h];
+                    if (t > 0 || o > 0) str += ' و ';
+                }
+
+                if (t === 1 && o > 0) {
+                    str += teens[o];
+                } else {
+                    if (t > 0) {
+                        str += tens[t];
+                        if (o > 0) str += ' و ';
+                    }
+                    if (o > 0 && t !== 1) {
+                        str += ones[o];
+                    }
+                }
+                return str;
+            }
+            
+            let parts = [];
+            let scaleIndex = 0;
+            let tempNum = num;
+
+            if (tempNum === 0) return 'صفر';
+
+            while (tempNum > 0) {
+                if (tempNum % 1000 !== 0) {
+                    let partStr = convertThreeDigits(tempNum % 1000);
+                    if (scales[scaleIndex]) {
+                        partStr += ' ' + scales[scaleIndex];
+                    }
+                    parts.push(partStr);
+                }
+                tempNum = Math.floor(tempNum / 1000);
+                scaleIndex++;
+            }
+
+            return parts.reverse().join(' و ');
+        }
+    });
+    </script>
+
+</body>
+</html>

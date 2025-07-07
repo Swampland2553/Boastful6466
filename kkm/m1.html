@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طرح جامع هدایت تحصیلی و راهبری کنکور</title>
+    
+    <!-- Google Fonts: Vazirmatn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* --- General & Reset --- */
+        :root {
+            --primary-blue: #005A9C; /* A professional, deep blue */
+            --accent-orange: #F57C00; /* A vibrant, energetic orange */
+            --dark-text: #333333;
+            --light-text: #666666;
+            --bg-light: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #e9ecef;
+            color: var(--dark-text);
+            line-height: 1.8;
+            direction: rtl;
+        }
+
+        /* --- Brochure Container --- */
+        .brochure-container {
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 40px 50px;
+            background-color: #ffffff;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .brochure-container {
+                margin: 15px;
+                padding: 25px;
+            }
+        }
+
+        /* --- Typography & Headings --- */
+        h1, h2, h3 {
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            border-bottom: 3px solid var(--accent-orange);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 25px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--light-text);
+        }
+        
+        strong {
+            font-weight: 700;
+            color: var(--dark-text);
+        }
+
+        /* --- Header Section --- */
+        .header {
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .school-logo {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .header h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--dark-text);
+        }
+
+        .header .tagline {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+            margin-top: 15px;
+        }
+
+        /* --- Intro Section --- */
+        .intro p {
+            font-size: 1.1rem;
+            text-align: justify;
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: 8px;
+            border-right: 5px solid var(--primary-blue);
+        }
+
+        /* --- Main Content: 5 Pillars --- */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        
+        @media(min-width: 768px) {
+            .pillars-grid {
+                 grid-template-columns: repeat(2, 1fr);
+            }
+            .pillar-item:nth-child(5) {
+                grid-column: 1 / -1;
+            }
+        }
+
+        .pillar-item {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pillar-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 90, 156, 0.1);
+        }
+
+        .pillar-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .pillar-icon {
+            font-size: 2rem;
+            color: #fff;
+            background-color: var(--accent-orange);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .pillar-item .subtitle {
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* --- Roadmap Section --- */
+        .roadmap ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .roadmap li {
+            position: relative;
+            padding: 15px 40px 15px 20px;
+            margin-bottom: 10px;
+            background-color: var(--bg-light);
+            border-radius: 8px;
+            border-right: 4px solid var(--primary-blue);
+        }
+
+        .roadmap li::before {
+            content: '\f0ca'; /* Font Awesome calendar icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+        }
+
+        .roadmap li strong {
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        /* --- CTA Section --- */
+        .cta {
+            background-color: rgba(0, 90, 156, 0.05);
+            border: 2px solid rgba(0, 90, 156, 0.2);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .cta-highlight {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            background-color: var(--accent-orange);
+            padding: 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        /* --- Footer Section --- */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        
+        /* --- Animation --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="brochure-container">
+
+        <!-- Header -->
+        <header class="header">
+            <img src="taha.png" alt="لوگوی دبیرستان" class="school-logo">
+            <h1>معماران مسیر موفقیت شما</h1>
+            <h3>طرح جامع هدایت تحصیلی و راهبری کنکور ۱۴۰۵-۱۴۰۴</h3>
+            <p class="tagline">«همراه شما تا اوج موفقیت؛ راهبری تخصصی، پایش مستمر، آرامش پایدار»</p>
+        </header>
+
+        <!-- Intro -->
+        <section class="intro fade-in">
+            <p>
+                ما باور داریم کنکور یک مسابقه سرعت نیست، بلکه یک <strong>سفر هوشمندانه و شخصی</strong> است. واحد مشاوره تخصصی دبیرستان، صرفاً یک دفتر راهنما نیست؛ بلکه <strong>مرکز فرماندهی استراتژیک</strong> شما برای فتح قله‌های موفقیت است. ما اینجا هستیم تا با یک برنامه علمی، دقیق و انسانی، مسیر منحصربه‌فرد شما را طراحی و تا رسیدن به بهترین نتیجه، گام‌به‌گام همراهی‌تان کنیم.
+            </p>
+        </section>
+
+        <!-- Main Content -->
+        <main>
+            <h2 class="fade-in">معماری برنامه ما: ۵ ستون استوار موفقیت شما</h2>
+            <p class="fade-in">ما موفقیت شما را بر پایه‌ی ۵ ستون مستحکم بنا می‌کنیم که هر کدام، تضمین‌کننده بخشی از مسیر درخشان شماست.</p>
+            
+            <div class="pillars-grid">
+                <article class="pillar-item fade-in">
+                    <div class="pillar-header">
+                        <div class="pillar-icon"><i class="fa-solid fa-handshake"></i></div>
+                        <h3>۱. تیم تخصصی و در دسترس</h3>
+                    </div>
+                    <strong class="subtitle">شما انتخاب می‌کنید، ما متعهد می‌شویم!</strong>
+                    <p>برای اولین بار، شما این فرصت را دارید که مشاور راهبر خود را از میان تیم متخصص ما انتخاب کنید. رابطه‌ای مؤثر، بر پایه اعتماد و انتخاب آگاهانه شما.</p>
+                </article>
+
+                <article class="pillar-item fade-in">
+                    <div class="pillar-header">
+                        <div class="pillar-icon"><i class="fa-solid fa-bullseye"></i></div>
+                        <h3>۲. جلسات فردی و راهبری عمیق</h3>
+                    </div>
+                    <strong class="subtitle">ظرفیت محدود، تمرکز حداکثری!</strong>
+                    <p>هر مشاور، راهبری حداکثر ۳۵ دانش‌آموز را بر عهده دارد. این یعنی جلسات ماهانه عمیق، برنامه‌ریزی شخصی‌سازی شده و پیگیری دقیق برای اطمینان از حرکت شما در مسیر درست.</p>
+                </article>
+
+                <article class="pillar-item fade-in">
+                     <div class="pillar-header">
+                        <div class="pillar-icon"><i class="fa-solid fa-rocket"></i></div>
+                        <h3>۳. کارگاه‌های مهارتی ماهانه</h3>
+                    </div>
+                    <strong class="subtitle">فراتر از درس خواندن!</strong>
+                    <p>موفقیت در کنکور فقط به دانش درسی محدود نمی‌شود. ما هر ماه با کارگاه‌های عملی و جذاب، مهارت‌های کلیدی مثل مدیریت زمان، تکنیک‌های مطالعه عمیق، ساخت ذهنیت قهرمان و استراتژی‌های تست‌زنی را در شما پرورش می‌دهیم.</p>
+                </article>
+                
+                <article class="pillar-item fade-in">
+                     <div class="pillar-header">
+                        <div class="pillar-icon"><i class="fa-solid fa-people-group"></i></div>
+                        <h3>۴. مشارکت هوشمندانه والدین</h3>
+                    </div>
+                    <strong class="subtitle">شما یک تیم هستید!</strong>
+                    <p>ما والدین را به عنوان «شرکای استراتژیک» خود می‌بینیم. با جلسات تخصصی و معرفی «والد پیگیر»، یک کانال ارتباطی شفاف و مؤثر بین خانه و مدرسه ایجاد می‌کنیم تا با هم‌افزایی، بهترین محیط حمایتی را برای شما فراهم آوریم.</p>
+                </article>
+
+                <article class="pillar-item fade-in">
+                     <div class="pillar-header">
+                        <div class="pillar-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <h3>۵. سیستم پایش و گزارش‌دهی شفاف</h3>
+                    </div>
+                    <strong class="subtitle">پیشرفت، قابل اندازه‌گیری است.</strong>
+                    <p>با تحلیل دقیق آزمون‌ها و گزارش‌های عملکرد منظم، نقاط قوت و ضعف شما را شناسایی کرده و استراتژی‌ها را به صورت پویا اصلاح می‌کنیم. شما و والدینتان همیشه در جریان کامل وضعیت و مسیر پیشرفت خواهید بود.</p>
+                </article>
+            </div>
+        </main>
+
+        <!-- Roadmap -->
+        <section class="roadmap">
+            <h2 class="fade-in">سفر یک ساله ما از تیر تا تیر</h2>
+            <p class="fade-in">نگاهی گذرا به کارگاه‌های مهارتی که در طول سال منتظر شماست:</p>
+            <ul class="fade-in">
+                <li><strong>مرداد:</strong> معماری موفقیت (هدف‌گذاری SMART و ساخت عادت‌های پایدار)</li>
+                <li><strong>شهریور:</strong> جعبه ابزار یادگیری عمیق (تکنیک‌های مطالعه فعال)</li>
+                <li><strong>مهر:</strong> مدیریت زمان و انرژی پیشرفته (اولویت‌بندی هوشمند)</li>
+                <li><strong>آبان:</strong> کالبدشکافی آزمون (هنر یادگیری از اشتباهات)</li>
+                <li><strong>آذر:</strong> ساخت ذهنیت قهرمان (مدیریت استرس و افزایش تاب‌آوری)</li>
+                <li><strong>دی:</strong> استراتژی‌های مرور هوشمند (جمع‌بندی نیمسال اول)</li>
+                <li><strong>بهمن:</strong> مهارت‌های استراتژیک تست‌زنی (فراتر از سرعت و دقت)</li>
+                <li><strong>اسفند:</strong> شارژ مجدد انگیزه (عبور از خستگی و فرسودگی)</li>
+                <li><strong>فروردین:</strong> نقشه راه جمع‌بندی نهایی (شخصی‌سازی برنامه عید)</li>
+                <li><strong>اردیبهشت:</strong> شبیه‌سازی پیشرفته کنکور (تمرین شرایط روز آزمون)</li>
+                <li><strong>خرداد:</strong> مدیریت ۷۲ ساعت طلایی (آخرین توصیه‌ها)</li>
+                <li><strong>تیر:</strong> از کارنامه تا دانشگاه (راهنمای عملی انتخاب رشته آگاهانه)</li>
+            </ul>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta fade-in">
+            <h2>گام اول: استارت طلایی در تیرماه (فاز صفر)</h2>
+            <p>مسیر موفقیت از همین امروز شروع می‌شود. اولین قدم، شرکت در <strong>«جلسه سه‌جانبه راهبردی»</strong> در تیرماه است. در این جلسه:</p>
+            <ul>
+                <li>با طرح و مشاوران به طور کامل آشنا می‌شوید.</li>
+                <li><strong>مشاور اختصاصی خود را انتخاب می‌کنید.</strong></li>
+                <li>اولین نقشه راه شخصی‌سازی شده برای شروع طوفانی در تابستان را دریافت می‌کنید.</li>
+            </ul>
+            <div class="cta-highlight">
+                فرصت انتخاب راهنمای مسیرتان را از دست ندهید!
+            </div>
+            <p style="margin-top: 15px; font-weight: 500;">ظرفیت هر مشاور محدود است. برای تضمین بهترین همراهی، اقدام به موقع شما کلیدی است.</p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>واحد مشاوره تحصیلی دبیرستان [نام دبیرستان] | [شماره تماس] | [آدرس وب‌سایت یا شبکه‌های اجتماعی]</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const elementsToAnimate = document.querySelectorAll('.fade-in');
+            elementsToAnimate.forEach(el => observer.observe(el));
+        });
+    </script>
+
+</body>
+</html>

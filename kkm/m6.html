@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>راهنمای انتخاب مدرسه و کلاس بر اساس سطح دانش‌آموز</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- General Styles --- */
+        :root {
+            --color-primary: #007bff;
+            --color-weak: #3498db;
+            --color-medium: #27ae60;
+            --color-strong: #e67e22;
+            --color-light-gray: #f8f9fa;
+            --color-dark-gray: #343a40;
+            --color-text: #495057;
+            --color-success: #28a745;
+            --color-danger: #dc3545;
+            --border-radius: 8px;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: var(--color-light-gray);
+            color: var(--color-text);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        header {
+            background-color: var(--color-primary);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        
+        main {
+            padding: 25px 30px;
+        }
+
+        /* --- Tab Navigation --- */
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid #dee2e6;
+            margin-bottom: 25px;
+        }
+
+        .tab-button {
+            padding: 12px 25px;
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--color-text);
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -1px; /* To align with container border */
+        }
+        
+        .tab-button.active.weak { border-color: var(--color-weak); color: var(--color-weak); }
+        .tab-button.active.medium { border-color: var(--color-medium); color: var(--color-medium); }
+        .tab-button.active.strong { border-color: var(--color-strong); color: var(--color-strong); }
+        
+        .tab-button:hover {
+            background-color: #f1f3f5;
+        }
+
+        /* --- Content Panels --- */
+        .content-panel {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .content-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content-panel h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid;
+        }
+        .group-weak h2 { color: var(--color-weak); border-color: var(--color-weak);}
+        .group-medium h2 { color: var(--color-medium); border-color: var(--color-medium);}
+        .group-strong h2 { color: var(--color-strong); border-color: var(--color-strong);}
+
+        .content-panel h3 {
+            font-size: 1.3rem;
+            color: var(--color-dark-gray);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .characteristics {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            border-right: 4px solid #ced4da;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-right: 0;
+        }
+
+        li {
+            padding-right: 25px;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        li::before {
+            position: absolute;
+            right: 0;
+            top: 4px;
+            font-size: 1.2rem;
+        }
+
+        li.suitable::before {
+            content: '✅';
+        }
+        
+        li.unsuitable::before {
+            content: '❌';
+        }
+        
+        .philosophy {
+            background-color: #f8f9fa;
+            border-right: 4px solid #adb5bd;
+            padding: 12px 15px;
+            margin-top: 10px;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.95rem;
+            color: #555;
+        }
+        
+        .philosophy strong {
+            color: var(--color-dark-gray);
+        }
+        
+        .teacher-focus {
+            margin-top: 15px;
+            padding-right: 15px;
+        }
+        
+        .teacher-focus strong {
+             color: var(--color-dark-gray);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>راهنمای انتخاب مدرسه و کلاس تقویتی</h1>
+        </header>
+
+        <main>
+            <div class="tab-buttons">
+                <button class="tab-button active weak" onclick="showPanel('group-weak', this)">گروه ۱: دانش‌آموزان ضعیف</button>
+                <button class="tab-button medium" onclick="showPanel('group-medium', this)">گروه ۲: دانش‌آموزان متوسط</button>
+                <button class="tab-button strong" onclick="showPanel('group-strong', this)">گروه ۳: دانش‌آموزان قوی</button>
+            </div>
+
+            <div id="group-weak" class="content-panel active group-weak">
+                <h2>گروه ۱: دانش‌آموزان ضعیف (نیازمند بازسازی و حمایت)</h2>
+                <div class="characteristics">
+                    <strong>مشخصات:</strong> پایه علمی ضعیف، اعتماد به نفس پایین، احتمالاً دارای اهمال‌کاری یا اضطراب تحصیلی، نیازمند توجه فردی و پیروزی‌های کوچک.
+                </div>
+
+                <h3>۱. نوع مدرسه مناسب:</h3>
+                <ul>
+                    <li class="suitable">
+                        <strong>مدارس دولتی عادی (با جمعیت کلاس معقول) یا مدارس غیردولتی با رویکرد حمایتی و غیررقابتی.</strong>
+                        <div class="philosophy">
+                            <strong>فلسفه انتخاب:</strong> این دانش‌آموزان به محیطی <strong>امن، آرام و بدون فشار مقایسه‌ای</strong> نیاز دارند. سرعت تدریس در این مدارس معمولاً با بودجه‌بندی آموزش و پرورش هماهنگ است و به دانش‌آموز فرصت می‌دهد تا مفاهیم را به آرامی درک کند. هدف اصلی مدرسه باید <strong>«آموزش»</strong> باشد، نه صرفاً «آماده‌سازی برای کنکور».
+                        </div>
+                    </li>
+                    <li class="unsuitable">
+                        <strong>مدارس تیزهوشان، نمونه دولتی یا هر مدرسه‌ای که به دلیل جو رقابتی شدید و سرعت بالای تدریس مشهور است، برای این گروه سمی است.</strong>
+                        <div class="philosophy">
+                           این دانش‌آموزان در چنین محیطی به سرعت احساس شکست کرده و انگیزه خود را کاملاً از دست می‌دهند.
+                        </div>
+                    </li>
+                </ul>
+
+                <h3>۲. نوع کلاس تقویتی و آموزشگاه مناسب:</h3>
+                <ul>
+                    <li class="suitable">
+                        <strong>کلاس‌های خصوصی یا گروه‌های بسیار کم‌جمعیت (۲ تا ۴ نفره).</strong>
+                         <div class="philosophy">
+                            <strong>فلسفه انتخاب:</strong> این دانش‌آموز نیاز دارد که سوالات پایه‌ای و ابتدایی خود را بدون ترس از قضاوت بپرسد. در گروه‌های بزرگ، او هرگز این جسارت را پیدا نخواهد کرد. معلم باید بتواند به صورت فردی روی نقاط ضعف او کار کرده و با <strong>صبوری</strong> مفاهیم را از صفر بازسازی کند.
+                        </div>
+                        <div class="teacher-focus">
+                            <strong>ویژگی معلم:</strong> معلم باید <strong>آموزش‌محور، صبور و مشوق</strong> باشد، نه یک معلم تست‌زن و کنکوری که به دنبال حل سوالات پیچیده است.
+                        </div>
+                         <div class="teacher-focus">
+                            <strong>تمرکز کلاس‌ها:</strong> باید بر روی <strong>بازسازی مفاهیم پایه سال‌های قبل (دهم و یازدهم)</strong> باشد، نه صرفاً تدریس مباحث دوازدهم.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="group-medium" class="content-panel group-medium">
+                <h2>گروه ۲: دانش‌آموزان متوسط (نیازمند نظم و ارتقا)</h2>
+                <div class="characteristics">
+                     <strong>مشخصات:</strong> پایه علمی نسبتاً خوب اما با حفره‌هایی در برخی مباحث، انگیزه متغیر، نیازمند یک چهارچوب منظم، راهنمایی برای ارتقای روش‌های مطالعه و افزایش سرعت.
+                </div>
+                
+                <h3>۱. نوع مدرسه مناسب:</h3>
+                 <ul>
+                    <li class="suitable">
+                        <strong>مدارس نمونه دولتی یا مدارس غیردولتی باکیفیت و با برنامه منظم.</strong>
+                        <div class="philosophy">
+                            <strong>فلسفه انتخاب:</strong> این دانش‌آموزان از یک <strong>محیط ساختارمند و کمی رقابتی</strong> سود می‌برند. وجود همکلاسی‌های قوی‌تر می‌تواند برای آن‌ها انگیزه ایجاد کند. این مدارس معمولاً برنامه‌های آموزشی منظم، آزمون‌های دوره‌ای و دبیران باتجربه‌تری دارند که به دانش‌آموز کمک می‌کند تا نظم مطالعاتی پیدا کرده و حفره‌های علمی خود را پر کند.
+                        </div>
+                    </li>
+                    <li class="unsuitable">
+                        <strong>مدارس بسیار رقابتی (که ممکن است باعث استرس بیش از حد شوند) یا مدارس بسیار بی‌برنامه (که باعث اهمال‌کاری او می‌شوند) برای این گروه مناسب نیست.</strong>
+                    </li>
+                </ul>
+
+                <h3>۲. نوع کلاس تقویتی و آموزشگاه مناسب:</h3>
+                <ul>
+                    <li class="suitable">
+                        <strong>کلاس‌های گروهی با جمعیت متوسط (۱۰ تا ۲۰ نفر) در آموزشگاه‌های معتبر.</strong>
+                         <div class="philosophy">
+                            <strong>فلسفه انتخاب:</strong> این دانش‌آموز می‌تواند در یک گروه متوسط، هم از تدریس معلم و هم از فضای رقابتی سالم بهره‌مند شود. او دیگر نیاز به بازسازی از صفر ندارد، بلکه به دنبال <strong>یادگیری نکات تکمیلی، روش‌های تست‌زنی و افزایش سرعت</strong> است.
+                        </div>
+                        <div class="teacher-focus">
+                            <strong>ویژگی معلم:</strong> معلم باید هم در <strong>تدریس مفهومی</strong> قوی باشد و هم در <strong>آموزش تکنیک‌های تست‌زنی</strong>. او باید بتواند کلاس را به خوبی مدیریت کرده و به سوالات دانش‌آموزان متوسط پاسخ دهد.
+                        </div>
+                         <div class="teacher-focus">
+                            <strong>تمرکز کلاس‌ها:</strong> می‌تواند بر روی <strong>دروس چالشی‌تر</strong> یا مباحثی باشد که دانش‌آموز در آن‌ها ضعف دارد، با هدف ارتقای نمره و تراز.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="group-strong" class="content-panel group-strong">
+                <h2>گروه ۳: دانش‌آموزان قوی (نیازمند چالش و استراتژی)</h2>
+                 <div class="characteristics">
+                     <strong>مشخصات:</strong> پایه علمی بسیار قوی، خودخوان و منظم، دارای انگیزه درونی بالا، نیازمند چالش‌های جدید برای جلوگیری از رخوت، و به دنبال استراتژی‌های مدیریت آزمون و کسب رتبه برتر.
+                </div>
+
+                <h3>۱. نوع مدرسه مناسب:</h3>
+                <ul>
+                    <li class="suitable">
+                        <strong>مدارس تیزهوشان (سمپاد) یا برترین مدارس غیردولتی که به فضای علمی و رقابتی مشهور هستند.</strong>
+                        <div class="philosophy">
+                            <strong>فلسفه انتخاب:</strong> این دانش‌آموزان در یک <strong>محیط پویا و سرشار از چالش</strong> شکوفا می‌شوند. رقابت با دانش‌آموزان هم‌سطح، آن‌ها را به تلاش بیشتر وامی‌دارد. دبیران این مدارس معمولاً مطالب را در سطح عمیق‌تر و فراتر از کتاب درسی تدریس می‌کنند که این امر برای دانش‌آموز قوی جذاب است.
+                        </div>
+                    </li>
+                    <li class="unsuitable">
+                        <strong>مدارسی با سرعت تدریس پایین یا سطح علمی متوسط، باعث دلزدگی، اتلاف وقت و حتی افت تحصیلی این دانش‌آموزان می‌شود،</strong> زیرا چالشی برای ذهن آن‌ها ایجاد نمی‌کند.
+                    </li>
+                </ul>
+
+                <h3>۲. نوع کلاس تقویتی و آموزشگاه مناسب:</h3>
+                <ul>
+                    <li class="suitable">
+                        <strong>کلاس‌های نکته و تست، کلاس‌های جمع‌بندی، یا کارگاه‌های موضوعی پیشرفته با اساتید برند کنکور.</strong>
+                         <div class="philosophy">
+                            <strong>فلسفه انتخاب:</strong> این دانش‌آموز نیازی به تدریس مجدد مفاهیم پایه ندارد. او به دنبال <strong>یادگیری استراتژی‌های مدیریت آزمون، تکنیک‌های حل سوالات بسیار دشوار (چالشی)، آشنایی با دیدگاه‌های جدید طراحان سوال و جمع‌بندی سریع</strong> است.
+                        </div>
+                        <div class="teacher-focus">
+                            <strong>ویژگی معلم:</strong> معلم باید یک <strong>استاد تمام‌عیار در تحلیل آزمون و استراتژی‌های کنکور</strong> باشد. توانایی او در ارائه نکات سطح بالا و مدیریت زمان، مهم‌تر از تدریس پایه است.
+                        </div>
+                         <div class="teacher-focus">
+                            <strong>جایگزین کلاس:</strong> بسیاری از این دانش‌آموزان ممکن است به کلاس گروهی نیازی نداشته باشند و در عوض از <strong>آزمون‌های آزمایشی دشوار و متعدد</strong> و <strong>جلسات مشاوره‌ای استراتژیک</strong> برای بهینه‌سازی عملکرد خود بهره بیشتری ببرند.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showPanel(panelId, clickedButton) {
+            // Hide all content panels
+            const panels = document.querySelectorAll('.content-panel');
+            panels.forEach(panel => {
+                panel.classList.remove('active');
+            });
+
+            // Deactivate all buttons
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show the target panel
+            const targetPanel = document.getElementById(panelId);
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+            }
+
+            // Activate the clicked button
+            if (clickedButton) {
+                clickedButton.classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>

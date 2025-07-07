@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نقشه راه استراتژیک منابع آموزشی</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- General Styles --- */
+        :root {
+            --primary-color: #005A8D;
+            --secondary-color: #009688;
+            --light-bg: #f8f9fa;
+            --dark-text: #333;
+            --light-text: #f1f1f1;
+            --card-bg: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --font-family: 'Vazirmatn', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        /* --- Header --- */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+            background-color: #e0f2f1;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 30px;
+        }
+
+        /* --- Controls / Tabs --- */
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            background-color: var(--card-bg);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 12px 30px;
+            font-family: var(--font-family);
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            background-color: #e3f2fd;
+            transform: translateY(-2px);
+        }
+
+        .control-btn.active {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            box-shadow: 0 4px 10px rgba(0, 90, 141, 0.4);
+        }
+
+        /* --- Content Area --- */
+        .roadmap-group {
+            display: none; /* Hidden by default, shown by JS */
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .group-header {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .group-header h2 {
+            margin-bottom: 8px;
+            font-size: 1.8rem;
+        }
+        
+        .group-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .phases-container {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+        }
+
+        .phase-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            flex: 1;
+            min-width: 280px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .phase-card h3 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .phase-card h4 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .phase-card ul {
+            list-style: none;
+            padding-right: 0;
+            flex-grow: 1;
+        }
+
+        .phase-card li {
+            position: relative;
+            padding-right: 35px;
+            margin-bottom: 15px;
+        }
+
+        .phase-card li::before {
+            content: attr(data-icon);
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 1.4rem;
+        }
+
+        .phase-card li strong {
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+
+        .phase-card .forbidden {
+            color: #c62828;
+            font-weight: bold;
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 1024px) {
+            .phases-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .phase-card {
+                width: 100%;
+                max-width: 600px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            .control-btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>نقشه راه استراتژیک منابع آموزشی</h1>
+            <p>حرکت از <strong>«آموزش و مفهوم»</strong> به سمت <strong>«تسلط و سرعت»</strong></p>
+        </header>
+
+        <nav class="controls">
+            <button id="btn-weak" class="control-btn">دانش‌آموزان ضعیف</button>
+            <button id="btn-medium" class="control-btn active">دانش‌آموزان متوسط</button>
+            <button id="btn-strong" class="control-btn">دانش‌آموزان قوی</button>
+        </nav>
+
+        <main class="content-area">
+
+            <!-- Группа 1: Слабые студенты -->
+            <div id="group-weak" class="roadmap-group">
+                <div class="group-header">
+                    <h2>گروه ۱: دانش‌آموزان ضعیف (مسیر بازسازی و ساخت)</h2>
+                    <p>هدف اصلی: یادگیری مفاهیم از صفر، ایجاد اعتماد به نفس، و کسب نمره قبولی در امتحانات نهایی.</p>
+                </div>
+                <div class="phases-container">
+                    <div class="phase-card">
+                        <h3>مرحله ۱: تابستان (فاز بازسازی پایه)</h3>
+                        <h4>📚 منبع اصلی:</h4>
+                        <ul>
+                            <li data-icon="📚"><strong>کتاب درسی</strong> سال‌های دهم و یازدهم.</li>
+                        </ul>
+                        <h4>🎯 منبع کمک‌آموزشی (درسنامه محور):</h4>
+                        <ul>
+                            <li data-icon="🎯"><strong>ریاضی و فیزیک:</strong> کتاب‌های «سیر تا پیاز» گاج. (درسنامه‌های روان، مثال‌های حل‌شده فراوان)</li>
+                            <li data-icon="🎯"><strong>شیمی و زیست:</strong> کتاب‌های «آموزش شگفت‌انگیز» خیلی سبز. (آموزش عمیق و مفهومی)</li>
+                        </ul>
+                        <h4>❌ ممنوعیت:</h4>
+                        <ul>
+                            <li data-icon="❌" class="forbidden">در این مرحله، هرگونه کتاب تست، به ویژه کتاب‌های جامع، <strong>ممنوع</strong> است. هدف، ساختن فونداسیون است.</li>
+                        </ul>
+                    </div>
+                    <div class="phase-card">
+                        <h3>مرحله ۲: پاییز و زمستان (فاز تمرکز بر دوازدهم و نهایی)</h3>
+                        <h4>📚 منبع اصلی:</h4>
+                        <ul>
+                            <li data-icon="📚"><strong>کتاب درسی</strong> دوازدهم.</li>
+                        </ul>
+                        <h4>🎯 منبع تشریحی (آمادگی نهایی):</h4>
+                        <ul>
+                            <li data-icon="🎯">کتاب‌های <strong>«ماجراهای من و درسام» خیلی سبز</strong>. (طراحی شده برای نمره ۲۰ نهایی)</li>
+                        </ul>
+                        <h4>🎯 اولین منبع تستی (بسیار آموزشی):</h4>
+                        <ul>
+                            <li data-icon="🎯">(از اواخر پاییز) کتاب‌های <strong>«تست پایه به پایه» خیلی سبز یا گاج</strong>. (فقط برای آشنایی اولیه با تست)</li>
+                        </ul>
+                    </div>
+                    <div class="phase-card">
+                        <h3>مرحله ۳: بهار (فاز جمع‌بندی و مرور)</h3>
+                        <h4>📚 منبع مرور:</h4>
+                        <ul>
+                            <li data-icon="📚">جزوات و خلاصه‌نویسی‌های خود دانش‌آموز + کتاب‌های «ماجراهای من و درسام».</li>
+                        </ul>
+                        <h4>🎯 منبع تست (در صورت آمادگی):</h4>
+                        <ul>
+                            <li data-icon="🎯">کتاب‌های <strong>«جمع‌بندی» مهر و ماه یا خیلی سبز</strong>. (حجم کم و تست‌های منتخب)</li>
+                        </ul>
+                        <h4>🎯 تمرکز اصلی:</h4>
+                        <ul>
+                            <li data-icon="🎯">حل <strong>نمونه سوالات امتحانات نهایی</strong> سال‌های گذشته.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Группа 2: Средние студенты -->
+            <div id="group-medium" class="roadmap-group">
+                 <div class="group-header">
+                    <h2>گروه ۲: دانش‌آموزان متوسط (مسیر تثبیت و ارتقا)</h2>
+                    <p>هدف اصلی: پر کردن حفره‌های علمی، افزایش تسلط بر مفاهیم، و یادگیری تکنیک‌های تست‌زنی.</p>
+                </div>
+                <div class="phases-container">
+                    <div class="phase-card">
+                        <h3>مرحله ۱: تابستان (فاز مرور و تست اولیه)</h3>
+                        <h4>📚 منبع مرور:</h4>
+                        <ul>
+                            <li data-icon="📚">جزوات سال‌های گذشته + درسنامه‌های خلاصه کتاب‌های کمک درسی.</li>
+                        </ul>
+                        <h4>🎯 منبع تست آموزشی (تک‌پایه):</h4>
+                        <ul>
+                            <li data-icon="🎯">کتاب‌های <strong>«پرسش‌های چهارگزینه‌ای (تک‌پایه)» خیلی سبز یا گاج</strong> برای دروس دهم و یازدهم.</li>
+                            <li data-icon="🎯">برای <strong>زیست‌شناسی</strong>، <strong>«تست نشر الگو»</strong> به دلیل درسنامه‌های درختی و تست‌های مفهومی انتخاب خوبی است.</li>
+                        </ul>
+                    </div>
+                    <div class="phase-card">
+                        <h3>مرحله ۲: پاییز و زمستان (فاز یادگیری دوازدهم و تست‌زنی همزمان)</h3>
+                        <h4>📚 منبع اصلی:</h4>
+                        <ul>
+                            <li data-icon="📚">کتاب درسی دوازدهم + درسنامه‌های کتاب‌های تست.</li>
+                        </ul>
+                        <h4>🎯 منبع تست اصلی:</h4>
+                        <ul>
+                            <li data-icon="🎯">ادامه استفاده از کتاب‌های <strong>«پرسش‌های چهارگزینه‌ای دوازدهم» خیلی سبز یا گاج</strong>.</li>
+                            <li data-icon="🎯">برای <strong>شیمی</strong>، <strong>«مبتکران (بهمن بازرگانی)»</strong> یک انتخاب کلاسیک و قدرتمند است.</li>
+                            <li data-icon="🎯">برای <strong>ریاضی و فیزیک</strong>، <strong>«نشر الگو»</strong> یا <strong>«خیلی سبز»</strong> گزینه‌های استاندارد هستند.</li>
+                        </ul>
+                        <h4>🎯 منبع تشریحی (آمادگی نهایی):</h4>
+                        <ul>
+                            <li data-icon="🎯">کتاب‌های <strong>«شب امتحان» خیلی سبز</strong> یا <strong>«امتحان‌یار» گاج</strong>.</li>
+                        </ul>
+                    </div>
+                    <div class="phase-card">
+                        <h3>مرحله ۳: بهار (فاز جمع‌بندی و افزایش سرعت)</h3>
+                        <h4>📚 منبع جمع‌بندی مبحثی:</h4>
+                        <ul>
+                            <li data-icon="📚">کتاب‌های <strong>«جمع‌بندی» مهر و ماه</strong> یا <strong>«موج آزمون» نشر الگو</strong>.</li>
+                        </ul>
+                        <h4>🎯 منبع آزمون‌های جامع:</h4>
+                        <ul>
+                            <li data-icon="🎯">کتاب‌های <strong>«چند کنکور» خیلی سبز</strong> یا <strong>«کنکوریوم» مهر و ماه</strong>.</li>
+                        </ul>
+                         <h4>🎯 منبع موضوعی (در صورت نیاز):</h4>
+                        <ul>
+                            <li data-icon="🎯">برای رفع ضعف در مباحث خاص، کتاب‌های <strong>موضوعی نشر الگو یا دریافت</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Группа 3: Сильные студенты -->
+            <div id="group-strong" class="roadmap-group">
+                <div class="group-header">
+                    <h2>گروه ۳: دانش‌آموزان قوی (مسیر تسلط و استراتژی)</h2>
+                    <p>هدف اصلی: رسیدن به تسلط ۱۰۰٪، مواجهه با سوالات چالشی، و بهینه‌سازی استراتژی‌های آزمون.</p>
+                </div>
+                <div class="phases-container">
+                    <div class="phase-card">
+                        <h3>مرحله ۱: تابستان (فاز آزمون و تحلیل)</h3>
+                        <h4>📚 منبع اصلی:</h4>
+                        <ul>
+                            <li data-icon="📚">منبع اصلی این گروه <strong>آزمون زدن</strong> است، نه بازخوانی درسنامه‌های پایه.</li>
+                        </ul>
+                        <h4>🎯 منبع تست پیشرفته (جامع):</h4>
+                        <ul>
+                            <li data-icon="🎯">کتاب‌های <strong>«آی‌کیو (IQ)» گاج</strong> یا <strong>«نردبام» خیلی سبز</strong> برای سوالات چالشی.</li>
+                            <li data-icon="🎯"><strong>«موج آزمون» نشر الگو</strong> برای ایجاد تسلط از طریق آزمون‌های مبحثی.</li>
+                        </ul>
+                        <h4>🎯 هدف:</h4>
+                        <ul>
+                            <li data-icon="🎯">شناسایی نقاط ضعف بسیار جزئی و آشنایی با ایده‌های جدید تستی.</li>
+                        </ul>
+                    </div>
+                    <div class="phase-card">
+                        <h3>مرحله ۲: پاییز و زمستان (فاز مدیریت چندوجهی)</h3>
+                         <h4>📚 منبع اصلی:</h4>
+                        <ul>
+                            <li data-icon="📚">مطالعه بسیار سریع و روزنامه‌وار کتاب درسی برای تسلط بر جزئیات.</li>
+                        </ul>
+                        <h4>🎯 منبع تست اصلی:</h4>
+                        <ul>
+                            <li data-icon="🎯">ادامه استفاده از سری کتاب‌های <strong>«IQ»</strong> و <strong>«نردبام»</strong> برای مباحث دوازدهم.</li>
+                        </ul>
+                        <h4>🎯 منبع آزمون‌های تالیفی:</h4>
+                        <ul>
+                            <li data-icon="🎯">شرکت در آزمون‌های آزمایشی دشوار (مانند <strong>ماز</strong> یا آزمون‌های ویژه مدارس برتر).</li>
+                        </ul>
+                         <h4>🎯 منبع آمادگی نهایی:</h4>
+                        <ul>
+                            <li data-icon="🎯">مرور سریع بر بارم‌بندی از طریق کتاب‌های کم‌حجم <strong>«شب امتحان»</strong>.</li>
+                        </ul>
+                    </div>
+                    <div class="phase-card">
+                        <h3>مرحله ۳: بهار (فاز بهینه‌سازی و شبیه‌سازی)</h3>
+                        <h4>📚 منبع اصلی:</h4>
+                        <ul>
+                            <li data-icon="📚"><strong>تحلیل آزمون‌های جامع</strong>.</li>
+                        </ul>
+                        <h4>🎯 منبع آزمون‌های جامع:</h4>
+                        <ul>
+                            <li data-icon="🎯">کتاب‌های <strong>«چند کنکور»</strong> و <strong>«کنکوریوم»</strong> برای شبیه‌سازی دقیق کنکور.</li>
+                            <li data-icon="🎯">کتاب <strong>«شبیه‌ساز کنکور»</strong> از انتشارات‌های مختلف برای آزمون‌های تالیفی دشوار.</li>
+                        </ul>
+                        <h4>🎯 منبع مدیریت زمان و استراتژی:</h4>
+                        <ul>
+                            <li data-icon="🎯">کتاب <strong>«فصل آزمون» خیلی سبز</strong> برای افزایش سرعت با آزمون‌های کوتاه.</li>
+                            <li data-icon="🎯">تمرکز بر تکنیک‌های مدیریت آزمون مانند <strong>ضربدر و منها</strong> و <strong>زمان‌های نقصانی</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const controls = document.querySelector('.controls');
+            const buttons = document.querySelectorAll('.control-btn');
+            const roadmapGroups = document.querySelectorAll('.roadmap-group');
+
+            function showGroup(groupId) {
+                // Hide all groups
+                roadmapGroups.forEach(group => {
+                    group.style.display = 'none';
+                });
+
+                // Show the target group
+                const targetGroup = document.getElementById(groupId);
+                if (targetGroup) {
+                    targetGroup.style.display = 'block';
+                }
+
+                // Update active button state
+                buttons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (`btn-${groupId.split('-')[1]}` === btn.id) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+
+            // Event listener for button clicks
+            controls.addEventListener('click', (event) => {
+                if (event.target.classList.contains('control-btn')) {
+                    const btnId = event.target.id; // e.g., "btn-weak"
+                    const groupId = `group-${btnId.split('-')[1]}`; // e.g., "group-weak"
+                    showGroup(groupId);
+                }
+            });
+
+            // Set initial state: Show "medium" group by default
+            showGroup('group-medium');
+        });
+    </script>
+
+</body>
+</html>

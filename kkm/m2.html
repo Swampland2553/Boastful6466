@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دوازدهم پلاس (+۱۲) - رویکردی هوشمند به امتحانات نهایی و کنکور</title>
+    
+    <!-- Google Fonts: Vazirmatn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* --- General & Reset --- */
+        :root {
+            --primary-blue: #0D47A1; /* A deep, strategic blue */
+            --accent-orange: #FF6F00; /* A vibrant, energetic orange */
+            --dark-text: #212121;
+            --light-text: #5f5f5f;
+            --bg-light: #f5f7fa;
+            --border-color: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #eceff1;
+            color: var(--dark-text);
+            line-height: 1.8;
+            direction: rtl;
+        }
+
+        /* --- Brochure Container --- */
+        .brochure-container {
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 40px 50px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+            border-top: 5px solid var(--primary-blue);
+        }
+
+        @media (max-width: 768px) {
+            .brochure-container {
+                margin: 10px;
+                padding: 25px;
+            }
+        }
+
+        /* --- Typography & Headings --- */
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            text-align: center;
+            color: var(--primary-blue);
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            border-bottom: 3px solid var(--accent-orange);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--dark-text);
+            font-weight: 500;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--light-text);
+            font-size: 1.05rem;
+        }
+        
+        strong {
+            font-weight: 700;
+            color: var(--dark-text);
+        }
+
+        /* --- Header Section --- */
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .school-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .header h3 {
+            text-align: center;
+        }
+
+        .header .tagline {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-orange);
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        /* --- Intro Section --- */
+        .intro p {
+            font-size: 1.1rem;
+            text-align: justify;
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: 8px;
+            border-right: 5px solid var(--accent-orange);
+        }
+
+        /* --- Main Content: 4 Pillars --- */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        @media(max-width: 768px) {
+            .pillars-grid {
+                 grid-template-columns: 1fr;
+            }
+        }
+
+        .pillar-item {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        
+        .pillar-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(13, 71, 161, 0.1);
+        }
+        
+        .pillar-icon {
+            font-size: 1.8rem;
+            color: var(--accent-orange);
+            margin-top: 5px;
+        }
+
+        .pillar-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--primary-blue);
+        }
+
+        /* --- Weekly Rhythm Section --- */
+        .weekly-rhythm ul {
+            list-style: none;
+            padding: 0;
+        }
+        .weekly-rhythm li {
+            background-color: var(--bg-light);
+            margin-bottom: 10px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-right: 4px solid var(--primary-blue);
+            font-weight: 500;
+        }
+        .weekly-rhythm li strong {
+            color: var(--accent-orange);
+        }
+
+        /* --- Vision Section --- */
+        .vision {
+            background-color: rgba(13, 71, 161, 0.05);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        .vision h2 {
+            border: none;
+            padding: 0;
+            margin-top: 0;
+        }
+        .vision ul {
+            list-style: none;
+            padding: 0;
+        }
+        .vision li {
+            position: relative;
+            padding-right: 35px;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        .vision li::before {
+            content: '\f058'; /* Font Awesome check-circle icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 5px;
+            color: var(--accent-orange);
+            font-size: 1.3rem;
+        }
+        .vision .commitment {
+            margin-top: 25px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        /* --- Footer Section --- */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        
+        /* --- Animation --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="brochure-container">
+
+        <!-- Header -->
+        <header class="header">
+            <img src="taha.png" alt="لوگوی دبیرستان" class="school-logo">
+            <h1 class="fade-in">دوازدهم پلاس (+۱۲)</h1>
+            <h3 class="fade-in">رویکردی هوشمند به امتحانات نهایی و آزمون کنکور</h3>
+            <p class="tagline fade-in">جایی که استراتژی و آرامش به هم می‌رسند؛ مسیری برای موفقیت پایدار شما.</p>
+        </header>
+
+        <!-- Intro -->
+        <section class="intro fade-in">
+            <p>
+                ما به سال دوازدهم نه به چشم یک مسابقه طاقت‌فرسا، بلکه به عنوان یک <strong>سفر هوشمندانه و شخصی</strong> نگاه می‌کنیم. برنامه «دوازدهم پلاس» یک برنامه آموزشی صرف نیست؛ بلکه یک <strong>اکوسیستم یادگیری پویا</strong> است که برای به حداکثر رساندن پتانسیل شما و کاهش استرس‌های غیرضروری طراحی شده است. ما شما را برای کسب بهترین نتیجه در امتحانات نهایی و کنکور، و مهم‌تر از آن، برای ورود قدرتمند به دانشگاه آماده می‌کنیم.
+            </p>
+        </section>
+
+        <!-- Main Content -->
+        <main>
+            <div style="text-align: center;"><h2 class="fade-in">معماری برنامه ما: ۴ ستون استوار برای موفقیت شما</h2></div>
+            <p class="fade-in" style="text-align: center;">برنامه ما بر پایه‌ی ۴ اصل کلیدی بنا شده که هر کدام، پاسخی به یکی از نیازهای اساسی شما در این سال سرنوشت‌ساز است.</p>
+            
+            <div class="pillars-grid">
+                <article class="pillar-item fade-in">
+                    <i class="fas fa-rocket pillar-icon"></i>
+                    <div>
+                        <h3>۱. دوشنبه‌های استراتژیک: روز شما برای سبقت گرفتن</h3>
+                        <p>این روز طلایی به شما فرصت می‌دهد تا از فشار کلاس‌های متوالی رها شوید و به <strong>مطالعه عمیق، تست‌زنی هدفمند، مرور مباحث هفته و تجدید قوا</strong> بپردازید. این روز، برگ برنده شما برای پیشی گرفتن از دیگران با آرامش و تمرکز است.</p>
+                    </div>
+                </article>
+
+                <article class="pillar-item fade-in">
+                    <i class="fas fa-bullseye pillar-icon"></i>
+                    <div>
+                        <h3>۲. کلاس‌های درس پویا: از تئوری تا تسلط</h3>
+                        <p>ساعات تکراری دروس تخصصی در یک روز، به <strong>کارگاه‌های حل تمرین، رفع اشکال و تست‌زنی</strong> تبدیل می‌شوند تا یادگیری شما از سطح «دانستن» به سطح «تسلط» ارتقا یابد.</p>
+                    </div>
+                </article>
+
+                <article class="pillar-item fade-in">
+                    <i class="fas fa-chart-line pillar-icon"></i>
+                    <div>
+                        <h3>۳. ارزشیابی برای یادگیری، نه فقط برای نمره</h3>
+                        <p>با <strong>آزمون‌های کوتاه و منظم، پرسش‌های کلاسی و بازخوردهای فوری</strong>، نقاط ضعف شما قبل از انباشته شدن شناسایی و برطرف می‌شوند. این رویکرد، اضطراب امتحانات سنگین پایانی را کاهش می‌دهد.</p>
+                    </div>
+                </article>
+                
+                <article class="pillar-item fade-in">
+                    <i class="fas fa-handshake-angle pillar-icon"></i>
+                    <div>
+                        <h3>۴. نقشه راه شفاف و دبیران همراه</h3>
+                        <p>از روز اول، شما و والدینتان <strong>«طرح درس» (Syllabus) کامل و مدون</strong> تمام دروس را دریافت می‌کنید. دبیران ما در این مسیر، نه فقط «مدرس»، بلکه «راهنما و تسهیل‌گر» شما هستند.</p>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <!-- Weekly Rhythm -->
+        <section class="weekly-rhythm">
+            <div style="text-align: center;"><h2 class="fade-in">ریتم هفتگی شما در مسیر موفقیت</h2></div>
+            <ul class="fade-in">
+                <li><strong>شنبه تا چهارشنبه (روزهای کلاسی):</strong> تمرکز بر یادگیری عمیق و مفهومی در کلاس‌های درس پویا و کارگاه‌های تمرینی.</li>
+                <li><strong>دوشنبه (روز طلایی شما):</strong> فرصتی برای مطالعه شخصی، تست‌زنی، جبران عقب‌ماندگی‌های احتمالی و بازیابی انرژی.</li>
+                <li><strong>پنج‌شنبه و جمعه:</strong> زمان تثبیت آموخته‌های هفته، انجام تکالیف و آمادگی برای شروع قدرتمند هفته جدید.</li>
+            </ul>
+        </section>
+
+        <!-- Vision -->
+        <section class="vision fade-in">
+            <div style="text-align: center;"><h2 style="color: var(--primary-blue);">هدف ما: آمادگی همه‌جانبه برای آینده</h2></div>
+            <p>هدف ما در «دوازدهم پلاس» فراتر از قبولی در کنکور است. ما به دنبال ساختن دانش‌آموزی هستیم که:</p>
+            <ul>
+                <li><strong>دانش عمیق و مفهومی</strong> دارد.</li>
+                <li><strong>مهارت‌های مدیریت زمان و استرس</strong> را آموخته است.</li>
+                <li><strong>اعتماد به نفس و تاب‌آوری</strong> بالایی برای مواجهه با چالش‌ها دارد.</li>
+                <li>با <strong>آرامش و برنامه‌ریزی</strong>، بهترین عملکرد خود را به نمایش می‌گذارد.</li>
+            </ul>
+            <p class="commitment">ما متعهدیم که هوشمندانه‌ترین و کارآمدترین مسیر را برای موفقیت پایدار شما طراحی و اجرا کنیم.</p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p></p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const elementsToAnimate = document.querySelectorAll('.fade-in');
+            elementsToAnimate.forEach(el => observer.observe(el));
+        });
+    </script>
+
+</body>
+</html>

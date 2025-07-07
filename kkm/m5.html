@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قرارداد جامع مشاوره و راهبری تحصیلی</title>
+    <style>
+        /* --- Google Font Import --- */
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap');
+
+        /* --- General Body Styles --- */
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* --- Contract Container --- */
+        .contract-container {
+            max-width: 850px;
+            margin: 20px auto;
+            padding: 50px;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3 {
+            color: #1a237e; /* Dark Blue */
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.4em;
+            border-bottom: 2px solid #3f51b5; /* Indigo */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #c5cae9; /* Light Indigo */
+            padding-bottom: 8px;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 25px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        strong {
+            font-weight: 700;
+        }
+
+        /* --- Interactive Elements --- */
+        .fill-in {
+            border: none;
+            border-bottom: 1px dotted #333;
+            background: transparent;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1em;
+            text-align: center;
+            padding: 2px 5px;
+            width: 200px;
+        }
+
+        .fill-in.long {
+            width: 350px;
+        }
+        
+        .checkbox-group {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        input[type="checkbox"] {
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        /* --- Special Sections --- */
+        .article {
+            margin-bottom: 25px;
+        }
+        
+        .note {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #555;
+            margin-right: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-right: 3px solid #3f51b5;
+        }
+
+        /* --- Signature Block --- */
+        .signature-block {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .signature-area {
+            width: 200px;
+        }
+        
+        .signature-line {
+            border-bottom: 1px solid #333;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        /* --- Print Button --- */
+        .print-button-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .print-button {
+            background-color: #1a237e;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .print-button:hover {
+            background-color: #3f51b5;
+        }
+
+        /* --- Print Styles --- */
+        @media print {
+            body {
+                background-color: #fff;
+                padding: 0;
+                margin: 0;
+            }
+            .contract-container {
+                box-shadow: none;
+                border: none;
+                max-width: 100%;
+                padding: 0;
+            }
+            .print-button-container {
+                display: none;
+            }
+            .fill-in {
+                border-bottom: 1px dotted #000;
+            }
+            h2, h3 {
+                color: #000;
+                border-color: #000;
+            }
+            .note {
+                border-right-color: #000;
+                background-color: #f0f0f0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="print-button-container">
+        <button class="print-button" onclick="window.print()">چاپ یا ذخیره به صورت PDF</button>
+    </div>
+
+    <div class="contract-container">
+        <h1>بسمه تعالی</h1>
+        <h2>قرارداد جامع مشاوره و راهبری تحصیلی | سال ۱۴۰۵-۱۴۰۴</h2>
+
+        <p>این قرارداد به منظور تعیین چهارچوب همکاری و تعهدات متقابل برای دستیابی به بهترین نتیجه تحصیلی برای دانش‌آموز، میان طرفین منعقد می‌گردد.</p>
+
+        <hr>
+
+        <div class="article" id="madeh-1">
+            <h3>ماده ۱: مشخصات طرفین</h3>
+            <p>
+                <strong>۱-۱. مشاور/موسسه:</strong> 
+                <input type="text" class="fill-in" placeholder="نام موسسه/مشاور">
+                به مدیریت آقای/خانم 
+                <input type="text" class="fill-in" placeholder="نام مدیر">
+                به نشانی 
+                <input type="text" class="fill-in long" placeholder="آدرس">
+                و تلفن 
+                <input type="text" class="fill-in" placeholder="تلفن">
+                که در این قرارداد <strong>«مرکز»</strong> نامیده می‌شود.
+            </p>
+            <p>
+                <strong>۱-۲. دانش‌آموز و اولیا:</strong>
+                <br>
+                <strong>نام دانش‌آموز:</strong> <input type="text" class="fill-in long" placeholder="نام و نام خانوادگی دانش‌آموز">
+                <strong>کد ملی:</strong> <input type="text" class="fill-in" placeholder="کد ملی دانش‌آموز">
+                <br>
+                <strong>نام ولی (والد پیگیر):</strong> <input type="text" class="fill-in long" placeholder="نام و نام خانوادگی ولی">
+                <strong>تلفن همراه:</strong> <input type="text" class="fill-in" placeholder="شماره تلفن همراه ولی">
+                <br>
+                که مجموعاً در این قرارداد <strong>«خانواده»</strong> نامیده می‌شوند.
+            </p>
+            <p class="note">
+                <strong>تبصره:</strong> کلیه ارتباطات رسمی، گزارش‌ها و هماهنگی‌ها از طریق «والد پیگیر» صورت خواهد گرفت.
+            </p>
+        </div>
+
+        <div class="article" id="madeh-2">
+            <h3>ماده ۲: موضوع و سطح خدمات</h3>
+            <p>
+                موضوع قرارداد عبارت است از ارائه خدمات جامع مشاوره و راهبری تحصیلی مطابق با پکیج انتخابی زیر:
+                <br>
+                <label class="checkbox-group"><input type="checkbox"> دوره مقدماتی</label>
+                <label class="checkbox-group"><input type="checkbox"> دوره پیشرفته</label>
+                <label class="checkbox-group"><input type="checkbox"> دوره فوق پیشرفته</label>
+                <br>
+                <strong>نوع جلسات:</strong>
+                <label class="checkbox-group"><input type="checkbox"> هفتگی (۲۰ دقیقه)</label>
+                <label class="checkbox-group"><input type="checkbox"> دو هفته‌ای (۴۰ دقیقه)</label>
+            </p>
+            <p class="note">
+                <em>* جزئیات کامل خدمات هر پکیج در «جدول ارائه خدمات یکساله» (پیوست شماره ۱) ذکر شده و جزء لاینفک این قرارداد می‌باشد.</em>
+            </p>
+        </div>
+
+        <div class="article" id="madeh-3">
+            <h3>ماده ۳: مدت و مبلغ قرارداد</h3>
+            <p>
+                <strong>۳-۱. مدت:</strong> این قرارداد از تاریخ 
+                <input type="text" class="fill-in" style="width: 100px;" placeholder="../../۱۴">
+                لغایت 
+                <input type="text" class="fill-in" style="width: 100px;" placeholder="../../۱۴">
+                به مدت یک سال تحصیلی کامل معتبر است.
+            </p>
+            <p>
+                <strong>۳-۲. مبلغ کل:</strong> مبلغ کل قرارداد برای پکیج انتخابی، 
+                <input type="text" class="fill-in long" placeholder="به عدد و حروف"> ریال می‌باشد.
+            </p>
+            <p>
+                <strong>۳-۳. نحوه پرداخت:</strong>
+                <label class="checkbox-group"><input type="checkbox"> نقد</label>
+                <label class="checkbox-group"><input type="checkbox"> اقساط، مطابق با زمان‌بندی توافق شده در پیوست شماره ۱.</label>
+            </p>
+            <p class="note">
+                <strong>تبصره:</strong> عدم پرداخت به موقع اقساط، به منزله انصراف از قرارداد تلقی شده و مرکز تعهدی به ادامه ارائه خدمات نخواهد داشت.
+            </p>
+        </div>
+
+        <div class="article" id="madeh-4">
+            <h3>ماده ۴: تعهدات کلیدی طرفین</h3>
+            <p><strong>۴-۱. تعهدات مرکز (مشاور):</strong></p>
+            <ul>
+                <li>ارائه کلیه خدمات مطابق با پکیج انتخابی با بالاترین کیفیت.</li>
+                <li>طراحی و ارائه برنامه شخصی‌سازی شده و پایش مستمر عملکرد دانش‌آموز.</li>
+                <li>ارائه گزارش عملکرد دوره‌ای و منظم به والد پیگیر.</li>
+                <li>حفظ کامل حریم خصوصی و محرمانگی اطلاعات دانش‌آموز و خانواده.</li>
+                <li>پاسخگویی به سوالات از طریق مسیرهای ارتباطی تعریف شده.</li>
+            </ul>
+            
+            <p><strong>۴-۲. تعهدات خانواده (دانش‌آموز و اولیا):</strong></p>
+            <ul>
+                <li><strong>تعهد دانش‌آموز:</strong> پایبندی کامل به برنامه‌های ارائه شده، صداقت در گزارش‌دهی و حضور به موقع در جلسات.</li>
+                <li><strong>تعهد اولیا:</strong> فراهم کردن محیطی آرام و حمایتی، اعتماد به فرآیند مشاوره، و پرهیز از دخالت‌های غیرکارشناسی در امور درسی.</li>
+                <li><strong>حضور در جلسات:</strong> حضور دانش‌آموز در جلسات (حضوری یا آنلاین) در زمان مقرر الزامی است. لغو جلسه تنها با هماهنگی حداقل ۲۴ ساعت قبل امکان‌پذیر است. در صورت تأخیر بیش از ۱۰ دقیقه، زمان جلسه از دست رفته تلقی می‌گردد.</li>
+                <li><strong>ارسال گزارش شبانه:</strong> ارسال گزارش روزانه در فرمت توافقی، جزء وظایف اصلی دانش‌آموز برای دریافت برنامه هفته بعد می‌باشد. در صورت عدم ارسال مکرر (بیش از ۳ بار)، ضمن اطلاع به اولیا، ارائه خدمات با وقفه مواجه خواهد شد.</li>
+                <li><strong>ارتباط موثر:</strong> کلیه ارتباطات با مرکز از طریق مسیرهای مشخص (پیام‌رسان مجاز یا تماس با همیار) و با هماهنگی قبلی صورت پذیرد.</li>
+            </ul>
+        </div>
+        
+        <div class="article" id="madeh-5">
+            <h3>ماده ۵: حل اختلاف</h3>
+            <p>در صورت بروز هرگونه اختلاف، طرفین تلاش خواهند کرد تا موضوع را از طریق مذاکره حل و فصل نمایند.</p>
+        </div>
+
+        <hr>
+
+        <p>این قرارداد در ۵ ماده و ۲ پیوست (جدول خدمات و زمان‌بندی پرداخت) در دو نسخه متحدالمتن و با اعتبار یکسان تنظیم گردیده و پس از مطالعه کامل و آگاهی از تمام مفاد آن، توسط طرفین امضا شد.</p>
+
+        <div class="signature-block">
+            <div class="signature-area">
+                <strong>امضا و اثر انگشت مشاور/مدیر مرکز</strong>
+                <div class="signature-line"></div>
+                <strong>تاریخ:</strong> <input type="text" class="fill-in" style="width: 120px;">
+            </div>
+            <div class="signature-area">
+                <strong>امضا و اثر انگشت ولی دانش‌آموز</strong>
+                <div class="signature-line"></div>
+                <strong>تاریخ:</strong> <input type="text" class="fill-in" style="width: 120px;">
+            </div>
+            <div class="signature-area">
+                <strong>امضا و اثر انگشت دانش‌آموز</strong>
+                <div class="signature-line"></div>
+                <strong>تاریخ:</strong> <input type="text" class="fill-in" style="width: 120px;">
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

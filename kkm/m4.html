@@ -301,7 +301,7 @@
                 <p>
                     حق‌الزحمه همیار به صورت ماهانه و بر مبنای تعداد دانش‌آموزان تحت پوشش محاسبه می‌گردد. به ازای هر دانش‌آموز، مبلغ 
                     <input type="text" id="fee-amount-num" style="width: 150px; text-align: center;"> ریال
-                    (به حروف: <span id="fee-amount-words">...................................</span> ریال)، 
+                    (به حروف: <span id="fee-amount-words"></span> ریال)، 
                     پس از تایید تکمیل وظایف مندرج در ماده ۴ توسط کارفرما، تا پنجم هر ماه به حساب همیار واریز خواهد شد.
                 </p>
             </section>
@@ -347,15 +347,15 @@
                 // Add comma separators for better readability
                 this.value = parseInt(number, 10).toLocaleString('en-US');
                 const words = numberToWordsPersian(number);
-                feeWordsSpan.textContent = words ? words : '...................................';
+                feeWordsSpan.textContent = words ? words : '';
             } else {
-                feeWordsSpan.textContent = '...................................';
+                feeWordsSpan.textContent = '';
             }
         });
 
         // Reset button functionality
         document.querySelector('button[type="reset"]').addEventListener('click', function() {
-            feeWordsSpan.textContent = '...................................';
+            feeWordsSpan.textContent = '';
         });
 
         function numberToWordsPersian(numStr) {

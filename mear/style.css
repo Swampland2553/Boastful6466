@@ -1,0 +1,262 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #50e3c2;
+    --background-color: #f4f7f6;
+    --text-color: #333;
+    --card-bg-color: #ffffff;
+    --border-color: #e0e0e0;
+    --level-a-color: #ff4d4d;
+    --level-b-color: #ffc107;
+    --level-c-color: #4caf50;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    direction: rtl;
+}
+
+#app-container {
+    width: 100%;
+    max-width: 900px;
+    background: linear-gradient(145deg, #e9f0f8, #ffffff);
+    border-radius: 20px;
+    padding: 30px 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+header h1 {
+    font-weight: 900;
+    color: var(--primary-color);
+    font-size: 2.2em;
+}
+
+header p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+#progress-bar-container {
+    width: 100%;
+    height: 10px;
+    background-color: var(--border-color);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 30px 0;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 5px;
+    transition: width 0.5s ease-in-out;
+}
+
+main {
+    display: flex;
+    gap: 30px;
+}
+
+#roadmap-nav {
+    flex: 0 0 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    padding: 10px 0;
+}
+
+/* The roadmap line */
+#roadmap-nav::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    bottom: 25px;
+    right: 24px; /* (50px button width / 2) - 1px */
+    width: 2px;
+    background-color: #cddbe8;
+    z-index: 0;
+}
+
+
+.level-button {
+    width: 100%;
+    padding: 15px;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 1.1em;
+    font-weight: 700;
+    border: 2px solid var(--border-color);
+    background-color: var(--card-bg-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: right;
+    position: relative;
+    z-index: 1;
+}
+
+.level-button:hover {
+    transform: translateX(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);
+}
+
+.level-button.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+    transform: translateX(-10px);
+}
+
+#level-content-display {
+    flex-grow: 1;
+    min-height: 400px;
+}
+
+.content-card {
+    background-color: var(--card-bg-color);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    animation: fadeIn 0.6s ease-out;
+}
+
+.content-card h2 {
+    font-size: 2em;
+    font-weight: 900;
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+.content-card .subtitle {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.content-card h3 {
+    font-size: 1.4em;
+    color: var(--text-color);
+    border-right: 4px solid var(--secondary-color);
+    padding-right: 15px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.content-card p, .content-card li {
+    line-height: 1.8;
+    font-size: 1.05em;
+}
+
+.content-card .example-section {
+    background-color: #f9fafb;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 15px;
+}
+
+.example-section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.example-section th, .example-section td {
+    padding: 12px;
+    text-align: right;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.example-section th {
+    font-weight: 700;
+    background-color: #eef3f8;
+}
+
+.example-section td:first-child {
+    font-weight: 700;
+}
+
+.level-a { color: var(--level-a-color); font-weight: 900; }
+.level-b { color: var(--level-b-color); font-weight: 900; }
+.level-c { color: var(--level-c-color); font-weight: 900; }
+
+.commitment {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #eef3f8;
+    border-right: 5px solid var(--primary-color);
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    #app-container {
+        padding: 20px;
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    #roadmap-nav {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 15px;
+        gap: 10px;
+        flex: 0 0 auto;
+    }
+
+    .level-button {
+        flex-shrink: 0;
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+
+    #roadmap-nav::before {
+        display: none; /* Hide vertical line on mobile */
+    }
+}

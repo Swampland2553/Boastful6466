@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامه جشن فارغ التحصیلی طاها</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>جشن بزرگ فارغ التحصیلی طاها</h1>
+            <p class="subtitle">داشبورد برنامه‌ریزی و اجرای مراسم</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-target="planning">مرحله ۱: برنامه‌ریزی</button>
+            <button class="tab-btn" data-target="ceremony">مرحله ۲: مراسم اصلی (صبح)</button>
+            <button class="tab-btn" data-target="dinner">مرحله ۳: ضیافت شام</button>
+        </nav>
+
+        <main>
+            <!-- مرحله ۱: برنامه‌ریزی -->
+            <div id="planning" class="content-panel active">
+                <h2>مرحله ۱: برنامه‌ریزی و آماده‌سازی نهایی (تا اواخر تیر)</h2>
+                
+                <div class="accordion-item">
+                    <button class="accordion-btn">۱. کمیته برگزاری جشن</button>
+                    <div class="accordion-panel">
+                        <ul class="checklist">
+                            <li><input type="checkbox" id="c1"><label for="c1">مسئول کل و هماهنگ‌کننده (مجری برنامه)</label></li>
+                            <li><input type="checkbox" id="c2"><label for="c2">کمیته مکان و تدارکات</label></li>
+                            <li><input type="checkbox" id="c3"><label for="c3">کمیته محتوا و برنامه</label></li>
+                            <li><input type="checkbox" id="c4"><label for="c4">کمیته ارتباطات و انتظامات</label></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-btn">۲. بودجه و هزینه</button>
+                    <div class="accordion-panel">
+                        <ul class="checklist">
+                            <li><input type="checkbox" id="c5"><label for="c5">نهایی کردن سهم مشارکت خانواده‌ها و مدرسه</label></li>
+                            <li><input type="checkbox" id="c6"><label for="c6">تخصیص بودجه برای هر بخش</label></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-btn">۳. انتخاب و رزرو قطعی مکان‌ها</button>
+                    <div class="accordion-panel">
+                        <ul class="checklist">
+                            <li><input type="checkbox" id="c7"><label for="c7">رزرو "ساختمان الف" برای مراسم صبح (۱۳۰ نفر)</label></li>
+                            <li><input type="checkbox" id="c8"><label for="c8">رزرو "تالار علوم پزشکی" برای ضیافت شام (۶۰ نفر)</label></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <button class="accordion-btn">۴. هماهنگی نهایی با تأمین‌کنندگان</button>
+                    <div class="accordion-panel">
+                        <ul class="checklist">
+                           <li><input type="checkbox" id="c9"><label for="c9">هماهنگی کیترینگ (پذیرایی صبح و شام بوفه)</label></li>
+                           <li><input type="checkbox" id="c10"><label for="c10">رزرو عکاس و فیلمبردار حرفه‌ای</label></li>
+                           <li><input type="checkbox" id="c11"><label for="c11">هماهنگی سیستم صوتی و نورپردازی سالن صبح</label></li>
+                           <li><input type="checkbox" id="c12"><label for="c12">هماهنگی طراح دکور و گل‌آرا</label></li>
+                           <li><input type="checkbox" id="c13"><label for="c13">هماهنگی نهایی با هنرمندان (موسیقی، استندآپ)</label></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-btn">۵. طراحی و ارسال دعوتنامه‌ها</button>
+                    <div class="accordion-panel">
+                        <ul class="checklist">
+                           <li><input type="checkbox" id="c14"><label for="c14">طراحی و ارسال دعوتنامه عمومی (حدود ۷۰ نفر)</label></li>
+                           <li><input type="checkbox" id="c15"><label for="c15">طراحی و ارسال دعوتنامه ویژه شام (حدود ۶۰ نفر)</label></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-btn">۶. تهیه نهایی محتوای برنامه</button>
+                    <div class="accordion-panel">
+                        <ul class="checklist">
+                           <li><input type="checkbox" id="c16"><label for="c16">تدوین نهایی ۳ کلیپ خاطرات</label></li>
+                           <li><input type="checkbox" id="c17"><label for="c17">آماده‌سازی کلیپ کوتاه معرفی اساتید</label></li>
+                           <li><input type="checkbox" id="c18"><label for="c18">هماهنگی متن نهایی سخنرانی‌ها</label></li>
+                           <li><input type="checkbox" id="c19"><label for="c19">تهیه لیست نهایی تقدیرشوندگان</label></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                 <div class="accordion-item">
+                    <button class="accordion-btn">۷. تهیه هدایا و یادبودها</button>
+                    <div class="accordion-panel">
+                        <ul class="checklist">
+                           <li><input type="checkbox" id="c20"><label for="c20">آماده‌سازی پکیج فارغ‌التحصیلان (عکس، لوح، تندیس)</label></li>
+                           <li><input type="checkbox" id="c21"><label for="c21">تهیه کارت هدیه برترین‌های دوازدهم</label></li>
+                           <li><input type="checkbox" id="c22"><label for="c22">تهیه تقدیرنامه برترین‌های پایه‌های دیگر</label></li>
+                           <li><input type="checkbox" id="c23"><label for="c23">تهیه هدایای تقدیر از اساتید</label></li>
+                           <li><input type="checkbox" id="c24"><label for="c24">تهیه تقدیرنامه فارغ‌التحصیلان نخبه</label></li>
+                           <li><input type="checkbox" id="c25"><label for="c25">آماده‌سازی بسته پذیرایی و یادبود ورودی</label></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- مرحله ۲: مراسم اصلی -->
+            <div id="ceremony" class="content-panel">
+                <h2>سین برنامه دقیق مراسم صبح (ساعت ۱۰:۰۰ الی ۱۲:۱۵)</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">۱۰:۰۰ - ۱۰:۱۵</div>
+                        <div class="timeline-content">
+                            <h3>استقبال از مهمانان و فوتوکال</h3>
+                            <p>خوشامدگویی، تحویل یادبود، عکاسی و پذیرایی اولیه</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">۱۰:۱۵ - ۱۰:۳۰</div>
+                        <div class="timeline-content">
+                            <h3>شروع رسمی برنامه</h3>
+                            <p>خوشامدگویی مجری، قرآن، سرود ملی، سخنرانی مدیر</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">۱۰:۳۰ - ۱۰:۵۰</div>
+                        <div class="timeline-content">
+                            <h3>بخش اول هنری و تقدیر</h3>
+                            <p>کلیپ اول خاطرات، اجرای هنری اول، تقدیر از برترین‌های پایه‌های دیگر</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">۱۰:۵۰ - ۱۱:۰۵</div>
+                        <div class="timeline-content">
+                            <h3>بخش دوم هنری و سخنرانی</h3>
+                            <p>کلیپ دوم خاطرات، اجرای هنری دوم (استندآپ)، سخنرانی نماینده والدین</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">۱۱:۰۵ - ۱۱:۲۰</div>
+                        <div class="timeline-content">
+                            <h3>تقدیر ویژه از اساتید پایه دوازدهم</h3>
+                            <p>دعوت از اساتید، اهدای هدیه و لوح، صحبت نماینده اساتید</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">۱۱:۲۰ - ۱۱:۴۰</div>
+                        <div class="timeline-content">
+                            <h3>بخش سوم و تجلیل از نخبگان</h3>
+                            <p>کلیپ سوم خاطرات، اجرای هنری سوم، تجلیل از فارغ‌التحصیلان نخبه قبلی</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item highlight">
+                        <div class="timeline-time">۱۱:۴۰ - ۱۲:۱۰</div>
+                        <div class="timeline-content">
+                            <h3>بخش اصلی: تقدیر از فارغ‌التحصیلان و برش کیک</h3>
+                            <p>اهدای لوح به دانش‌آموزان تجربی و ریاضی (جداگانه)، برش کیک هر رشته، سخنرانی نمایندگان دانش‌آموزان</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">۱۲:۱۰ - ۱۲:۱۵</div>
+                        <div class="timeline-content">
+                            <h3>پایان مراسم صبح</h3>
+                            <p>تشکر نهایی مجری، اعلام برنامه شام، پخش موسیقی</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- مرحله ۳: ضیافت شام -->
+            <div id="dinner" class="content-panel">
+                <h2>برنامه ضیافت شام (ساعت ۲۰:۰۰ الی ۲۱:۳۰)</h2>
+                 <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">۲۰:۰۰ - ۲۰:۱۵</div>
+                        <div class="timeline-content">
+                            <h3>ورود مدعوین</h3>
+                            <p>پخش موسیقی ملایم و خوشامدگویی</p>
+                        </div>
+                    </div>
+                     <div class="timeline-item">
+                        <div class="timeline-time">۲۰:۱۵ - ۲۰:۴۵</div>
+                        <div class="timeline-content">
+                            <h3>پذیرایی اولیه و گپ و گفت</h3>
+                            <p>سرو میوه و شیرینی، اجرای موسیقی زنده، فرصت گفتگو</p>
+                        </div>
+                    </div>
+                     <div class="timeline-item highlight">
+                        <div class="timeline-time">۲۰:۴۵ - ۲۱:۱۵</div>
+                        <div class="timeline-content">
+                            <h3>صرف شام</h3>
+                            <p>شروع سرو شام (بوفه) همراه با موسیقی زنده</p>
+                        </div>
+                    </div>
+                     <div class="timeline-item">
+                        <div class="timeline-time">۲۱:۱۵ - ۲۱:۳۰</div>
+                        <div class="timeline-content">
+                            <h3>پایان ضیافت</h3>
+                            <p>تشکر کوتاه مسئول مدرسه و خداحافظی</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

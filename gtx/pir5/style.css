@@ -1,0 +1,153 @@
+/* General Setup */
+:root {
+    --bg-color: #1a1a2e;
+    --primary-color: #16213e;
+    --secondary-color: #0f3460;
+    --accent-color: #e94560;
+    --font-color: #e0e0e0;
+    --border-color: #2c3e50;
+    --font-family: 'Vazirmatn', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    line-height: 1.8;
+    direction: rtl;
+}
+
+/* Container and Header */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.main-header {
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 20px;
+}
+
+.main-header h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.slogan {
+    font-size: 1.1rem;
+    color: var(--font-color);
+    font-style: italic;
+}
+
+/* Roadmap Accordion */
+.roadmap {
+    width: 100%;
+}
+
+.phase {
+    background-color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.phase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    user-select: none; /* Prevents text selection on click */
+}
+
+.phase-header h2 {
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+.toggle-icon {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    transition: transform 0.4s ease;
+}
+
+.phase-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    background-color: #181828; /* Slightly different background */
+}
+
+.phase-content h3 {
+    color: var(--accent-color);
+    margin: 0 20px 15px;
+    padding-top: 10px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.phase-content ul {
+    list-style-position: inside;
+    padding: 0 30px 20px 30px;
+}
+
+.phase-content li {
+    margin-bottom: 15px;
+}
+
+.phase-content p {
+    margin-top: 5px;
+    padding-right: 15px;
+    border-right: 2px solid var(--secondary-color);
+    color: #c0c0c0;
+}
+
+.challenge-pact {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+    padding: 15px !important;
+    margin-top: 10px;
+}
+
+/* Active State */
+.phase.active .phase-header {
+    background-color: var(--secondary-color);
+}
+
+.phase.active .toggle-icon {
+    transform: rotate(45deg);
+}
+
+.phase.active .phase-content {
+    max-height: 1000px; /* A large value to allow content to expand */
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+    .main-header h1 {
+        font-size: 2rem;
+    }
+    .phase-header h2 {
+        font-size: 1.2rem;
+    }
+}

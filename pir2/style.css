@@ -1,0 +1,175 @@
+/* --- Global Styles --- */
+:root {
+    --primary-color: #007BFF; /* A professional blue */
+    --secondary-color: #e9ecef; /* Light grey for backgrounds */
+    --text-color: #343a40; /* Dark grey for text */
+    --border-color: #dee2e6;
+    --white-color: #ffffff;
+    --accent-color: #28a745; /* Green for emphasis, like Biology */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    direction: rtl;
+    background-color: #f8f9fa;
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+}
+
+header h2 {
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+/* --- Accordion Styles --- */
+.accordion-item {
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden; /* Important for border-radius */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.accordion-header {
+    width: 100%;
+    background-color: var(--white-color);
+    border: none;
+    padding: 20px;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: right;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #f1f3f5;
+}
+
+.accordion-header.active {
+    background-color: var(--secondary-color);
+}
+
+.accordion-header .fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    background-color: var(--white-color);
+    padding: 0 20px;
+}
+
+.accordion-content h3 {
+    color: var(--primary-color);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.accordion-content ul {
+    list-style-position: inside;
+    padding-right: 10px;
+}
+
+.accordion-content li {
+    margin-bottom: 10px;
+}
+
+/* --- Comparison Table Styles --- */
+.comparison-section {
+    margin-top: 50px;
+}
+
+.comparison-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden; /* Clips the inner content to the border-radius */
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+thead {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+tbody td:nth-child(3) { /* Highlight the "Experimental" column */
+    background-color: #e6f7ff;
+}
+
+tbody td strong {
+    color: var(--accent-color);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin: 20px auto;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+    .accordion-header {
+        padding: 15px;
+        font-size: 1rem;
+    }
+}

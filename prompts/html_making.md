@@ -1,5 +1,3 @@
-Revised, clearer instructions:
-
 Create a single, self-contained HTML file that fulfills the following requirements:
 
 1. Typography  

@@ -1,18 +1,18 @@
-Create a single, self-contained HTML file that fulfills the following requirements:
+Single-File HTML Requirements:
 
-1. Typography  
-   • Load the “Vazirmatn” font from Google Fonts.
+1. Fonts  
+   • Import “Vazirmatn” from Google Fonts.
 
-2. Styling  
-   • Write all CSS directly in a `<style>` block inside the same HTML file.  
+2. CSS (inside `<style>`)  
+   • Write all styles inline.  
    • Ensure the layout is fully responsive and mobile-friendly.
 
-3. Behavior  
-   • Write all JavaScript in an inline `<script>` block within the same file.
+3. JavaScript (inside `<script>`)  
+   • Write all interactivity inline.
 
-4. Accordion Component  
-   • Include several accordion items (at least three).  
-   • Each item must expand or collapse independently—opening one item must NOT close any others.  
-   • Provide clear visual cues for expanded vs. collapsed states (e.g., chevron rotation, bold header, etc.).
+4. Accordion  
+   • Provide at least three items.  
+   • Items toggle independently (opening one doesn’t close others).  
+   • Show clear visual states (e.g., chevron rotation, bold header).
 
-Deliverable: One standalone HTML document containing the embedded font link, inline CSS, inline JavaScript, and the accordion markup.
+Deliverable: One standalone HTML document containing the Google Fonts link, inline CSS, inline JavaScript, and accordion markup.

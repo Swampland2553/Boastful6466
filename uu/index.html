@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامه تفصیلی هفته اول تابستان "هستی قهرمان"</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="hero-section">
+            <h1 class="main-title">برنامه تفصیلی هفته اول تابستان</h1>
+            <h2 class="subtitle">"هستی قهرمان" 🗓️</h2>
+            <div class="intro-message">
+                <p>هستی عزیز و خانواده محترمش،</p>
+                <p>بسیار خب! حالا نوبت می‌رسه به فاز عملیاتیِ عملیاتی! 🎉</p>
+            </div>
+        </header>
+
+        <nav class="week-navigation">
+            <button class="nav-btn active" data-day="intro">مقدمه</button>
+            <button class="nav-btn" data-day="monday">دوشنبه</button>
+            <button class="nav-btn" data-day="tuesday">سه‌شنبه</button>
+            <button class="nav-btn" data-day="wednesday">چهارشنبه</button>
+            <button class="nav-btn" data-day="thursday">پنج‌شنبه</button>
+            <button class="nav-btn" data-day="friday">جمعه</button>
+            <button class="nav-btn" data-day="saturday">شنبه</button>
+            <button class="nav-btn" data-day="sunday">یکشنبه</button>
+        </nav>
+
+        <main class="content">
+            <!-- Introduction Section -->
+            <section id="intro" class="day-section active">
+                <div class="intro-content">
+                    <h3>🎯 قانون "ضد تنبلی" و "قدم‌های کوچیک اما پیوسته"</h3>
+                    <p>این برنامه جوری چیده شده که هم بارم‌بندی امتحانات شهریور رو در نظر گرفته، هم مباحث سنگین کنکور رو از همین حالا توش جا دادیم.</p>
+                    
+                    <div class="important-note">
+                        <h4>توجه مهم:</h4>
+                        <p>هستی جان، هر روز دقیقاً همین برنامه‌ای که اینجا نوشته شده رو انجام بده. اگر یه روز کامل انجام نشد، فقط همون بخش رو که مونده، فرداش اولویت بده.</p>
+                    </div>
+
+                    <div class="anti-laziness-rule">
+                        <h4>💡 قانون "ضد تنبلی":</h4>
+                        <p>بعد از هر بخش "یادگیری" یا "مطالعه"، بلافاصله و بدون وقفه یکی از این کارها رو انجام بده:</p>
+                        <ul>
+                            <li>حل ۳ تا ۵ تمرین/تست آموزشی از همون مبحث</li>
+                            <li>خلاصه‌نویسی ۱ صفحه از نکات مهم مبحث</li>
+                            <li>نوشتن ۵ لغت کلیدی جدید با معنی و کاربرد</li>
+                            <li>نوشتن ۱ پاراگراف خلاصه از متن</li>
+                        </ul>
+                        <p class="highlight">این کار کوچیک، جادوی بزرگی می‌کنه!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading indicator for other days -->
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>در حال بارگذاری...</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>هستی قهرمان، این هفته رو با همین اراده و شجاعت جلو برو! 🥳</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

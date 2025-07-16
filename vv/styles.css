@@ -1,0 +1,339 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    direction: rtl;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.header h1 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4CAF50, #45a049);
+    width: 0%;
+    transition: width 0.5s ease;
+    border-radius: 10px;
+}
+
+.progress-text {
+    font-weight: bold;
+    color: #666;
+}
+
+.intro-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-message {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.hero-message h2 {
+    color: #FF6B6B;
+    margin-bottom: 15px;
+}
+
+.anti-lazy-rule {
+    background: #FFF3CD;
+    border: 2px solid #FFE066;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.anti-lazy-rule h3 {
+    color: #856404;
+    margin-bottom: 15px;
+}
+
+.anti-lazy-rule ul {
+    list-style: none;
+    padding-right: 20px;
+}
+
+.anti-lazy-rule li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.anti-lazy-rule li::before {
+    content: "✨";
+    position: absolute;
+    right: -20px;
+}
+
+.day-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.day-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.day-title {
+    font-size: 1.5rem;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.day-progress {
+    background: #e0e0e0;
+    border-radius: 10px;
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.session {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-right: 5px solid #4CAF50;
+}
+
+.session-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.session-time {
+    font-weight: bold;
+    color: #4CAF50;
+    font-size: 1.1rem;
+}
+
+.session-subject {
+    background: #4CAF50;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.session-content {
+    line-height: 1.6;
+}
+
+.session-content h4 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.session-content ul {
+    list-style: none;
+    padding-right: 20px;
+}
+
+.session-content li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.session-content li::before {
+    content: "📝";
+    position: absolute;
+    right: -25px;
+}
+
+.task-checkbox {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(76, 175, 80, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.task-checkbox:hover {
+    background: rgba(76, 175, 80, 0.2);
+}
+
+.task-checkbox input[type="checkbox"] {
+    margin-left: 10px;
+    transform: scale(1.2);
+}
+
+.task-checkbox.completed {
+    background: rgba(76, 175, 80, 0.3);
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.floating-actions {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.fab {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    left: 25px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.rest-day {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+.rest-day h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .day-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .session-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .floating-actions {
+        bottom: 20px;
+        left: 20px;
+    }
+    
+    .fab {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Animation for completed tasks */
+@keyframes celebrate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.celebrate {
+    animation: celebrate 0.5s ease;
+}

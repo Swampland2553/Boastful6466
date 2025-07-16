@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامه هفتگی هستی قهرمان</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#4CAF50">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📚 برنامه هفتگی هستی قهرمان</h1>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p class="progress-text" id="progressText">پیشرفت هفته: 0%</p>
+        </header>
+
+        <main class="main-content">
+            <div class="intro-section">
+                <div class="hero-message">
+                    <h2>🎉 فاز عملیاتی شروع شد!</h2>
+                    <p>هستی عزیز، این شروع داستان قهرمانی توئه. هر روزی که طبق این نقشه گام برمی‌داری، یه پله به موفقیت نزدیک‌تر می‌شی!</p>
+                </div>
+                
+                <div class="anti-lazy-rule">
+                    <h3>💡 قانون "ضد تنبلی"</h3>
+                    <p>بعد از هر بخش یادگیری، بلافاصله یکی از این کارها رو انجام بده:</p>
+                    <ul>
+                        <li>حل ۳ تا ۵ تمرین/تست آموزشی</li>
+                        <li>خلاصه‌نویسی ۱ صفحه از نکات مهم</li>
+                        <li>نوشتن ۵ لغت کلیدی جدید</li>
+                        <li>نوشتن ۱ پاراگراف خلاصه</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="days-container" id="daysContainer">
+                <!-- Days will be populated by JavaScript -->
+            </div>
+        </main>
+
+        <div class="floating-actions">
+            <button class="fab" id="resetBtn" title="ریست کردن پیشرفت">🔄</button>
+            <button class="fab" id="motivationBtn" title="پیام انگیزشی">💪</button>
+        </div>
+    </div>
+
+    <div class="modal" id="motivationModal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h3>💪 پیام انگیزشی</h3>
+            <p id="motivationText"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

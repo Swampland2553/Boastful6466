@@ -87,6 +87,30 @@ header p, .info span {
     background-color: #fafafa;
     border-radius: 8px;
     border: 1px solid #eee;
+    position: relative; /* Added for positioning context */
+}
+
+.difficulty {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #fff;
+}
+
+.difficulty-simple {
+    background-color: #4caf50; /* Green */
+}
+
+.difficulty-medium {
+    background-color: #ff9800; /* Orange */
+}
+
+.difficulty-hard {
+    background-color: #f44336; /* Red */
 }
 
 .question-block p {

@@ -1,11 +1,7 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const quizForm = document.getElementById('quizForm');
-    const resultsContainer = document.getElementById('results');
-    const scoreSpan = document.getElementById('score');
-    const totalSpan = document.getElementById('total');
-    const feedbackSpan = document.getElementById('feedback');
+document.getElementById('quizForm').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-    const correctAnswers = {
+    const answers = {
         q1: 'c',
         q2: 'c',
         q3: 'b',
@@ -18,50 +14,61 @@ document.addEventListener('DOMContentLoaded', () => {
         q10: 'c'
     };
 
-    const totalQuestions = Object.keys(correctAnswers).length;
-    totalSpan.textContent = totalQuestions;
+    let score = 0;
+    const totalQuestions = Object.keys(answers).length;
 
-    quizForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+    for (const q in answers) {
+        const selectedOption = document.querySelector(`input[name="${q}"]:checked`);
+        const questionBlock = document.getElementById(q.replace('q', 'question'));
+        const options = questionBlock.querySelectorAll('.options li label');
 
-        let score = 0;
-        const formData = new FormData(quizForm);
+        // Reset previous styles
+        options.forEach(label => {
+            label.classList.remove('correct', 'incorrect');
+        });
 
-        for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
-            const userAnswer = formData.get(question);
-            const questionBlock = document.getElementById(`question${question.slice(1)}`);
-            const optionLabels = questionBlock.querySelectorAll('.options li label');
-
-            optionLabels.forEach(label => {
-                label.classList.remove('correct', 'incorrect');
-                const input = label.querySelector('input');
-                if (input.value === correctAnswer) {
-                    label.classList.add('correct');
-                }
-                if (input.checked && input.value !== correctAnswer) {
-                    label.classList.add('incorrect');
-                }
-            });
-
-            if (userAnswer === correctAnswer) {
+        if (selectedOption) {
+            const parentLabel = selectedOption.parentElement;
+            if (selectedOption.value === answers[q]) {
                 score++;
+                parentLabel.classList.add('correct');
+            } else {
+                parentLabel.classList.add('incorrect');
+                // Also show the correct answer
+                const correctOption = questionBlock.querySelector(`input[value="${answers[q]}"]`);
+                if (correctOption) {
+                    correctOption.parentElement.classList.add('correct');
+                }
+            }
+        } else {
+            // If no answer is selected, mark the correct one
+            const correctOption = questionBlock.querySelector(`input[value="${answers[q]}"]`);
+            if (correctOption) {
+                correctOption.parentElement.classList.add('correct');
             }
         }
+    }
 
-        scoreSpan.textContent = score;
+    const resultsDiv = document.getElementById('results');
+    const scoreSpan = document.getElementById('score');
+    const totalSpan = document.getElementById('total');
+    const feedbackP = document.getElementById('feedback');
 
-        if (score === totalQuestions) {
-            feedbackSpan.textContent = 'بسیار عالی، هستی قهرمان! 🌟 تو به همه سوالات پاسخ صحیح دادی!';
-            feedbackSpan.style.color = '#155724';
-        } else if (score >= totalQuestions / 2) {
-            feedbackSpan.textContent = 'عملکرد خوبی داشتی! با کمی مرور بیشتر، میتونی به نتیجه کامل برسی.';
-            feedbackSpan.style.color = '#856404';
-        } else {
-            feedbackSpan.textContent = 'نگران نباش! این آزمون برای پیدا کردن نقاط ضعف بود. دوباره تلاش کن!';
-            feedbackSpan.style.color = '#721c24';
-        }
+    scoreSpan.textContent = score;
+    totalSpan.textContent = totalQuestions;
 
-        resultsContainer.classList.remove('hidden');
-        resultsContainer.scrollIntoView({ behavior: 'smooth' });
-    });
+    let feedbackMessage = '';
+    if (score <= 4) {
+        feedbackMessage = 'نیاز به تلاش بیشتر داری! 💪 دوباره مرور کن.';
+    } else if (score <= 7) {
+        feedbackMessage = 'خوب بود! 👏 چندتا نکته رو دوباره بخون.';
+    } else if (score <= 9) {
+        feedbackMessage = 'عالی بود! 🎉 تقریبا همه‌چیز رو یاد گرفتی.';
+    } else {
+        feedbackMessage = 'فوق‌العاده! 🚀 تو یه قهرمان واقعی هستی!';
+    }
+
+    feedbackP.textContent = feedbackMessage;
+    resultsDiv.classList.remove('hidden');
+    resultsDiv.scrollIntoView({ behavior: 'smooth' });
 });

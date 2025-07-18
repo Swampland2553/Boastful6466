@@ -160,17 +160,21 @@ textarea {
 .checkbox-label {
     display: flex;
     align-items: flex-start;
-    cursor: pointer;
+    cursor: default;
     font-size: 14px;
     line-height: 1.5;
     gap: 10px;
 }
 
-.checkbox-label input[type="checkbox"],
-.checkbox-label input[type="radio"] {
-    width: auto;
-    margin: 0;
-    margin-left: 8px;
+.manual-checkbox {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #2c5aa0;
+    border-radius: 3px;
+    background-color: white;
+    flex-shrink: 0;
+    margin-top: 2px;
 }
 
 .checkmark {
@@ -218,11 +222,11 @@ input[type="range"] {
     margin-right: 10px;
 }
 
-/* Rating Scale - Always visible */
-.rating-scale {
+/* Rating Input - Simple box for manual writing */
+.rating-input {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 10px;
     margin: 10px 0;
     padding: 10px;
     border: 2px solid #ddd;
@@ -230,24 +234,29 @@ input[type="range"] {
     background-color: #f9f9f9;
 }
 
-.scale-numbers {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    border: 2px solid #2c5aa0;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 26px;
-    font-size: 14px;
+.rating-label {
     font-weight: bold;
-    background-color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    color: #2c5aa0;
+    font-size: 14px;
 }
 
-.scale-numbers:hover {
-    background-color: #2c5aa0;
-    color: white;
+.rating-box {
+    width: 60px;
+    height: 40px;
+    border: 2px solid #2c5aa0;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.rating-range {
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
 }
 
 /* Other Input */
@@ -569,34 +578,57 @@ input[type="range"] {
         display: none !important;
     }
     
-    /* Rating scale for print */
-    .rating-scale {
+    /* Rating input for print */
+    .rating-input {
         display: flex !important;
-        justify-content: space-between;
         align-items: center;
+        gap: 8px;
         margin: 8px 0;
         padding: 5px;
         border: 1px solid #000;
         background-color: white;
     }
     
-    .scale-numbers {
-        display: inline-block !important;
-        width: 20px;
-        height: 20px;
-        border: 1px solid #000;
-        border-radius: 50%;
-        text-align: center;
-        line-height: 18px;
+    .rating-label {
         font-size: 9px;
         font-weight: bold;
+        color: #000;
+    }
+    
+    .rating-box {
+        width: 40px;
+        height: 25px;
+        border: 1px solid #000;
+        border-radius: 3px;
         background-color: white;
+    }
+    
+    .rating-range {
+        font-size: 8px;
+        color: #000;
     }
     
     /* Ensure no page breaks in critical sections */
     .signature-section {
         break-inside: avoid;
         page-break-inside: avoid;
+    }
+    
+    /* Manual checkboxes for print */
+    .manual-checkbox {
+        width: 12px !important;
+        height: 12px !important;
+        border: 1px solid #000 !important;
+        border-radius: 2px !important;
+        background-color: white !important;
+        flex-shrink: 0;
+        margin-top: 1px;
+    }
+    
+    .checkbox-label {
+        font-size: 9px;
+        line-height: 1.2;
+        gap: 5px;
     }
 }
 

@@ -1,0 +1,139 @@
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    line-height: 1.8;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 25px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+}
+
+header {
+    text-align: center;
+    border-bottom: 2px solid #eef2f5;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.2em;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+header p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+section {
+    margin-bottom: 35px;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #34495e;
+    border-bottom: 2px solid #eef2f5;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.pre-analysis-tips ul {
+    list-style: none;
+    padding-right: 0;
+}
+
+.pre-analysis-tips li {
+    background-color: #eaf5ff;
+    border-right: 4px solid #3498db;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.question-analysis {
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures the border-radius is respected by children */
+}
+
+.toggle-button {
+    width: 100%;
+    background-color: #f8f9fa;
+    border: none;
+    padding: 18px 25px;
+    text-align: right;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 1.3em;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #2c3e50;
+    transition: background-color 0.3s;
+}
+
+.toggle-button:hover {
+    background-color: #f1f3f5;
+}
+
+.toggle-icon {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #3498db;
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 25px;
+    background-color: #ffffff;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+}
+
+.collapsible-content.active {
+    max-height: 1000px; /* Large enough to fit content */
+    padding: 20px 25px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.collapsible-content h4 {
+    font-size: 1.2em;
+    color: #34495e;
+    margin-top: 10px;
+}
+
+.collapsible-content ul {
+    padding-right: 20px;
+}
+
+.tip {
+    background-color: #fffbe6;
+    border-right: 4px solid #f1c40f;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.summary {
+    background-color: #e8f5e9;
+    border-right: 4px solid #4caf50;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.summary ul {
+    list-style: none;
+    padding-right: 0;
+}

@@ -6,14 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const content = button.nextElementSibling;
             const icon = button.querySelector('.toggle-icon');
 
-            // Close all other sections
-            toggleButtons.forEach(otherButton => {
-                if (otherButton !== button) {
-                    otherButton.nextElementSibling.classList.remove('active');
-                    otherButton.querySelector('.toggle-icon').textContent = '+';
-                }
-            });
-
             // Toggle the clicked section
             content.classList.toggle('active');
             if (content.classList.contains('active')) {

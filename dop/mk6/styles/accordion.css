@@ -1,0 +1,104 @@
+.accordion-item {
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.accordion-header {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.accordion-header:hover {
+    background: linear-gradient(135deg, #2980b9, #1f5f8b);
+}
+
+.accordion-header.active {
+    background: linear-gradient(135deg, #27ae60, #229954);
+}
+
+.accordion-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    flex: 1;
+}
+
+.accordion-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+    margin-left: 15px;
+}
+
+.accordion-header.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.accordion-content.active {
+    max-height: 5000px;
+    transition: max-height 0.4s ease-in;
+}
+
+.accordion-body {
+    padding: 25px;
+}
+
+/* انیمیشن برای باز شدن نرم */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.accordion-content.active .accordion-body {
+    animation: slideDown 0.3s ease-out;
+}
+
+/* استایل‌های مخصوص موبایل */
+@media (max-width: 768px) {
+    .accordion-header {
+        padding: 15px;
+    }
+    
+    .accordion-title {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+    
+    .accordion-icon {
+        font-size: 1.3rem;
+        margin-left: 10px;
+    }
+    
+    .accordion-body {
+        padding: 15px;
+    }
+}
+
+/* استایل‌های اضافی برای تعامل بهتر */
+.accordion-header:focus {
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+}
+
+.accordion-header:active {
+    transform: scale(0.98);
+}

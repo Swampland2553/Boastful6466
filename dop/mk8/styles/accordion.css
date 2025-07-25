@@ -1,0 +1,125 @@
+.accordion-section {
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-header {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.accordion-header:hover {
+    opacity: 0.9;
+}
+
+.accordion-header.correct-analysis {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+    color: white;
+}
+
+.accordion-header.wrong-options {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+}
+
+.accordion-header.traps {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    color: white;
+}
+
+.accordion-header.advice {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: white;
+}
+
+.accordion-content.active {
+    max-height: 2000px;
+}
+
+.accordion-inner {
+    padding: 1.5rem;
+}
+
+.accordion-toggle {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active .accordion-toggle {
+    transform: rotate(180deg);
+}
+
+.option-item {
+    background: #f8f9fa;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #e74c3c;
+}
+
+.option-item:last-child {
+    margin-bottom: 0;
+}
+
+.option-title {
+    font-weight: 600;
+    color: #e74c3c;
+    margin-bottom: 0.5rem;
+}
+
+.trap-item {
+    background: #fff3cd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #f39c12;
+}
+
+.trap-item:last-child {
+    margin-bottom: 0;
+}
+
+.trap-title {
+    font-weight: 600;
+    color: #f39c12;
+    margin-bottom: 0.5rem;
+}
+
+.book-reference {
+    background: #e8f5e8;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #2ecc71;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .accordion-header {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .accordion-inner {
+        padding: 1rem;
+    }
+    
+    .option-item,
+    .trap-item {
+        padding: 0.8rem;
+    }
+}

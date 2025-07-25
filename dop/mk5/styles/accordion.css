@@ -1,0 +1,132 @@
+.accordion-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.accordion-icon.active {
+    transform: rotate(180deg);
+}
+
+.question-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.question-content.active {
+    max-height: none;
+}
+
+.content-inner {
+    padding: 0;
+    transition: padding 0.3s ease;
+}
+
+.question-content.active .content-inner {
+    padding: 2rem;
+}
+
+.section {
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.section:last-child {
+    margin-bottom: 0;
+}
+
+.section-header {
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.section-content {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.correct-analysis {
+    border-right: 4px solid #27ae60;
+}
+
+.correct-analysis .section-header {
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+}
+
+.wrong-options {
+    border-right: 4px solid #e74c3c;
+}
+
+.wrong-options .section-header {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+}
+
+.traps {
+    border-right: 4px solid #f39c12;
+}
+
+.traps .section-header {
+    background: linear-gradient(45deg, #f39c12, #e67e22);
+}
+
+.advice {
+    border-right: 4px solid #3498db;
+}
+
+.advice .section-header {
+    background: linear-gradient(45deg, #3498db, #2980b9);
+}
+
+.option-item, .trap-item {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    border-right: 3px solid #bdc3c7;
+}
+
+.option-item:last-child, .trap-item:last-child {
+    margin-bottom: 0;
+}
+
+.option-title, .trap-title {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.book-reference {
+    background: rgba(52, 152, 219, 0.1);
+    border: 1px solid #3498db;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    font-style: italic;
+    color: #2980b9;
+}
+
+@media (max-width: 768px) {
+    .content-inner {
+        padding: 0;
+    }
+    
+    .question-content.active .content-inner {
+        padding: 1rem;
+    }
+    
+    .section-header {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .section-content {
+        padding: 1rem;
+    }
+    
+    .option-item, .trap-item {
+        padding: 0.8rem;
+    }
+}

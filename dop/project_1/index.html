@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آزمون هندسه (۱)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            direction: rtl;
+            background-color: #f4f7f9;
+            color: #333;
+            line-height: 1.8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-header h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .quiz-header p {
+            text-align: center;
+            color: #555;
+            margin-top: 0;
+        }
+        
+        .info-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-section .name-field {
+            display: flex;
+            align-items: center;
+        }
+
+        .info-section .name-field input {
+            border: none;
+            border-bottom: 2px dotted #ccc;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1rem;
+            margin-right: 10px;
+            width: 250px;
+        }
+        
+        .info-section .time-field {
+            font-weight: bold;
+        }
+
+        .notes {
+            background-color: #eaf5ff;
+            border-right: 5px solid #3498db;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .notes h3 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+
+        .notes ul {
+            padding-right: 20px;
+            margin: 0;
+        }
+
+        .accordion-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .accordion-button {
+            background-color: #f7f7f7;
+            color: #444;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            border: none;
+            text-align: right;
+            outline: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            font-family: 'Vazirmatn', sans-serif;
+            transition: background-color 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-button:hover {
+            background-color: #e9e9e9;
+        }
+        
+        .accordion-button::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #3498db;
+            transition: transform 0.3s;
+        }
+
+        .accordion-button.active::after {
+            content: "−";
+            transform: rotate(180deg);
+        }
+
+        .accordion-panel {
+            padding: 0 20px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+        
+        .accordion-panel.active {
+            padding: 20px;
+        }
+
+        .question-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .options li {
+            padding: 8px 0;
+        }
+        
+        .quiz-footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <header class="quiz-header">
+            <h1>آزمون صحت‌سنجی و تثبیت یادگیری شماره 1</h1>
+            <p>درس: هندسه (1) - مبحث: قضیه تالس و تشابه مثلث‌ها</p>
+        </header>
+
+        <section class="info-section">
+            <div class="name-field">
+                <strong>نام و نام خانوادگی:</strong>
+                <input type="text">
+            </div>
+            <div class="time-field">
+                <span>زمان پاسخگویی: 15 دقیقه</span>
+            </div>
+        </section>
+
+        <section class="notes">
+            <h3>نکات مهم:</h3>
+            <ul>
+                <li>لطفاً پاسخ‌ها را در پاسخنامه وارد کنید تا شرایط آزمون واقعی شبیه‌سازی شود.</li>
+                <li>زمان خود را مدیریت کنید. میانگین زمان برای هر سوال 1.5 دقیقه است.</li>
+                <li>اگر در یک سوال به چالش برخوردید، روی آن توقف نکنید و به سراغ سوال بعدی بروید.</li>
+                <li>با آرامش و تمرکز شروع کن. به دانش خودت اعتماد داشته باش. موفق باشی قهرمان! 🚀</li>
+            </ul>
+        </section>
+
+        <main class="accordion">
+            <!-- Question 1 -->
+            <div class="accordion-item">
+                <button class="accordion-button">سوال 1 (ساده)</button>
+                <div class="accordion-panel">
+                    <div class="question-content">
+                        <p>در شکل زیر، `MN || BC` است. با توجه به اندازه‌های داده شده، طول `NC` کدام است؟</p>
+                        <img src="problem1_pic.png" alt="شکل سوال 1">
+                        <ul class="options">
+                            <li>1) 4</li>
+                            <li>2) 4.5</li>
+                            <li>3) 5</li>
+                            <li>4) 5.5</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="accordion-item">
+                <button class="accordion-button">سوال 2 (متوسط)</button>
+                <div class="accordion-panel">
+                    <div class="question-content">
+                        <p>در مثلث `ABC`، پاره‌خط `DE || BC` می‌باشد. طول `BC` کدام است؟</p>
+                        <img src="problem2_pic.png" alt="شکل سوال 2">
+                        <ul class="options">
+                            <li>1) 12</li>
+                            <li>2) 13.5</li>
+                            <li>3) 15</li>
+                            <li>4) 16</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="accordion-item">
+                <button class="accordion-button">سوال 3 (متوسط)</button>
+                <div class="accordion-panel">
+                    <div class="question-content">
+                        <p>در شکل زیر، `AB || CD` است. طول پاره‌خط `CD` چقدر است؟</p>
+                        <img src="problem3_pic.png" alt="شکل سوال 3">
+                        <ul class="options">
+                            <li>1) 10</li>
+                            <li>2) 12</li>
+                            <li>3) 14</li>
+                            <li>4) 16</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="accordion-item">
+                <button class="accordion-button">سوال 4 (دشوار)</button>
+                <div class="accordion-panel">
+                    <div class="question-content">
+                        <p>در ذوزنقه `ABCD` که `AB || CD` است، قطرها یکدیگر را در نقطه `O` قطع کرده‌اند. اگر `AB = 6`، `CD = 9` و `BD = 20` باشد، طول `OB` کدام است؟</p>
+                        <ul class="options">
+                            <li>1) 6</li>
+                            <li>2) 7.5</li>
+                            <li>3) 8</li>
+                            <li>4) 10</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="accordion-item">
+                <button class="accordion-button">سوال 5 (دشوار)</button>
+                <div class="accordion-panel">
+                    <div class="question-content">
+                        <p>در مثلث قائم‌الزاویه `ABC` (`∠A=90°`)، ارتفاع `AH` را رسم کرده‌ایم. اگر `AC = 12` و `BC = 20` باشد، طول `BH` کدام است؟</p>
+                        <ul class="options">
+                            <li>1) 7.2</li>
+                            <li>2) 10</li>
+                            <li>3) 12.8</li>
+                            <li>4) 14.4</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="accordion-item">
+                <button class="accordion-button">سوال 6 (دشوار)</button>
+                <div class="accordion-panel">
+                    <div class="question-content">
+                        <p>در مثلث `ABC`، نقاط `D` بر روی `AB` و `E` بر روی `AC` طوری قرار دارند که `AD = 3`، `AE = 4`، `DB = 5` و `EC = 2` می‌باشد. نسبت `DE/BC` کدام است؟</p>
+                        <ul class="options">
+                            <li>1) 1/2</li>
+                            <li>2) 2/3</li>
+                            <li>3) 3/4</li>
+                            <li>4) رابطه‌ای وجود ندارد.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="accordion-item">
+                <button class="accordion-button">سوال 7 (خیلی دشوار)</button>
+                <div class="accordion-panel">
+                    <div class="question-content">
+                        <p>در شکل زیر، `DE || BC` و `EF || AB` است. اگر `AD = 8` و `DB = 4` باشد، نسبت `BF/FC` کدام است؟</p>
+                        <img src="problem7_pic.png" alt="شکل سوال 7">
+                        <ul class="options">
+                            <li>1) 1/2</li>
+                            <li>2) 2</li>
+                            <li>3) 1/3</li>
+                            <li>4) 3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="accordion-item">
+                <button class="accordion-button">سوال 8 (خیلی دشوار)</button>
+                <div class="accordion-panel">
+                    <div class="question-content">
+                        <p>در مثلث `ABC`، پاره‌خط `DE` موازی قاعده `BC` رسم شده است، به طوری که مساحت ذوزنقه `DBCE`، پانزده برابر مساحت مثلث `ADE` است. نسبت `AD/AB` کدام است؟</p>
+                        <ul class="options">
+                            <li>1) 1/16</li>
+                            <li>2) 1/15</li>
+                            <li>3) 1/4</li>
+                            <li>4) 1/3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="accordion-item">
+                <button class="accordion-button">سوال 9 (خیلی دشوار)</button>
+                <div class="accordion-panel">
+                    <div class="question-content">
+                        <p>در مثلث `ABC`، نقطه `D` وسط ضلع `BC` و نقطه `E` وسط میانه `AD` است. در امتداد `BE`، ضلع `AC` را در نقطه `F` قطع می‌کنیم. نسبت `AF/FC` کدام است؟</p>
+                        <ul class="options">
+                            <li>1) 1/4</li>
+                            <li>2) 1/3</li>
+                            <li>3) 1/2</li>
+                            <li>4) 2/3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="accordion-item">
+                <button class="accordion-button">سوال 10 (خیلی دشوار)</button>
+                <div class="accordion-panel">
+                    <div class="question-content">
+                        <p>در مستطیل `ABCD`، نقطه `M` وسط `BC` است. پاره‌خط `DM`، قطر `AC` را در نقطه `N` قطع می‌کند. اگر `AB = 6` و `AD = 8` باشد، طول `AN` کدام است؟</p>
+                        <ul class="options">
+                            <li>1) 4</li>
+                            <li>2) 5</li>
+                            <li>3) 20/3</li>
+                            <li>4) 25/3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="quiz-footer">
+            <p>پایان آزمون - خسته نباشی قهرمان!</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const accordions = document.querySelectorAll(".accordion-button");
+
+            accordions.forEach(button => {
+                button.addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    const panel = this.nextElementSibling;
+                    panel.classList.toggle("active");
+                    
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

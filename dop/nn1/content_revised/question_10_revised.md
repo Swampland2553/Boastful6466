@@ -1,24 +1,24 @@
-### **Analysis and Detailed Answer for Question 10**
+### **تحلیل و پاسخ تشریحی سوال 10**
 
-**Correct Answer: Option (C)**
+**پاسخ صحیح: گزینه (ج)**
 
-#### **Analysis of the Correct Answer:**
-This combined question tests your knowledge of two important plasma proteins and their functions.
-1.  **Albumin and Osmotic Pressure:** Albumin is the most abundant plasma protein and plays a major role in creating the **osmotic pressure of the blood**. This osmotic pressure acts like a sponge and keeps water inside the vessels and at the end of the capillaries, causes the return of water from the interstitial space into the blood. If albumin is low, the osmotic pressure of the blood decreases, as a result, less water returns to the capillaries and collects in the interstitial space. This fluid accumulation causes swelling or **edema**.
-2.  **Fibrinogen and Blood Coagulation:** Fibrinogen is one of the key factors in the blood coagulation cascade. When a vessel is damaged, this soluble protein is converted into insoluble **fibrin** threads under the influence of the enzyme thrombin. These threads, like a net, cover the wound and form a blood clot. If fibrinogen is low, this net is not formed and the process of **blood coagulation is impaired** and the person suffers from prolonged bleeding.
+#### **بررسی پاسخ صحیح:**
+این سوال ترکیبی، دانش شما رو در مورد دو پروتئین مهم پلاسما و عملکردشون می‌سنجه.
+1.  **آلبومین و فشار اسمزی:** آلبومین فراوان‌ترین پروتئین پلاسماست و نقش اصلی رو در ایجاد **فشار اسمزی خون** داره. این فشار اسمزی مثل یه اسفنج عمل می‌کنه و آب رو داخل رگ‌ها نگه می‌داره و در انتهای مویرگ‌ها، باعث بازگشت آب از فضای بین‌یاخته‌ای به داخل خون می‌شه. اگر آلبومین کم بشه، فشار اسمزی خون کاهش پیدا می‌کنه، در نتیجه آب کمتری به مویرگ‌ها برمی‌گرده و در فضای بین بافتی جمع می‌شه. این تجمع مایع، باعث ورم یا **اِدِم (خیز)** می‌شه.
+2.  **فیبرینوژن و انعقاد خون:** فیبرینوژن یکی از فاکتورهای کلیدی در آبشار انعقاد خونه. در هنگام آسیب به رگ، این پروتئین محلول، تحت تأثیر آنزیم ترومبین به رشته‌های نامحلول **فیبرین** تبدیل می‌شه. این رشته‌ها مثل یه تور، روی زخم رو می‌پوشونن و لخته خون رو تشکیل می‌دن. اگر فیبرینوژن کم باشه، این تور تشکیل نمی‌شه و فرایند **انعقاد خون مختل** می‌شه و فرد دچار خونریزی‌های طولانی‌مدت می‌شه.
 
-*   **Reference from the textbook (pages 61 and 64):** On page 61, the role of plasma proteins in "maintaining osmotic pressure" and "blood coagulation" is mentioned. On page 64, in the coagulation diagram, the conversion of fibrinogen to fibrin is clearly shown.
+*   **نشونه از کتاب درسی (صفحه 61 و 64):** در صفحه 61 به نقش پروتئین‌های خوناب در "حفظ فشار اسمزی" و "انعقاد خون" اشاره شده. در صفحه 64 هم در نمودار انعقاد، تبدیل فیبرینوژن به فیبرین به وضوح نشون داده شده.
 
-#### **Why Other Options Are Incorrect:**
-*   **Option A:** Oxygen transport is the job of hemoglobin in red blood cells, not plasma proteins. A decrease in albumin reduces blood pressure, not increases it.
-*   **Option B:** Immune defense is mostly the responsibility of globulins (antibodies) and white blood cells. Impaired kidney function can be the **cause** of decreased albumin, not its direct **consequence**.
-*   **Option D:** A decrease in fibrinogen causes a **decrease** in the speed of coagulation, not an increase.
+#### **چرا گزینه‌های دیگر غلط هستند؟**
+*   **گزینه الف:** انتقال اکسیژن وظیفه هموگلوبین در گویچه‌های قرمزه، نه پروتئین‌های پلاسما. کاهش آلبومین فشار خون رو کاهش می‌ده، نه افزایش.
+*   **گزینه ب:** دفاع ایمنی بیشتر به عهده گلوبولین‌ها (پادتن‌ها) و گویچه‌های سفیده. اختلال در عملکرد کلیه می‌تونه **علت** کاهش آلبومین باشه، نه **معلول** مستقیم اون.
+*   **گزینه د:** کاهش فیبرینوژن باعث **کاهش** سرعت انعقاد می‌شه، نه افزایش.
 
-#### **Common Test Traps and Pitfalls:**
-*   **Proteins Trap:** The designer mixes up the functions of different plasma proteins (albumin, globulin, fibrinogen) to trap the student who does not know the exact function of each.
-*   **Cause and Effect Trap:** As mentioned, kidney disease can cause albumin excretion and its decrease in the blood. But the question is about the "effects" of protein reduction, not its "causes".
+#### **دام‌ها و تله‌های تستی این مبحث:**
+*   **تله پروتئین‌ها:** طراح، وظایف پروتئین‌های مختلف پلاسما (آلبومین، گلوبولین، فیبرینوژن) رو با هم قاطی می‌کنه تا دانش‌آموزی که وظیفه هر کدوم رو دقیق نمی‌دونه، به دام بیفته.
+*   **تله علت و معلول:** همونطور که گفته شد، ممکنه بیماری کلیوی باعث دفع آلبومین و کاهش اون در خون بشه. اما سوال در مورد "تأثیرات" کاهش پروتئینه، نه "علل" اون.
 
-#### **Advisor's Recommendations:**
-For plasma proteins, also draw a three-column table: **Protein Name (albumin, globulin, fibrinogen), Main Function, Result of Deficiency.** This table will help you to review all the key information at a glance. This question shows that the exam is not only looking for big concepts, but also for important and functional details.
+#### **توصیه‌های مشاور:**
+محمد جان، برای پروتئین‌های پلاسما هم یه جدول سه ستونی بکش: **نام پروتئین (آلبومین، گلوبولین، فیبرینوژن)، وظیفه اصلی، نتیجه کمبود.** این جدول بهت کمک می‌کنه که با یک نگاه، تمام اطلاعات کلیدی رو مرور کنی. این سوال نشون می‌ده که کنکور فقط به دنبال مفاهیم بزرگ نیست، بلکه جزئیات مهم و عملکردی هم براش خیلی ارزش داره.
 
-**You did a great job! Analyzing these questions is a big step in your deep learning path. Don't get tired, champion!** 💪
+**کارت عالی بود! تحلیل این سوال‌ها قدم بزرگی در مسیر یادگیری عمیق توئه. خسته نباشی قهرمان!** 💪

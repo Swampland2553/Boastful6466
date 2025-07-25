@@ -1,22 +1,22 @@
-### **Analysis and Detailed Answer for Question 2**
+### **تحلیل و پاسخ تشریحی سوال 2**
 
-**Correct Answer: Option (B)**
+**پاسخ صحیح: گزینه (ب)**
 
-#### **Analysis of the Correct Answer:**
-Ventricular contraction (ventricular systole) is the most important stage for pumping blood to the body. Let's see what happens step by step:
-1.  When the ventricles begin to contract, the pressure inside them rapidly exceeds the pressure inside the atria. This pressure difference causes the atrioventricular valves (i.e., the **mitral** on the left and the **tricuspid** on the right) to **close** forcefully. (This is the first heart sound or "lub").
-2.  As the contraction continues, the pressure inside the ventricles also exceeds the pressure inside the arteries (aorta and pulmonary). This pressure difference pushes the **semilunar** valves outwards, **opening** them so that blood can be powerfully ejected into the arteries.
+#### **بررسی پاسخ صحیح:**
+انقباض بطن‌ها (سیستول بطنی) مهم‌ترین مرحله برای پمپاژ خون به بدنه. بیا قدم به قدم ببینیم چی میشه:
+1.  وقتی بطن‌ها شروع به منقبض شدن می‌کنن، فشار داخلشون به سرعت از فشار داخل دهلیزها بیشتر می‌شه. این اختلاف فشار باعث می‌شه دریچه‌های دهلیزی-بطنی (یعنی **دولختی** در سمت چپ و **سه‌لختی** در سمت راست) با شدت **بسته** بشن. (صدای اول قلب یا "پوم" همینجاست).
+2.  همزمان که انقباض ادامه داره، فشار داخل بطن‌ها از فشار داخل سرخرگ‌ها (آئورت و ششی) هم بیشتر می‌شه. این اختلاف فشار، دریچه‌های **سینی** رو به سمت بیرون هل می‌ده و اون‌ها رو **باز** می‌کنه تا خون با قدرت وارد سرخرگ‌ها بشه.
 
-*   **Reference from the textbook (page 53, figure 8 and text):** The cardiac cycle diagram clearly shows this stage. In the "ventricular contraction" section, the atrioventricular valves are closed and the semilunar valves are open.
+*   **نشونه از کتاب درسی (صفحه 53، شکل 8 و متن):** شکل چرخه ضربان قلب به وضوح این مرحله رو نشون می‌ده. در بخش "انقباض بطنی"، دریچه‌های دهلیزی-بطنی بسته و دریچه‌های سینی باز هستن.
 
-#### **Why Other Options Are Incorrect:**
-*   **Option A:** Describes the exact opposite of the correct state. This situation corresponds to the time of general relaxation or atrial contraction.
-*   **Option C:** At no time in the cardiac cycle are all four valves open simultaneously. This would cause blood to be pushed back in all directions and the pumping system would fail.
-*   **Option D:** If the semilunar valves remain closed, blood will not exit the ventricle at all and no pumping will occur. The purpose of ventricular contraction is to open these semilunar valves and eject blood.
+#### **چرا گزینه‌های دیگر غلط هستند؟**
+*   **گزینه الف:** دقیقاً برعکس حالت صحیح رو توصیف کرده. این وضعیت مربوط به زمان استراحت عمومی یا انقباض دهلیزهاست.
+*   **گزینه ج:** هیچ‌وقت در چرخه قلب، هر چهار دریچه همزمان باز نیستن. این باعث می‌شد خون به همه طرف پس زده بشه و سیستم پمپاژ از کار بیفته.
+*   **گزینه د:** اگر دریچه‌های سینی بسته بمونن، خون اصلاً از بطن خارج نمی‌شه و پمپاژی صورت نمی‌گیره. هدف از انقباض بطن، باز کردن همین دریچه‌های سینی و خروج خونه.
 
-#### **Common Test Traps and Pitfalls:**
-*   **Main Trap (Synchronization):** Many students think that the opening and closing of the valves happen one after the other. Whereas at the beginning of ventricular contraction, the atrioventricular valves close first and *a little later* with increasing pressure, the semilunar valves open. But in a general view of this phase, the general state is the closing of one group and the opening of the other.
-*   **Heart Sounds Trap:** The first heart sound (lub) is caused by the **closing** of the atrioventricular valves, not their opening!
+#### **دام‌ها و تله‌های تستی این مبحث:**
+*   **تله اصلی (همزمانی):** خیلی از بچه‌ها فکر می‌کنن باز و بسته شدن دریچه‌ها پشت سر هم اتفاق میفته. در حالی که در شروع انقباض بطن، اول دریچه‌های دهلیزی-بطنی بسته می‌شن و *کمی بعد* با افزایش فشار، دریچه‌های سینی باز می‌شن. اما در یک نگاه کلی به این فاز، حالت کلی، بسته بودن یک گروه و باز بودن گروه دیگه‌ست.
+*   **تله صداهای قلب:** صدای اول قلب (پوم) ناشی از **بسته شدن** دریچه‌های دهلیزی-بطنیه، نه باز شدنشون!
 
-#### **Advisor's Recommendations:**
-Imagine the cardiac cycle as an animation in your mind. Close your eyes and see: blood enters the atria, the valves open and blood flows into the ventricles. The atria make a small contraction to fill the ventricles completely. Then the ventricles contract powerfully, the entrance doors (atrioventricular) are firmly closed and the exit doors (semilunar) are opened and blood is pumped. This mental visualization is the best way to learn this topic.
+#### **توصیه‌های مشاور:**
+قهرمان، چرخه قلب رو مثل یه انیمیشن تو ذهنت تصور کن. چشمات رو ببند و ببین: خون وارد دهلیزها می‌شه، دریچه‌ها باز می‌شن خون می‌ریزه تو بطن. دهلیزها یه انقباض کوچیک می‌کنن که بطن‌ها پرِ پر بشن. بعد بطن‌ها با قدرت منقبض می‌شن، درهای ورودی (دهلیزی-بطنی) محکم بسته می‌شن و درهای خروجی (سینی) باز می‌شن و خون پمپاژ می‌شه. این تصویرسازی ذهنی، بهترین راه یادگیری این مبحثه.

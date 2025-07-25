@@ -1,0 +1,114 @@
+/* استایل‌های accordion */
+.accordion-section {
+    margin-bottom: 20px;
+}
+
+.accordion-header {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.accordion-header:hover {
+    background: #e9ecef;
+    border-color: #dee2e6;
+}
+
+.accordion-header.active {
+    background: #007bff;
+    color: white;
+    border-color: #0056b3;
+}
+
+.accordion-header.active:hover {
+    background: #0056b3;
+}
+
+.accordion-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.accordion-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.accordion-content.active {
+    max-height: 3000px;
+}
+
+.accordion-inner {
+    padding: 20px;
+}
+
+/* انیمیشن‌های نرم */
+.accordion-header,
+.accordion-content {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* حالت‌های مختلف رنگی برای بخش‌های مختلف */
+.accordion-correct .accordion-header.active {
+    background: #28a745;
+    border-color: #1e7e34;
+}
+
+.accordion-wrong .accordion-header.active {
+    background: #dc3545;
+    border-color: #bd2130;
+}
+
+.accordion-traps .accordion-header.active {
+    background: #fd7e14;
+    border-color: #e55a00;
+}
+
+.accordion-advice .accordion-header.active {
+    background: #17a2b8;
+    border-color: #117a8b;
+}
+
+/* Mobile Accordion */
+@media (max-width: 768px) {
+    .accordion-header {
+        padding: 12px 15px;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+    
+    .accordion-title {
+        font-size: 1rem;
+    }
+    
+    .accordion-inner {
+        padding: 15px;
+    }
+    
+    .accordion-icon {
+        font-size: 1rem;
+    }
+}

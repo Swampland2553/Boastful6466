@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آزمون هندسه</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            line-height: 1.8;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        header, .intro {
+            text-align: center;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            font-size: 2em;
+            color: #0056b3;
+        }
+        header p {
+            font-size: 1.1em;
+            color: #555;
+        }
+        .details {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+        .intro p {
+            font-size: 1.1em;
+            color: #444;
+        }
+        .section-title {
+            font-size: 1.5em;
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 5px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .accordion-item {
+            border: 1px solid #dee2e6;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .accordion-header {
+            background-color: #f1f3f5;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        .accordion-header:hover {
+            background-color: #e9ecef;
+        }
+        .accordion-header::after {
+            content: '+';
+            font-size: 1.5em;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        .accordion-header.active::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            background-color: #fff;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+        }
+        .accordion-content.open {
+            padding: 20px;
+        }
+        .accordion-content p {
+            margin-top: 0;
+        }
+        .accordion-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .options {
+            list-style-type: none;
+            padding-right: 0;
+        }
+        .options li {
+            padding: 8px 0;
+        }
+        .final-message {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>آزمون صحت‌سنجی هفتۀ دوم - تابستان کنکور</h1>
+            <p><strong>درس:</strong> هندسه (1) - <strong>مبحث:</strong> قضیه تالس، تشابه و کاربردهای آن</p>
+            <div class="details">
+                <span><strong>نام و نام‌خانوادگی:</strong> ...........................................</span>
+                <span><strong>رشته:</strong> ریاضی فیزیک</span>
+                <span><strong>تاریخ:</strong> .........................</span>
+            </div>
+            <p><strong>زمان:</strong> 15 دقیقه | <strong>تعداد سوالات:</strong> 10 سوال تستی</p>
+        </header>
+
+        <div class="intro">
+            <p><strong>قهرمان عزیز، سلام! 🚀</strong></p>
+            <p>این آزمون برای گرفتن نمره نیست؛ یک ابزار دقیق برای پیدا کردن نقاط قوت فوق‌العاده و گنج‌های پنهان (نقاط قابل بهبود) توئه. هر سوال یک پله برای سبقت گرفتن از رقیباته. با تمرکز کامل و در زمان مشخص شده به سوالات پاسخ بده.</p>
+            <p><strong>به خودت و دانشت ایمان داشته باش!</strong></p>
+        </div>
+
+        <h2 class="section-title">سوالات ساده (یادآوری و سرعت عمل)</h2>
+
+        <div class="accordion-item">
+            <div class="accordion-header">سوال 1</div>
+            <div class="accordion-content">
+                <p>در شکل زیر، DE || BC است. طول EC کدام است؟</p>
+                <img src="problem1_pic.png" alt="Diagram for question 1">
+                <ul class="options">
+                    <li>الف) 8</li>
+                    <li>ب) 9</li>
+                    <li>ج) 10</li>
+                    <li>د) 12</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title">سوالات متوسط (تسلط بر مفاهیم اصلی)</h2>
+
+        <div class="accordion-item">
+            <div class="accordion-header">سوال 2</div>
+            <div class="accordion-content">
+                <p>در مثلث ABC، اگر AD = 4، AB = 10 و DE = 6 باشد و بدانیم DE || BC، طول BC کدام است؟</p>
+                <ul class="options">
+                    <li>الف) 12</li>
+                    <li>ب) 13.5</li>
+                    <li>ج) 14</li>
+                    <li>د) 15</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">سوال 3</div>
+            <div class="accordion-content">
+                <p>در مثلث زیر، با توجه به طول پاره‌خط‌های داده شده، کدام گزینه صحیح است؟ (AD=6, DB=9, AE=8, EC=12)</p>
+                <img src="problem3_pic.png" alt="Diagram for question 3">
+                <ul class="options">
+                    <li>الف) DE || BC زیرا نسبت‌ها برابر نیستند.</li>
+                    <li>ب) DE || BC است، زیرا عکس قضیه تالس برقرار است.</li>
+                    <li>ج) نمی‌توان در مورد موازی بودن دو خط نظر داد.</li>
+                    <li>د) دو خط قطعاً موازی نیستند، زیرا مجموع قطعات برابر نیست.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title">سوالات دشوار (کاربردهای ترکیبی و درک عمیق)</h2>
+
+        <div class="accordion-item">
+            <div class="accordion-header">سوال 4</div>
+            <div class="accordion-content">
+                <p>در مثلث قائم‌الزاویه ABC که در رأس A قائمه است، ارتفاع AH را رسم کرده‌ایم. اگر BH=4 و CH=9 باشد، طول ارتفاع AH کدام است؟</p>
+                <ul class="options">
+                    <li>الف) 5</li>
+                    <li>ب) 6</li>
+                    <li>ج) 6.5</li>
+                    <li>د) 7</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">سوال 5</div>
+            <div class="accordion-content">
+                <p>در ذوزنقه ABCD که پایه‌های AB و CD موازی هستند، پاره‌خطی موازی دو قاعده رسم شده که ساق‌ها را در نقاط E و F قطع کرده است. اگر AE = 3، ED = 2، AB = 6 و CD = 16 باشد، طول EF کدام است؟</p>
+                <ul class="options">
+                    <li>الف) 9</li>
+                    <li>ب) 10</li>
+                    <li>ج) 11</li>
+                    <li>د) 12</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">سوال 6</div>
+            <div class="accordion-content">
+                <p>دو مثلث ABC و 'A'B'C متشابه هستند. اگر نسبت تشابه این دو مثلث 2/3 باشد و مساحت مثلث ABC برابر با 24 سانتی‌متر مربع باشد، مساحت مثلث 'A'B'C چند سانتی‌متر مربع است؟</p>
+                <ul class="options">
+                    <li>الف) 36</li>
+                    <li>ب) 48</li>
+                    <li>ج) 54</li>
+                    <li>د) 60</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title">سوالات خیلی دشوار (خلاقیت، تحلیل و استراتژی حل مسئله)</h2>
+
+        <div class="accordion-item">
+            <div class="accordion-header">سوال 7</div>
+            <div class="accordion-content">
+                <p>در مثلث ABC، از نقطه D روی ضلع BC، دو خط موازی با دو ضلع دیگر رسم شده که AB و AC را به ترتیب در E و F قطع کرده‌اند. اگر AE = 4، EB = 8 و AF = 6 باشد، طول FC کدام است؟</p>
+                <img src="problem7_pic.png" alt="Diagram for question 7">
+                <ul class="options">
+                    <li>الف) 10</li>
+                    <li>ب) 12</li>
+                    <li>ج) 14</li>
+                    <li>د) 16</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">سوال 8</div>
+            <div class="accordion-content">
+                <p>در مثلث قائم‌الزاویه ABC (قائمه در A)، مربعی مطابق شکل محاط شده است. اگر AB = 12 و AC = 6 باشد، ضلع مربع کدام است؟</p>
+                <img src="problem8_pic.png" alt="Diagram for question 8">
+                <ul class="options">
+                    <li>الف) 3</li>
+                    <li>ب) 4</li>
+                    <li>ج) 4.5</li>
+                    <li>د) 5</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">سوال 9</div>
+            <div class="accordion-content">
+                <p>در مثلث ABC، میانه AM رسم شده است. نقطه P روی AM چنان قرار دارد که AP = 2PM. امتداد خط BP، ضلع AC را در نقطه Q قطع می‌کند. نسبت AQ/QC کدام است؟</p>
+                <ul class="options">
+                    <li>الف) 1/2</li>
+                    <li>ب) 2/3</li>
+                    <li>ج) 1</li>
+                    <li>د) 3/2</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header">سوال 10</div>
+            <div class="accordion-content">
+                <p>در مثلث ABC، خط DE موازی با BC رسم شده است (D روی AB و E روی AC). کدام‌یک از گزاره‌های زیر، لزوماً صحیح <strong>نیست</strong>؟</p>
+                <ul class="options">
+                    <li>الف) نسبت مساحت مثلث ADE به مساحت ذوزنقه DBCE برابر با (AD/DB)² است.</li>
+                    <li>ب) خطی که از رأس A و وسط پاره‌خط DE می‌گذرد، از وسط پاره‌خط BC نیز می‌گذرد.</li>
+                    <li>ج) نسبت ارتفاع وارد بر DE در مثلث ADE به ارتفاع وارد بر BC در مثلث ABC برابر با نسبت AD/AB است.</li>
+                    <li>د) اگر H پای ارتفاع وارد از A بر BC باشد، فاصله نقطه A تا خط DE نصف AH است.</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="final-message">موفق باشی قهرمان! ✨</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function () {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('open');
+                    
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 // Question 1: حلقه‌های غضروفی نای
-questionsData.push({
+addQuestion({
     id: 1,
     title: "حلقه‌های غضروفی نای",
     correctAnswer: "گزینه (ج)",

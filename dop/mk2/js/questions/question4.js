@@ -1,5 +1,5 @@
 // Question 4: اریتروپویتین و تولید گویچه‌های قرمز
-questionsData.push({
+addQuestion({
     id: 4,
     title: "اریتروپویتین و تولید گویچه‌های قرمز",
     correctAnswer: "گزینه (ج)",

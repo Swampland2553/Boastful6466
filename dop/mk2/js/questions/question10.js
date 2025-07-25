@@ -1,5 +1,5 @@
 // Question 10: پروتئین‌های پلاسما (آلبومین و فیبرینوژن)
-questionsData.push({
+addQuestion({
     id: 10,
     title: "پروتئین‌های پلاسما (آلبومین و فیبرینوژن)",
     correctAnswer: "گزینه (ج)",

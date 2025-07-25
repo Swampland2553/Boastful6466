@@ -1,5 +1,5 @@
 // Question 7: عبور اکسیژن از حبابک به گویچه قرمز
-questionsData.push({
+addQuestion({
     id: 7,
     title: "عبور اکسیژن از حبابک به گویچه قرمز",
     correctAnswer: "گزینه (ب)",

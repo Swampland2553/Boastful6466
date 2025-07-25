@@ -1,5 +1,5 @@
 // Question 3: بازدم آرام و عضلات تنفسی
-questionsData.push({
+addQuestion({
     id: 3,
     title: "بازدم آرام و عضلات تنفسی",
     correctAnswer: "گزینه (ب)",

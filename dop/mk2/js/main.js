@@ -16,7 +16,7 @@ class QuestionApp {
         if (!this.container) return;
 
         // Sort questions by ID
-        const sortedQuestions = questionsData.sort((a, b) => a.id - b.id);
+        const sortedQuestions = window.questionsData.sort((a, b) => a.id - b.id);
 
         // Generate HTML for all questions
         const questionsHTML = sortedQuestions.map(question => 

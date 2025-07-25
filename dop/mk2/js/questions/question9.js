@@ -1,5 +1,5 @@
 // Question 9: عمل بلع و هماهنگی دستگاه‌ها
-questionsData.push({
+addQuestion({
     id: 9,
     title: "عمل بلع و هماهنگی دستگاه‌ها",
     correctAnswer: "گزینه (الف)",

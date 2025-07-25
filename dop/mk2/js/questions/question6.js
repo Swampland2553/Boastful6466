@@ -1,5 +1,5 @@
 // Question 6: سیستم هدایت الکتریکی قلب
-questionsData.push({
+addQuestion({
     id: 6,
     title: "سیستم هدایت الکتریکی قلب",
     correctAnswer: "گزینه (ب)",

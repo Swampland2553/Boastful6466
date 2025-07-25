@@ -1,5 +1,5 @@
 // Question 8: مقایسه بطن‌های چپ و راست قلب
-questionsData.push({
+addQuestion({
     id: 8,
     title: "مقایسه بطن‌های چپ و راست قلب",
     correctAnswer: "گزینه (ج)",

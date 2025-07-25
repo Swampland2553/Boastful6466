@@ -1,5 +1,5 @@
 // Question 2: انقباض بطن‌ها و دریچه‌های قلب
-questionsData.push({
+addQuestion({
     id: 2,
     title: "انقباض بطن‌ها و دریچه‌های قلب",
     correctAnswer: "گزینه (ب)",

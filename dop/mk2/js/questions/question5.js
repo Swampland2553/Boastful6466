@@ -1,5 +1,5 @@
 // Question 5: عامل سطح فعال (سورفاکتانت)
-questionsData.push({
+addQuestion({
     id: 5,
     title: "عامل سطح فعال (سورفاکتانت)",
     correctAnswer: "گزینه (ب)",

@@ -1,0 +1,26 @@
+### **Analysis and Detailed Answer for Question 7**
+
+**Correct Answer: Option (B)**
+
+#### **Analysis of the Correct Answer:**
+This is a very precise conceptual-counting question that requires visualizing the layers. Let's trace the path of an oxygen molecule:
+1.  **Passing through the membrane of the type I squamous cell of the alveolar wall:** Oxygen must first pass through the cell membrane that makes up the alveolar wall. This is the **first membrane**.
+2.  **Passing through the shared basement membrane:** Between the alveolar wall and the capillary wall, there is a basement membrane (made of protein and polysaccharide and is not a cell). In many places, these two basement membranes are fused and become one. **This membrane is not counted because it is not cellular.**
+3.  **Passing through the membrane of the endothelial cell of the capillary wall:** Oxygen must now enter the cell that makes up the capillary wall. This is the **second membrane**.
+4.  **Passing through the membrane of the red blood cell:** After passing through the capillary wall, oxygen enters the plasma and to enter the red blood cell, it must also pass through the membrane of the red blood cell itself. This is the **third membrane**.
+
+So in total, oxygen must pass through **3 cellular membranes**.
+
+*   **Reference from the textbook (page 38, figure 11):** The diagram of the alveolar structure clearly shows the alveolar wall, the shared basement membrane, the capillary wall, and the red blood cell. By carefully examining this diagram, these three membrane layers can be identified.
+
+#### **Why Other Options Are Incorrect:**
+*   **Option A (2):** Probably did not count the red blood cell membrane.
+*   **Option C (4):** Probably mistakenly counted the basement membrane as a cellular membrane.
+*   **Option D (5):** Probably counted both sides of the cell membranes (entry and exit) separately, which is wrong. Passing through a cell means passing through its membrane.
+
+#### **Common Test Traps and Pitfalls:**
+*   **Big Trap (Basement Membrane):** The biggest trap of this question is confusing the "basement membrane" with the "cellular membrane". The basement membrane is an intercellular and non-living structure and is not made of phospholipid.
+*   **Counting Trap:** These types of questions require high precision in counting, and a hasty student may miss one of the layers.
+
+#### **Advisor's Recommendations:**
+For these types of questions, always analyze the textbook diagram with millimeter precision. On the diagram, mark the layers with numbers and next to each number write "cellular membrane" or "basement membrane". This will ensure that you never confuse the two and your count is accurate. This question shows that even the simplest diagrams in the book can be the source of very conceptual questions.

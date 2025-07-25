@@ -1,97 +1,165 @@
-// Main application script
-document.addEventListener('DOMContentLoaded', () => {
-    renderIntroSection();
-    renderRulesSection();
-    renderScheduleSection();
-    renderConclusionSection();
+// Simple schedule data
+const scheduleData = {
+    monday: {
+        title: "دوشنبه ☀️",
+        sessions: [
+            {
+                time: "صبح (۸:۳۰ تا ۱۱:۳۰) - ۳ ساعت ⏳",
+                subject: "زیست‌شناسی 🧬 (اولویت بالا)",
+                topic: "فصل اول تنظیم عصبی",
+                activities: [
+                    "۱ ساعت: مرور سریع خلاصه‌های گفتار ۱ و ۲",
+                    "۱.۵ ساعت: حل ۱۰ تا ۱۵ تست ترکیبی",
+                    "۳۰ دقیقه: بررسی اشتباهات و خلاصه‌نویسی"
+                ]
+            }
+        ]
+    },
+    tuesday: {
+        title: "سه‌شنبه ☀️ (روز کانون زبان)",
+        sessions: [
+            {
+                time: "صبح (۸:۳۰ تا ۱۱:۰۰) - ۲.۵ ساعت ⏳",
+                subject: "دینی 📖 (اولویت بالا)",
+                topic: "درس‌های اول و دوم دینی",
+                activities: [
+                    "۱ ساعت: مرور عمیق مفاهیم درس‌های ۱ و ۲",
+                    "۱ ساعت: حل سوالات تشریحی و جای خالی",
+                    "۳۰ دقیقه: خلاصه‌نویسی کلیدی"
+                ]
+            }
+        ]
+    },
+    wednesday: {
+        title: "چهارشنبه ☀️",
+        sessions: [
+            {
+                time: "صبح (۸:۳۰ تا ۱۱:۳۰) - ۳ ساعت ⏳",
+                subject: "شیمی 🧪 (پایه‌های کنکور)",
+                topic: "فصل اول شیمی، واکنش‌پذیری فلزها و نافلزها",
+                activities: [
+                    "۱.۵ ساعت: مطالعه دقیق کتاب و دیدن فیلم",
+                    "۱ ساعت: تمرکز روی مفاهیم و الگوها",
+                    "۳۰ دقیقه: حل ۵ تا ۷ تمرین/تست"
+                ]
+            },
+            {
+                time: "عصر (۱۷:۰۰ تا ۱۸:۳۰) - ۱.۵ ساعت ⏳",
+                subject: "فارسی 📝 (خواندنی‌ها)",
+                topic: "درس اول و دوم فارسی ادبیات تعلیمی و پایداری",
+                activities: [
+                    "۱ ساعت: مرور خلاصه‌های قبلی و خواندن متن جدید",
+                    "۳۰ دقیقه: پاسخ به ۳ تا ۵ سوال تشریحی"
+                ]
+            }
+        ]
+    },
+    thursday: {
+        title: "پنج‌شنبه ☀️",
+        sessions: [
+            {
+                time: "صبح (۸:۳۰ تا ۱۱:۳۰) - ۳ ساعت ⏳",
+                subject: "زیست‌شناسی 🧬 (اولویت بالا)",
+                topic: "فصل هفتم تولید مثل - بخش اول",
+                activities: [
+                    "۱.۵ ساعت: مطالعه دستگاه تولید مثل مرد و زن",
+                    "۱ ساعت: تمرکز روی ساختارها و نام‌گذاری‌ها",
+                    "۳۰ دقیقه: حل ۵ تا ۷ تست آموزشی"
+                ]
+            },
+            {
+                time: "عصر (۱۷:۰۰ تا ۱۸:۳۰) - ۱.۵ ساعت ⏳",
+                subject: "عربی 🗣️ (مهارت‌محور)",
+                topic: "درس اول عربی اسم مکان و اعداد",
+                activities: [
+                    "۱ ساعت: مرور قواعد مربوط به اسم مکان و اعداد",
+                    "۳۰ دقیقه: حل ۳ تا ۵ تمرین"
+                ]
+            }
+        ]
+    },
+    friday: {
+        title: "جمعه 🏖️",
+        special: true,
+        message: "کامل تعطیله! هیچ درس و کتابی رو باز نکن. این روز برای استراحت مغز و جسم توئه. لذت ببر! 🥳"
+    },
+    saturday: {
+        title: "شنبه ☀️",
+        sessions: [
+            {
+                time: "صبح (۸:۳۰ تا ۱۱:۳۰) - ۳ ساعت ⏳",
+                subject: "شیمی 🧪 (پایه‌های کنکور)",
+                topic: "فصل اول شیمی - حل تست جامع",
+                activities: [
+                    "۱.۵ ساعت: حل ۱۵ تا ۲۰ تست جامع از کل فصل اول",
+                    "۱ ساعت: تحلیل تست‌ها و بررسی اشتباهات",
+                    "۳۰ دقیقه: خلاصه‌نویسی نکات مهم"
+                ]
+            },
+            {
+                time: "عصر (۱۷:۰۰ تا ۱۸:۳۰) - ۱.۵ ساعت ⏳",
+                subject: "زبان 🇬🇧 (مهارت‌محور)",
+                topic: "درس اول زبان - درک مطلب",
+                activities: [
+                    "۱ ساعت: خواندن متن‌های بیشتر",
+                    "۳۰ دقیقه: حل ۵ تا ۷ سوال درک مطلب"
+                ]
+            }
+        ]
+    },
+    sunday: {
+        title: "یکشنبه ☀️",
+        sessions: [
+            {
+                time: "صبح (۸:۳۰ تا ۱۱:۳۰) - ۳ ساعت ⏳",
+                subject: "زیست‌شناسی 🧬 (اولویت بالا)",
+                topic: "فصل هفتم تولید مثل - بخش دوم",
+                activities: [
+                    "۱.۵ ساعت: مطالعه هورمون‌های جنسی و چرخه‌ها",
+                    "۱ ساعت: تمرکز روی مفاهیم هورمونی",
+                    "۳۰ دقیقه: حل ۵ تا ۷ تست آموزشی"
+                ]
+            },
+            {
+                time: "عصر (۱۷:۰۰ تا ۱۸:۳۰) - ۱.۵ ساعت ⏳",
+                subject: "عربی 🗣️ (مهارت‌محور)",
+                topic: "درس اول عربی - حل تست جامع",
+                activities: [
+                    "۱ ساعت: حل ۱۵ تا ۲۰ تست ترکیبی",
+                    "۳۰ دقیقه: تحلیل تست‌ها و مرور اشتباهات"
+                ]
+            }
+        ]
+    }
+};
+
+// Wait for page to load
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('Page loaded');
+    createSchedule();
 });
 
-// Render introduction section
-function renderIntroSection() {
-    const introSection = document.querySelector('.intro-section');
+function createSchedule() {
+    const container = document.querySelector('.schedule-container');
+    if (!container) {
+        console.log('Container not found');
+        return;
+    }
     
-    // Add opening paragraph
-    const openingDiv = document.createElement('div');
-    openingDiv.className = 'opening-message';
-    openingDiv.innerHTML = `<p>${introContent.opening}</p>`;
-    introSection.insertBefore(openingDiv, introSection.firstChild);
-    
-    // Update Hasti message
-    const hastiMessage = document.querySelector('.hasti-message');
-    hastiMessage.innerHTML = `
-        <h2>${introContent.hastiMessage.title}</h2>
-        <p>${introContent.hastiMessage.content}</p>
-        <p class="highlight"><strong>${introContent.hastiMessage.highlight}</strong></p>
-    `;
-    
-    // Update parents message
-    const parentsMessage = document.querySelector('.parents-message');
-    parentsMessage.innerHTML = `
-        <h2>${introContent.parentsMessage.title}</h2>
-        <p>${introContent.parentsMessage.content}</p>
-    `;
-}
-
-// Render rules section
-function renderRulesSection() {
-    const rulesGrid = document.querySelector('.rules-grid');
-    rulesGrid.innerHTML = '';
-    
-    rulesContent.rules.forEach(rule => {
-        const ruleCard = document.createElement('div');
-        ruleCard.className = 'rule-card';
-        
-        let itemsHTML = '';
-        if (rule.items) {
-            itemsHTML = `
-                <ul>
-                    ${rule.items.map(item => `<li><strong>${item}</strong></li>`).join('')}
-                </ul>
-            `;
-        }
-        
-        let specialNoteHTML = '';
-        if (rule.specialNote) {
-            specialNoteHTML = `
-                <div class="special-note">
-                    <strong>${rule.specialNote.title}</strong> ${rule.specialNote.content}
-                </div>
-            `;
-        }
-        
-        ruleCard.innerHTML = `
-            <h3>${rule.title}</h3>
-            <p>${rule.description}</p>
-            ${itemsHTML}
-            ${specialNoteHTML}
-        `;
-        
-        rulesGrid.appendChild(ruleCard);
+    // Create cards for each day
+    Object.keys(scheduleData).forEach(dayKey => {
+        const dayData = scheduleData[dayKey];
+        const dayCard = createDayCard(dayData);
+        container.appendChild(dayCard);
     });
 }
 
-// Render schedule section
-function renderScheduleSection() {
-    const scheduleContainer = document.querySelector('.schedule-container');
-    scheduleContainer.innerHTML = '';
-    
-    const dayOrder = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
-    
-    dayOrder.forEach(dayKey => {
-        if (completeScheduleData[dayKey]) {
-            const dayCard = createDayCard(dayKey, completeScheduleData[dayKey]);
-            scheduleContainer.appendChild(dayCard);
-        }
-    });
-}
-
-// Create day cards with complete data
-function createDayCard(dayKey, dayData) {
+function createDayCard(dayData) {
     const dayCard = document.createElement('div');
     dayCard.className = 'day-card';
     
+    // Special day (Friday)
     if (dayData.special) {
-        // Special day (Friday)
         dayCard.innerHTML = `
             <div class="friday-special">
                 <h3>${dayData.title}</h3>
@@ -102,88 +170,66 @@ function createDayCard(dayKey, dayData) {
     }
     
     // Regular day
-    const dayHeader = document.createElement('div');
-    dayHeader.className = 'day-header';
-    dayHeader.innerHTML = `
-        <span>${dayData.title}</span>
-        <span class="toggle-icon">▼</span>
-    `;
-    
-    const dayContent = document.createElement('div');
-    dayContent.className = 'day-content';
-    
-    const dayContentInner = document.createElement('div');
-    dayContentInner.className = 'day-content-inner';
-    
-    // Add sessions with complete details
+    let sessionsHTML = '';
     dayData.sessions.forEach(session => {
-        const timeBlock = document.createElement('div');
-        timeBlock.className = 'time-block';
-        
         let activitiesHTML = '';
         if (session.activities) {
             activitiesHTML = `
-                <div class="activities-section">
-                    <h5>فعالیت‌ها:</h5>
-                    <ul>
-                        ${session.activities.map(activity => `<li>${activity}</li>`).join('')}
-                    </ul>
-                </div>
+                <ul>
+                    ${session.activities.map(activity => `<li>${activity}</li>`).join('')}
+                </ul>
             `;
         }
         
-        let summaryHTML = '';
-        if (session.summary) {
-            summaryHTML = `
-                <div class="summary-note">
-                    <strong>خلاصه‌نویسی:</strong> ${session.summary}
-                </div>
-            `;
-        }
+        // Determine subject class based on subject name
+        let subjectClass = 'subject';
+        if (session.subject.includes('زیست')) subjectClass += ' biology';
+        else if (session.subject.includes('شیمی')) subjectClass += ' chemistry';
+        else if (session.subject.includes('عربی')) subjectClass += ' arabic';
+        else if (session.subject.includes('زبان')) subjectClass += ' english';
+        else if (session.subject.includes('دینی')) subjectClass += ' religion';
+        else if (session.subject.includes('فارسی')) subjectClass += ' persian';
+        else if (session.subject.includes('عمومی')) subjectClass += ' general';
         
-        timeBlock.innerHTML = `
-            <h3>${session.time}</h3>
-            <div class="subject">
-                <h4>${session.subject}</h4>
-                <div class="subject-content">
+        sessionsHTML += `
+            <div class="time-block">
+                <h3>${session.time}</h3>
+                <div class="${subjectClass}">
+                    <h4>${session.subject}</h4>
                     <p><strong>مبحث:</strong> ${session.topic}</p>
                     ${activitiesHTML}
-                    ${summaryHTML}
                 </div>
             </div>
         `;
-        
-        dayContentInner.appendChild(timeBlock);
     });
     
-    dayContent.appendChild(dayContentInner);
-    dayCard.appendChild(dayHeader);
-    dayCard.appendChild(dayContent);
+    dayCard.innerHTML = `
+        <div class="day-header">
+            <span>${dayData.title}</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="day-content">
+            <div class="day-content-inner">
+                ${sessionsHTML}
+            </div>
+        </div>
+    `;
     
-    // Add click event for accordion (multiple can stay open)
-    dayHeader.addEventListener('click', () => {
-        const isActive = dayContent.classList.contains('active');
-        const toggleIcon = dayHeader.querySelector('.toggle-icon');
-        
-        if (isActive) {
-            dayContent.classList.remove('active');
-            toggleIcon.style.transform = 'rotate(0deg)';
+    // Add click event
+    const header = dayCard.querySelector('.day-header');
+    const content = dayCard.querySelector('.day-content');
+    const icon = dayCard.querySelector('.toggle-icon');
+    
+    header.addEventListener('click', function() {
+        console.log('Header clicked:', dayData.title);
+        if (content.classList.contains('active')) {
+            content.classList.remove('active');
+            icon.style.transform = 'rotate(0deg)';
         } else {
-            dayContent.classList.add('active');
-            toggleIcon.style.transform = 'rotate(180deg)';
+            content.classList.add('active');
+            icon.style.transform = 'rotate(180deg)';
         }
     });
     
     return dayCard;
-}
-
-// Render conclusion section
-function renderConclusionSection() {
-    const finalMessage = document.querySelector('.final-message');
-    finalMessage.innerHTML = `
-        <h2>${conclusionContent.title}</h2>
-        <p>${conclusionContent.message}</p>
-        <p class="celebration"><strong>${conclusionContent.celebration}</strong></p>
-        <p><strong>${conclusionContent.expectation}</strong></p>
-    `;
 }

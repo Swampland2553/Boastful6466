@@ -1,0 +1,99 @@
+.accordion-item {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-header {
+    background: linear-gradient(45deg, #34495e, #2c3e50);
+    color: white;
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.accordion-header:hover {
+    background: linear-gradient(45deg, #2c3e50, #1a252f);
+}
+
+.accordion-header.active {
+    background: linear-gradient(45deg, #3498db, #2980b9);
+}
+
+.accordion-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.accordion-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    background: #ffffff !important;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    color: #000000 !important;
+}
+
+.accordion-content.active {
+    max-height: 2000px;
+    padding: 20px;
+}
+
+.accordion-content .section-content {
+    line-height: 1.7;
+    color: #000000 !important;
+    font-weight: 600;
+}
+
+.accordion-content .section-content p {
+    margin-bottom: 12px;
+}
+
+.accordion-content .section-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* انیمیشن برای باز و بسته شدن */
+@keyframes accordionOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.accordion-content.active .section-content {
+    animation: accordionOpen 0.4s ease;
+}
+
+/* استایل‌های ویژه برای موبایل */
+@media (max-width: 768px) {
+    .accordion-header {
+        padding: 12px 15px;
+    }
+    
+    .accordion-title {
+        font-size: 1rem;
+    }
+    
+    .accordion-content.active {
+        padding: 15px;
+    }
+}

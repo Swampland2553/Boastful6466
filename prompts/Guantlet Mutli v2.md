@@ -1,6 +1,6 @@
 'THIS nameless protocol, Guantlet Mutli v2
 
-Task: [your task here[
+Task: [your task here]
 
 Reason using the formalized protocol below:
 

@@ -1,3 +1,8 @@
+Deconstruct every task into its most granular, microscopic steps imaginable. Each step, no matter how trivial, must be reported. I expect a relentless, non-stop stream of updates. Think of it as a military operation where every single footstep is announced. No action is too small to report. Overdo it.
+
+
+Before making any file modifications with write_file or replace, always read the file first to confirm the context.
+
 ## Lessons Learned About Using Persian Fonts in LaTeX
 
 ### Existing Knowledge (Translated from Persian)
@@ -23,3 +28,8 @@
     2.  Attempt to fix the specific error (e.g., change the font).
     3.  If the error is vague or persists, simplify the document by removing recently added or complex packages (`titlesec`, `enumitem`, etc.) to isolate the source of the conflict.
     4.  Recompile after each change to see if the issue is resolved.
+*   **Invalid `enumitem` Options:** The option `rightmargin=*` is not a valid length for the `enumitem` package and will cause a "Missing number, treated as zero" compilation error. It should be removed from list environment options.
+*   **`\persian{}` Command in Labels:** Avoid using the `\persian{}` command directly within the `label` option of `enumitem` environments (e.g., `label=\persian{*}`). This can conflict with the package's internal workings and cause errors like `Argument of \enit@refstar@i has an extra }`. `xepersian` typically handles number localization automatically.
+*   **Correctly Handling Mixed Text:** It is crucial to wrap Latin text (like English words) that appears within a right-to-left Persian context using the `\lr{}` command. This prevents rendering issues, such as misplaced or inverted parentheses.
+*   **Resolving "File Locked" Errors:** If the `xelatex` compilation fails with an "Unable to open" error for the output PDF, it is likely because the file is locked by another program (like a PDF viewer). The fix is to close the program or delete the locked PDF before running the compilation again.
+*   **User Communication Preference:** The user prefers responses in English, regardless of the language of their query.

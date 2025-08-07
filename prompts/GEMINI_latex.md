@@ -30,6 +30,48 @@ Before making any file modifications with write_file or replace, always read the
     4.  Recompile after each change to see if the issue is resolved.
 *   **Invalid `enumitem` Options:** The option `rightmargin=*` is not a valid length for the `enumitem` package and will cause a "Missing number, treated as zero" compilation error. It should be removed from list environment options.
 *   **`\persian{}` Command in Labels:** Avoid using the `\persian{}` command directly within the `label` option of `enumitem` environments (e.g., `label=\persian{*}`). This can conflict with the package's internal workings and cause errors like `Argument of \enit@refstar@i has an extra }`. `xepersian` typically handles number localization automatically.
+*   **Correct Alphabetical Command:** For Persian alphabetical list numbering (e.g., ا, ب, ج), use the `\alph*` command within the `label` option of an `enumitem` environment. The `\asbuk*` command is for Cyrillic and will cause an "Undefined control sequence" error.
 *   **Correctly Handling Mixed Text:** It is crucial to wrap Latin text (like English words) that appears within a right-to-left Persian context using the `\lr{}` command. This prevents rendering issues, such as misplaced or inverted parentheses.
-*   **Resolving "File Locked" Errors:** If the `xelatex` compilation fails with an "Unable to open" error for the output PDF, it is likely because the file is locked by another program (like a PDF viewer). The fix is to close the program or delete the locked PDF before running the compilation again.
+*   **Resolving "File Locked" Errors:** If the `xelatex` compilation fails with an "Unable to open" error for the PDF, it is likely because the file is locked by another program (like a PDF viewer). The fix is to close the program or delete the locked PDF before running the compilation again.
 *   **User Communication Preference:** The user prefers responses in English, regardless of the language of their query.
+*   **Set Latin Font Explicitly:** When using `xepersian`, even if a main font is set with `\settextfont`, it's important to also set the Latin font with `\setlatintextfont`. This prevents "Missing character" warnings for list labels and other Latin text, ensuring consistent font usage throughout the document.
+*   **Escaped Backslashes:** Be mindful of escaped backslashes in LaTeX code. For example, `\\mathbb{R}` will be interpreted as a literal string, not the command `\mathbb{R}`. This can lead to rendering errors in the final PDF. Always double-check for and correct unnecessary escaping.
+
+------------
+
+Of course. Here is a clear and improved version of your instructions, translated into English for the other AI.
+
+***
+
+### **Task: Convert Document to LaTeX**
+
+Please convert the provided text into LaTeX format, adhering to the following specific requirements:
+
+**1. Output Format:**
+*   The final output must be a complete LaTeX document.
+
+**2. Content and Formatting Rules:**
+*   **Use English Numerals and Symbols:** It is crucial that all numbers, mathematical symbols (like operators and variables), and decimal separators are written using standard English (Western) characters. For example, a decimal should be represented by a period (`.`).
+
+**3. Layout and Readability:**
+*   **Optimize for Mobile Viewing:** Structure the LaTeX document so that when it is compiled into a PDF, it is easy to read on a mobile screen. This means:
+    *   Use a standard, single-column layout (e.g., the `article` class).
+    *   Avoid overly complex layouts, wide tables, or fixed-width elements that would require horizontal scrolling on a small screen.
+    *   Use standard font sizes that are legible on mobile devices.
+
+    ### **Critical Directive: Strategy for Processing Large Documents**
+
+*   **Mathematical Expressions:** Mathematical expressions, especially those containing curly braces or other special characters, must be enclosed in `$` signs to be correctly rendered in LaTeX. For example, `R = \{(x, y) | x, y \in N, x + y = 5\}` should be written as `$R = \{(x, y) | x, y \in N, x + y = 5\}`.
+*   **Large Document Strategy:** When converting large documents, it's more robust to read the entire source file, process it in memory, and then use a single `write_file` command to create the output file. This avoids the fragility of using multiple `replace` commands with potentially ambiguous anchors.
+*   **Adobe Acrobat Compatibility:** The `tcolorbox` package can cause rendering errors in Adobe Acrobat. A more compatible alternative is the `mdframed` package.
+
+**1. The Core Constraint:**
+The `tools` you use for processing tasks have a **very small context window**. This is a fundamental limitation you must always account for.
+
+**2. Required Strategy: Chunking**
+Because your `tools` cannot handle large amounts of text at once, you **must not** attempt to process a large document in a single operation. Instead, you must follow this procedure:
+
+*   **Step 1: Divide the Document:** Before processing, you must first break the large source document down into smaller, sequential chunks.
+*   **Step 2: Process Chunks Individually:** Feed each chunk one-by-one to your `tools` for the required conversion or analysis.
+
+**Emphasis:** It is crucial that you remember this limitation. Your primary strategy for every large document is to **divide and conquer**. Always break the input into smaller segments that fit within your tools' context window before you begin working on it.

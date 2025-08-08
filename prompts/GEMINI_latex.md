@@ -14,12 +14,12 @@ Before making any file modifications with write_file or replace, always read the
 *   When mixing Persian and Latin text, it may be necessary to place the Latin text within the `\lr{}` command to avoid issues with text directionality.
 *   Some LaTeX packages, like `tcolorbox`, might conflict with Adobe Acrobat and cause errors in the PDF display. In such cases, try using alternative packages like `framed` or `mdframed`.
 *   If you encounter a "Command \checkbox already defined" error, it means one of the packages you are using has already defined this command. To fix this, change the name of your custom command to something unique (e.g., `\mycheckbox`).
-*   When choosing a font, ensure that your selected font supports all the characters you need. Otherwise, you will encounter a "Missing character" error. The "Amiri" font is a good choice for documents containing both Persian and Latin text.
+*   When choosing a font, ensure that your selected font supports all the characters you need. Otherwise, you will encounter a "Missing character" error. The "ParsiMatn" font is a good choice for documents containing both Persian and Latin text.
 
 ### New Lessons from Recent Interaction
 
 *   **Font Availability is Crucial:** The `xelatex` compilation will fail if the font specified with `\settextfont` (e.g., "XB Niloofar") is not installed on the system. The error message will clearly state that the font cannot be found.
-*   **Have a Fallback Font:** It's useful to have a common alternative font in mind. "Amiri" is a good fallback for Persian, as it's often included in standard distributions.
+*   **Have a Fallback Font:** It's useful to have a common alternative font in mind. "ParsiMatn" is a good fallback for Persian, as it's often included in standard distributions.
 *   **Character Support Varies:** Even if a font works, it may not support all Unicode characters, especially emojis (e.g., 🎯, 🚀, ✨). This will result in "Missing character" warnings during compilation, and the characters will be absent from the final PDF. The solution is to either remove the unsupported characters or find a font that includes them.
 *   **Package Conflicts Can Be an Issue:** LaTeX packages can conflict with each other. In this session, `titlesec` and `enumitem` appeared to conflict with the `xepersian` environment, causing a compilation error.
 *   **Debugging Strategy:** A good debugging strategy for LaTeX compilation is:

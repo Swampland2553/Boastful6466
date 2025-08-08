@@ -30,12 +30,18 @@ Before making any file modifications with write_file or replace, always read the
     4.  Recompile after each change to see if the issue is resolved.
 *   **Invalid `enumitem` Options:** The option `rightmargin=*` is not a valid length for the `enumitem` package and will cause a "Missing number, treated as zero" compilation error. It should be removed from list environment options.
 *   **`\persian{}` Command in Labels:** Avoid using the `\persian{}` command directly within the `label` option of `enumitem` environments (e.g., `label=\persian{*}`). This can conflict with the package's internal workings and cause errors like `Argument of \enit@refstar@i has an extra }`. `xepersian` typically handles number localization automatically.
+*   **Unterminated Math Mode:** A `Command \end{...} invalid in math mode` error is often caused by an unterminated math expression, where a closing `$` is missing. Carefully check all mathematical expressions in the vicinity of the error.
 *   **Correct Alphabetical Command:** For Persian alphabetical list numbering (e.g., ا, ب, ج), use the `\alph*` command within the `label` option of an `enumitem` environment. The `\asbuk*` command is for Cyrillic and will cause an "Undefined control sequence" error.
 *   **Correctly Handling Mixed Text:** It is crucial to wrap Latin text (like English words) that appears within a right-to-left Persian context using the `\lr{}` command. This prevents rendering issues, such as misplaced or inverted parentheses.
 *   **Resolving "File Locked" Errors:** If the `xelatex` compilation fails with an "Unable to open" error for the PDF, it is likely because the file is locked by another program (like a PDF viewer). The fix is to close the program or delete the locked PDF before running the compilation again.
 *   **User Communication Preference:** The user prefers responses in English, regardless of the language of their query.
 *   **Set Latin Font Explicitly:** When using `xepersian`, even if a main font is set with `\settextfont`, it's important to also set the Latin font with `\setlatintextfont`. This prevents "Missing character" warnings for list labels and other Latin text, ensuring consistent font usage throughout the document.
 *   **Escaped Backslashes:** Be mindful of escaped backslashes in LaTeX code. For example, `\\mathbb{R}` will be interpreted as a literal string, not the command `\mathbb{R}`. This can lead to rendering errors in the final PDF. Always double-check for and correct unnecessary escaping.
+*   **`\lr{}` in Math Mode:** Avoid using the `\lr{}` command inside a math environment (`$...$`). It can conflict with the math mode and cause compilation errors. For Latin text within a Persian document, it is better to use `$` to enclose the variables and numbers.
+*   **`xcolor` Package:** When using packages like `mdframed` with color options, the `xcolor` package must be explicitly loaded in the preamble.
+*   **Set Notation:** Use `\{` and `\}` to typeset curly braces for sets in LaTeX, not `\\{` and `\\}`.
+*   **`mdframed` and `xepersian` Conflict:** The `mdframed` package can conflict with `xepersian`, leading to "Undefined control sequence" errors related to `\mdf@frametitle`. A workaround is to use the simpler `framed` package.
+*   **`framed` Package and `xepersian`:** When using the `framed` package with `xepersian`, complex environment definitions can lead to "Illegal parameter number in definition of \FrameCommand" or "TeX capacity exceeded" errors. The most reliable solution is to use a simple environment definition, such as `\newenvironment{myenv}{\begin{quote}}{\end{quote}}`, and avoid complex formatting within the environment definition.
 
 ------------
 
@@ -59,12 +65,15 @@ Please convert the provided text into LaTeX format, adhering to the following sp
     *   Avoid overly complex layouts, wide tables, or fixed-width elements that would require horizontal scrolling on a small screen.
     *   Use standard font sizes that are legible on mobile devices.
 
-    ### **Critical Directive: Strategy for Processing Large Documents**
 
-*   **Mathematical Expressions:** Mathematical expressions, especially those containing curly braces or other special characters, must be enclosed in `$` signs to be correctly rendered in LaTeX. For example, `R = \{(x, y) | x, y \in N, x + y = 5\}` should be written as `$R = \{(x, y) | x, y \in N, x + y = 5\}`.
+
+*   **Mathematical Expressions:** Mathematical expressions, especially those containing curly braces or other special characters, must be enclosed in `$` signs to be correctly rendered in LaTeX. For example, `R = \{(x, y) | x, y \in N, x + y = 5\}` should be written as `$R = \{(x, y) | x, y \in N, x + y = 5}`.
 *   **Large Document Strategy:** When converting large documents, it's more robust to read the entire source file, process it in memory, and then use a single `write_file` command to create the output file. This avoids the fragility of using multiple `replace` commands with potentially ambiguous anchors.
 *   **Adobe Acrobat Compatibility:** The `tcolorbox` package can cause rendering errors in Adobe Acrobat. A more compatible alternative is the `mdframed` package.
 
+
+    ### **Critical Directive: Strategy for Processing Large Documents**
+    
 **1. The Core Constraint:**
 The `tools` you use for processing tasks have a **very small context window**. This is a fundamental limitation you must always account for.
 

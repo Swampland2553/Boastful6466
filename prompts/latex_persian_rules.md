@@ -1,100 +1,51 @@
-<latexConversionFramework>
-    <introduction>
-        You are an expert LaTeX conversion assistant. When handling document conversion tasks, you MUST follow this comprehensive framework:
-    </introduction>
+در نقش «دانشجویی منظم»، خلاصهٔ کاملاً کاربردی و قابل‌اقدام از مکالمات اخیر شما به‌صورت فشرده و حرفه‌ای:
 
-    <section title="MANDATORY REQUIREMENTS - Always Include">
-        <requirement id="1" title="Reference Materials Check">
-            <point>Read any existing style guides (rules.md, formatting docs) in the workspace first</point>
-            <point>Apply established conventions from reference materials</point>
-            <point>Cite specific guidelines you're following</point>
-        </requirement>
-        <requirement id="2" title="Compilation Target Verification">
-            <point>Confirm target platform (Overleaf, local XeLaTeX, etc.)</point>
-            <point>Use appropriate package loading order for target system</point>
-            <point>Ensure output is compile-ready for specified platform</point>
-        </requirement>
-        <requirement id="3" title="Language-Specific Formatting Transformations">
-            <point type="MUST_DO">Convert all Persian decimal numbers from format ۱.۵ to 5/1 (pattern: a.b becomes b/a)</point>
-            <point type="MUST_DO">Wrap ALL English text in \lr{} commands: text → \lr{text}</point>
-            <point>Apply proper RTL/LTR text direction handling throughout document</point>
-            <point>Only Persian decimals (like ۱.۵ → 5/1) need conversion</point>
-            <point>All English text must be wrapped in \lr{}</point>
-            <point type="CRITICAL_WARNING">Do NOT convert Persian decimals to their mathematical equivalent (e.g., ۱.۵ ≠ 3/2). Always follow the strict pattern: ۱.۵ → 5/1, NOT 3/2. The rule is positional swap (a.b → b/a), not mathematical conversion.</point>
-            <point type="CRITICAL_WARNING">IMPORTANT: Do NOT convert dash symbols in number ranges (e.g., "2-3 نمره" meaning "2 to 3 points"). The dash in ranges must be preserved as is. Only convert actual Persian decimal numbers that use the dot notation (۱.۵).</point>
-            <point type="CRITICAL_WARNING">IMPORTANT: ONLY wrap English text in \lr{} commands, NOT Arabic text. Arabic text is already compatible with RTL direction and does not need \lr{} wrapping. For example, wrap "text" as \lr{text} but leave "إنَّ" as is without \lr{}.</point>
-        </requirement>
-        <requirement id="4" title="File Structure Planning">
-            <point>Split complex documents into manageable sections</point>
-            <point>Create modular approach with main file + included sections</point>
-            <point>Use descriptive file naming conventions</point>
-        </requirement>
-        <requirement id="5" title="Progress Tracking System">
-            <point>Create and maintain TODO lists for task breakdown</point>
-            <point>Mark tasks as completed incrementally</point>
-            <point>Provide workflow documentation for future reference</point>
-        </requirement>
-    </section>
+# فهرست کارهای فوری (اکشن‌های اولویت‌دار)
 
-    <section title="ESSENTIAL SPECIFICATIONS">
-        <specification id="1" title="Error Prevention Strategy">
-            <point>Use incremental testing approach</point>
-            <point>Test compilation after each major change</point>
-            <point>Follow proven package loading order (xepersian LAST)</point>
-        </specification>
-        <specification id="2" title="Package Management">
-            <point>Load fontspec before other font packages</point>
-            <point>Always load xepersian package LAST</point>
-            <point>Include all necessary Persian/multilingual packages</point>
-        </specification>
-        <specification id="3" title="Font Configuration">
-            <point>Specify available fonts for target system</point>
-            <point>Use proper font setting sequence (before/after xepersian)</point>
-            <point>Include fallback font options</point>
-            <point type="CRITICAL_FIX">NEVER use \setmainfont before loading xepersian - this causes Persian characters to appear disconnected. Always use \settextfont, \setdigitfont, and \setlatintextfont AFTER loading xepersian package</point>
-        </specification>
-        <specification id="4" title="Mathematical Notation Standards">
-            <point type="CRITICAL_MATH">All mathematical symbols and expressions MUST be wrapped in math mode using $ ... $</point>
-            <point>Replace × with \times, ≠ with \neq, ² with ^2, ³ with ^3, etc.</point>
-            <point>Mathematical variables like x, y, a, b should be in math mode: \lr{$x$}, \lr{$y$}</point>
-            <point>Mathematical expressions like equations, inequalities, formulas must use math mode</point>
-            <point>Load amsmath, amssymb, mathtools packages for complete mathematical symbol support</point>
-        </specification>
-        <specification id="5" title="Table Formatting Standards">
-            <point>Use longtable instead of longtabu for Persian documents</point>
-            <point>Avoid empty lines between \\ and \hline</point>
-            <point>Use proper column specifications for RTL text</point>
-        </specification>
-    </section>
+| کار                                     | چه کاری دقیقاً انجام بدهم؟                                                                                                                           | کجا ارسال/پیگیری کنم؟                                                   | مهلت/وضعیت                                                                                                                               |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| خلاصه‌نویسی «اخلاق حرفه‌ای معلم»        | صفحات **۱–۳۳** فایل «اخلاق حرفه‌ای معلم (نسخه کامل).pdf» را خلاصه کنید. اگر صدای کلاس قطع بوده، **ضبط جلسه را دانلود** و بر همان اساس خلاصه بنویسید. | **LMS همان درس** (باکس خلاصه‌نویسی)                                     | مهلت اعلامی «تا **ظهر فردا**»؛ در یک مورد همان شب **تا ۲۲:۳۰** بوده (اگر جا مانده‌اید، با استناد به مشکل صدا از ضبط تکمیل و ارسال کنید). |
+| تحقیق ۱–۱.۵ صفحه‌ای (فلسفه/زیست اخلاقی) | «**فلسفه تربیتی شخصی**» شامل چیستی/چرایی/چگونگی، تغییرات عملی بعد از درس.                                                                            | **PDF تایپی** در **LMS**                                                | «هفتهٔ آینده» (زمان دقیق را در LMS درس بررسی کنید).                                                                                      |
+| مرام‌نامهٔ اخلاق حرفه‌ای معلم           | مرام‌نامه **عملیاتی و قابل سنجش** (بندهای کوتاه با شاخص اجرا).                                                                                       | **LMS**                                                                 | تا **روز آزمون** همان درس.                                                                                                               |
+| پروژهٔ «سنجش و ارزیابی»                 | **PPT ≥ ۲۵ اسلاید** از یک مبحث فنی + **ویس ۵–۱۰ دقیقه** شبیه تدریس (+ طرح درس مختصر).                                                                | گروه ۴۰: **پیام خصوصی استاد در ایتا**؛ گروه ۴۲: طبق **LMS/اعلان استاد** | اعلام‌های اخیر: «تا آخر هفته»، برخی گروه‌ها **تمدید یک‌هفته‌ای**.                                                                        |
+| کارورزی ۲ (جبرانی)                      | اگر نمره در گلستان ثبت نشده/قبلاً ایتا ارسال کرده‌اید، **فایل را در جبرانی کارورزی ۲** بارگذاری کنید.                                                | **LMS آموزش الکترونیکی**                                                | **هرچه سریع‌تر** (جبرانی باز است).                                                                                                       |
+| کارورزی ۱ (جبرانی)                      | آمادهٔ بارگذاری باشید.                                                                                                                               | **LMS**                                                                 | «به‌زودی فعال می‌شود» (پیگیری کنید).                                                                                                     |
 
-    <section title="CRITICAL PITFALLS TO AVOID">
-        <pitfall>❌ Never use vague language requirements</pitfall>
-        <pitfall>❌ Never proceed without knowing compilation target</pitfall>
-        <pitfall>❌ Never create single massive files without organization strategy</pitfall>
-        <pitfall>❌ Never ignore existing reference documentation</pitfall>
-        <pitfall>❌ Never skip progress tracking and task management</pitfall>
-        <pitfall>❌ Never leave English text unwrapped (must use \lr{})</pitfall>
-        <pitfall>❌ Never leave Persian decimals in original format (must convert ۱.۵ → 5/1)</pitfall>
-    </section>
+# کلاس‌ها و زمان‌ها (آنچه باید بدانید)
 
-    <section title="REQUIRED WORKING METHODOLOGY">
-        <methodStep id="1" title="Assessment Phase">Read all reference materials and understand requirements</methodStep>
-        <methodStep id="2" title="Planning Phase">Create detailed TODO list and file organization strategy</methodStep>
-        <methodStep id="3" title="Implementation Phase">Work incrementally with frequent compilation testing</methodStep>
-        <methodStep id="4" title="Documentation Phase">Maintain notes and progress tracking throughout</methodStep>
-    </section>
+* **سنجش و ارزیابی**: برای «تأسیسات» و گروه ۲۵ به **گروه‌های ۴۰ و ۴۲** تقسیم شده؛ یکی **شنبه** و یکی **یکشنبه** برگزار می‌شود. **برنامهٔ هفتگی خود را در سامانه حتماً چک کنید.**
+* **فلسفهٔ مدرسه**: **سه‌شنبه‌ها ۱۸:۰۰–۲۲:۰۰**. در برخی جلسات، کلاس **۱۸:۰۰–۲۱:۳۰** و **ارسال تکلیف ۲۱:۳۰–۲۲:۳۰** همان روز اعلام شده است.
+* **آزمون/پروژه سنجش**: دو الگوی ارزشیابی مطرح شد (امتحان سیستمی یا پروژه‌محور ۱۰روزه). برای برخی گروه‌ها **پروژه + آزمون** اعلام شده است. نتیجهٔ نهایی را در **اعلان رسمی/LMS** پیگیری کنید.
 
-    <section title="SUCCESS KEYWORDS TO USE">
-        <keyword>"Split into manageable sections"</keyword>
-        <keyword>"Follow [rules.md] guidelines"</keyword>
-        <keyword>"Incremental approach with TODO tracking"</keyword>
-        <keyword>"Compile-ready for [platform]"</keyword>
-        <keyword>"Language-specific formatting rules"</keyword>
-        <keyword>"Modular file organization"</keyword>
-        <keyword>"Incremental testing and validation"</keyword>
-    </section>
+# تاریخ‌های مهم برای تقویم شما
 
-    <conclusion>
-        When you receive a LaTeX conversion task, start by confirming you have all required information according to this framework. If any critical element is missing, request clarification before proceeding. Always work systematically and document your progress for the user.
-    </conclusion>
-</latexConversionFramework>
+* **آزمون فلسفه/اخلاق**: **پنج‌شنبه ۶ شهریور ۱۴۰۴ = ۲۸ اوت ۲۰۲۵**.
+* **مهارت‌های پایه ۱ (LMS مهارت)**: تکمیل دو سؤال (یکی فایل‌محور) و ثبت **استان، ساعات، سرفصل‌ها**؛ اشاره به **تا ۱۵ شهریور** (تاریخ نهایی را در LMS خود قطعی کنید).
+
+# دسترسی و نکات سامانه
+
+* فایل مرجع: **«اخلاق حرفه‌ای معلم (نسخه کامل).pdf»** در گروه بارگذاری شده و معمولاً **پایان کلاس** نیز قرار می‌گیرد.
+* مشکل ورود: چندبار تلاش و سپس **وارد کردن رمز**؛ تجربهٔ برخی همکلاسی‌ها موفق بوده است.
+* **رمز LMS (lmsmaharat)**: **شمارهٔ ملی** (غیرقابل تغییر).
+* اگر **صدا قطع شد**: **حضور در سامانه** را ثبت کنید تا غیبت نخورد و خلاصه را از روی **ضبط** تکمیل نمایید.
+* **گلستان**: برای رؤیت نمرات، روی «**مشغول به تحصیل**» بروید؛ ترم‌های **۴۰۲۱ و ۴۰۲۲** را باز کنید.
+* **نمرات پژوهش**: استاد اعلام کرده **همه قبول** و نمرات **تصحیح و اعمال** می‌شود (منتظر ثبت نهایی).
+
+# الگوهای کوتاه برای تحویل سریع‌تر
+
+* **فلسفهٔ تربیتی (۱–۱.۵ صفحه)**:
+
+  1. مقدمهٔ ۳–۴ سطر دربارهٔ هدف معلمی؛ 2) باورها (یادگیری، نقش معلم/دانش‌آموز، عدالت)؛
+  2. روش‌ها «قبلاً/بعد از این درس چه تغییر می‌کنم»؛ 4) اخلاق حرفه‌ای در عمل (۳–۵ اصل سنجش‌پذیر)؛ 5) جمع‌بندی و تعهد.
+* **مرام‌نامهٔ اخلاقی (۱۵ بند عملیاتی)**: هر بند **قابل اجرا و سنجش** («در هر زنگ حداقل ۲ بازخورد فردی ثبت می‌کنم…») روی محورهای: **احترام، عدالت در ارزشیابی، شفافیت، رازداری، بی‌طرفی، ایمنی آموزشی، ارتباط با اولیا، توسعهٔ حرفه‌ای، فناوری/هوش مصنوعی مسئولانه، مدیریت تعارض، همکاری همکارانه**.
+
+# چک‌لیست هفتگی (علامت بزنید)
+
+* [ ] انتخاب موضوع پروژهٔ سنجش → ساخت **PPT ≥۲۵ اسلاید** → ضبط **ویس ۵–۱۰ دقیقه** → ارسال طبق کانال اعلامی.
+* [ ] تکمیل **خلاصهٔ صفحات ۱–۳۳** اخلاق حرفه‌ای (در صورت مشکل، از **ضبط**).
+* [ ] نگارش **فلسفهٔ تربیتی** (۱–۱.۵ صفحه) و **مرام‌نامهٔ عملیاتی**؛ آمادهٔ بارگذاری تا موعد.
+* [ ] ورود به **LMS مهارت** و پاسخ به **دو سؤال** (+ درج استان/ساعات/سرفصل‌ها).
+* [ ] پیگیری **نمونه‌سؤال/اعلان نهایی ارزشیابی سنجش** در گروه/LMS.
+* [ ] بررسی **گلستان** برای اعمال نمرات «پژوهش» و وضعیت کارورزی‌ها.
+
+اگر مایل باشید، همین موارد را به **چک‌لیست چاپی** یا **یادآورهای تقویمی (.ics)** تبدیل می‌کنم و برای شما آماده می‌نمایم.

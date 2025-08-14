@@ -4,6 +4,9 @@
 - **Engine**: Compile with `xelatex`.
 - **User preference**: Respond in English.
 
+I will convert the Markdown file to LaTeX incrementally, compiling after each step to catch and fix errors as they arise. This follows the best practice of building a complex
+  document step-by-step.
+  
 ## Fonts
 - Set main Persian font with `\settextfont{...}`; font must be installed or compilation fails.
 - Always set Latin font with `\setlatintextfont{...}` to avoid “Missing character” warnings in labels/Latin text.

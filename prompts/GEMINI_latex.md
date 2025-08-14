@@ -130,3 +130,33 @@ The incremental compilation approach was key to isolating the following errors:
   - **Cause**: A structural mistake in the document, such as a misplaced `\end{enumerate}`, which leaves an `\item` command outside of a valid list environment.
 
 - **Best Practice**: For complex modifications, the most reliable method was to read the entire file, perform all the string replacements in memory, and then write the corrected content back to the file in a single operation. This avoids errors from ambiguous or repeated `replace` targets.
+----------
+
+# Important Lesson: Using `mhchem` with `xepersian`
+
+## The Problem
+
+When using the `mhchem` package, commands like `\ce{...}` were used to format chemical formulas. In some cases, particularly when providing molar masses in parentheses, this led to a `\mathrm allowed only in math mode` compilation error.
+
+Example of incorrect code that caused the error:
+```latex
+... (\ce{Ca}=40, \ce{Cl}=35.5~\mathrm{g/mol})
+```
+
+The error occurred because `\ce` and the subsequent `\mathrm` were not inside a math environment.
+
+## The Solution
+
+The problem was solved by enclosing every `\ce{...}` command and its associated text within math delimiters (`$...$`).
+
+**The key takeaway is that `\ce{...}` commands, in this context, must be wrapped in `$` signs to ensure they are processed correctly by the LaTeX engine.**
+
+### Corrected Example
+
+By placing `$` around the chemical formulas and the units, the compilation succeeds:
+
+```latex
+... ($\ce{Ca}=40$, $\ce{Cl}=35.5$ $\mathrm{g/mol}$)
+```
+
+This ensures that all parts of the expression are correctly interpreted in math mode, resolving the error.

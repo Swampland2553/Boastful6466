@@ -42,7 +42,7 @@ Whenever embedding any non-mathematical English/Latin text, units, or acronyms w
 
 ## Mixed Persian and Latin text
 - Wrap Latin text inside Persian (RTL) context with `\lr{...}` to prevent directionality issues (even single letters like `y`).
-- Do not use `\lr{}` inside math mode.
+- **CRITICAL**: Do not use `\lr{...}` inside math mode (`$ ... $`). Units and Latin text inside math environments should be handled with `\text{...}` or `\mathrm{...}` instead.
 
 ## Math and notation
 - Enclose math with `$ ... $`; ensure math is properly closed to avoid “Command \\end{...} invalid in math mode”.
@@ -107,7 +107,7 @@ Whenever embedding any non-mathematical English/Latin text, units, or acronyms w
 ## Additional notes
 - Be mindful of escaped backslashes in source text.
 - `xepersian` usually handles number localization; avoid manual `\persian{}` in sensitive contexts (e.g., list labels).
-- For mixed Persian/Latin content, prefer math mode for variables/numbers and `\lr{}` for Latin words in RTL text.
+- For mixed Persian/Latin content: use math mode for variables/numbers (without `\lr{...}`) and `\lr{...}` for Latin words in RTL text (outside math mode only).
 ----------
 
 # LaTeX for Persian Documents: Key Learnings
@@ -189,3 +189,87 @@ By placing `$` around the chemical formulas and the units, the compilation succe
 ```
 
 This ensures that all parts of the expression are correctly interpreted in math mode, resolving the error.
+
+----------
+
+# Critical Lesson: Never Use `\lr{...}` Inside Math Mode
+
+## The Problem
+
+A common mistake when working with Persian documents containing mathematical expressions with units is to wrap units with `\lr{...}` even when they are inside math mode (`$ ... $`). This causes compilation errors and incorrect rendering.
+
+**Example of INCORRECT usage:**
+```latex
+$10^{-5}$ \lr{J}     % Wrong: \lr{...} outside math is OK
+$10^{-5} \lr{J}$     % WRONG: \lr{...} inside math mode causes errors
+```
+
+## The Solution
+
+**Inside math mode (`$ ... $`), never use `\lr{...}` for units or Latin text.** Instead:
+
+- Use `\text{...}` for units: `$10^{-5} \text{ J}$`
+- Use `\mathrm{...}` for upright text: `$10^{-5} \mathrm{J}$`
+- Write variables and numbers directly: `$m = 2 \text{ kg}$`
+
+**Example of CORRECT usage:**
+```latex
+الف) $10^{-7} J$                    % Correct: simple unit in math
+ب) $10^{-5} \text{ J}$              % Correct: unit with \text{...}
+ج) $\rho = 800 \text{ kg/m}^3$      % Correct: complex unit with \text{...}
+```
+
+## Key Rules
+
+1. **Outside math mode**: Use `\lr{...}` for Latin text in Persian context
+2. **Inside math mode**: Never use `\lr{...}` - use `\text{...}` or `\mathrm{...}` instead
+3. **Mixed expressions**: Keep math and text separate:
+   ```latex
+   برای محاسبه انرژی از فرمول $E = mc^2$ استفاده می‌کنیم.
+   ```
+
+This rule prevents compilation errors and ensures proper rendering of mathematical expressions with units in Persian documents.
+
+----------
+
+# Font Issues with Special Mathematical Characters
+
+## The Problem
+
+When using special Unicode characters like superscripts (³, ²) or special symbols (⁻¹) directly in text, the Persian font (like ParsiMatn) may not support these characters, leading to "Missing character" warnings:
+
+```
+Missing character: There is no ³ in font Parsi Matn/OT:script=latn;language=dflt;script=arab;mapping=persian-tex-text;!
+Missing character: There is no ² in font Parsi Matn/OT:script=latn;language=dflt;script=arab;mapping=persian-tex-text;!
+Missing character: There is no ⁻ in font Parsi Matn/OT:script=latn;language=dflt;script=arab;mapping=persian-tex-text;!
+```
+
+**Example of PROBLEMATIC usage:**
+```latex
+$\rho = 800 \text{ kg/m³}$          % ³ character not supported by Persian font
+$N_A = 6 \times 10^{23} \text{ mol⁻¹}$  % ⁻¹ characters not supported
+```
+
+## The Solution
+
+**Always use LaTeX's mathematical notation instead of Unicode special characters:**
+
+- Use `^3` instead of `³`
+- Use `^2` instead of `²` 
+- Use `^{-1}` instead of `⁻¹`
+
+**Example of CORRECT usage:**
+```latex
+$\rho = 800 \text{ kg/m}^3$              % Correct: ^3 instead of ³
+$N_A = 6 \times 10^{23} \text{ mol}^{-1}$ % Correct: ^{-1} instead of ⁻¹
+$g = 10 \text{ m/s}^2$                   % Correct: ^2 instead of ²
+```
+
+## Key Rules
+
+1. **Never use Unicode superscripts/subscripts** (³, ², ⁻¹, etc.) in LaTeX documents
+2. **Always use LaTeX notation** (`^3`, `^2`, `^{-1}`, etc.) for mathematical expressions
+3. **This applies both inside and outside math mode** - LaTeX notation is always preferred
+4. **Font compatibility**: LaTeX mathematical notation works with any font, while Unicode special characters depend on font support
+
+This approach ensures compatibility across all fonts and prevents missing character warnings.

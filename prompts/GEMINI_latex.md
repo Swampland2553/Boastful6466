@@ -49,6 +49,195 @@ Whenever embedding any non-mathematical English/Latin text, units, or acronyms w
 - Sets: use `\{` and `\}` for curly braces inside math.
 - Units: place inside math and use `\mathrm{...}`, e.g., `$v = 10~\mathrm{m/s}.
 - Avoid accidental double backslashes (e.g., `\\mathbb{R}` is wrong; use `\mathbb{R}`).
+- **Note on `\text{...}` vs. `\mathrm{...}`**:
+  - Use `\text{...}` (from the `amsmath` package) for words or multi-letter identifiers inside math mode that should respect the surrounding text font. Example: `$E = mc^2 \text{ (Einstein's formula)}## Project: LaTeX (Persian) with xepersian
+
+- **Primary package**: `xepersian` (MiKTeX on Windows)
+- **Engine**: Compile with `xelatex`.
+- **User preference**: Respond in English.
+
+I will convert the Markdown file to LaTeX incrementally, compiling after each step to catch and fix errors as they arise. This follows the best practice of building a complex
+  document step-by-step.
+
+
+-----------------
+
+---
+
+### **Key Takeaway for Future Reference: Handling Mixed RTL and LTR Text in `xepersian`**
+
+**The Problem:**
+When short LTR (Left-to-Right) strings like `STP`, `g/mol`, or other acronyms are placed directly inside an RTL (Right-to-Left) Persian paragraph, the typesetting engine can get confused about the text directionality. This results in jumbled or incorrectly ordered output, where the LTR text and the surrounding Persian words are rendered improperly.
+
+**The Solution:**
+The correct way to handle this is to wrap the LTR text with the `\lr{...}` command, which is provided by the `xepersian` package.
+
+**Example:**
+- **Incorrect:** `...با فرض شرایط STP به حجم...`
+- **Correct:** `...با فرض شرایط \lr{STP} به حجم...`
+
+**How It Works:**
+The `\lr{...}` command creates a small, self-contained **LTR island** inside the main RTL text flow. This explicitly tells the XeLaTeX engine to typeset the content within the braces from left to right, preventing the surrounding RTL context from interfering with it and ensuring the final output is correctly ordered.
+
+**Rule of Thumb:**
+Whenever embedding any non-mathematical English/Latin text, units, or acronyms within a Persian sentence, **always wrap it in `\lr{...}`** to ensure correct rendering and avoid text corruption.
+
+
+---------------------
+  
+## Fonts
+- Set main Persian font with `\settextfont{...}` ; font must be installed or compilation fails.
+- Always set Latin font with `\setlatintextfont{...}` to avoid “Missing character” warnings in labels/Latin text.
+- If using `\textbf`, ensure bold variant is available/declared for `xepersian`.
+- Fallback: `ParsiMatn` works well for Persian and mixed scripts.
+- Unsupported Unicode (e.g., emojis) will trigger “Missing character” warnings; remove or choose a font with coverage.
+
+## Mixed Persian and Latin text
+- Wrap Latin text inside Persian (RTL) context with `\lr{...}` to prevent directionality issues (even single letters like `y`).
+- **CRITICAL**: Do not use `\lr{...}` inside math mode (`$ ... ). Units and Latin text inside math environments should be handled with `\text{...}` or `\mathrm{...}` instead.
+
+.
+  - Use `\mathrm{...}` for units or chemical formulas that should always be upright (Roman) font, regardless of the surrounding text style. Example: `$\ce{H2O}## Project: LaTeX (Persian) with xepersian
+
+- **Primary package**: `xepersian` (MiKTeX on Windows)
+- **Engine**: Compile with `xelatex`.
+- **User preference**: Respond in English.
+
+I will convert the Markdown file to LaTeX incrementally, compiling after each step to catch and fix errors as they arise. This follows the best practice of building a complex
+  document step-by-step.
+
+
+-----------------
+
+---
+
+### **Key Takeaway for Future Reference: Handling Mixed RTL and LTR Text in `xepersian`**
+
+**The Problem:**
+When short LTR (Left-to-Right) strings like `STP`, `g/mol`, or other acronyms are placed directly inside an RTL (Right-to-Left) Persian paragraph, the typesetting engine can get confused about the text directionality. This results in jumbled or incorrectly ordered output, where the LTR text and the surrounding Persian words are rendered improperly.
+
+**The Solution:**
+The correct way to handle this is to wrap the LTR text with the `\lr{...}` command, which is provided by the `xepersian` package.
+
+**Example:**
+- **Incorrect:** `...با فرض شرایط STP به حجم...`
+- **Correct:** `...با فرض شرایط \lr{STP} به حجم...`
+
+**How It Works:**
+The `\lr{...}` command creates a small, self-contained **LTR island** inside the main RTL text flow. This explicitly tells the XeLaTeX engine to typeset the content within the braces from left to right, preventing the surrounding RTL context from interfering with it and ensuring the final output is correctly ordered.
+
+**Rule of Thumb:**
+Whenever embedding any non-mathematical English/Latin text, units, or acronyms within a Persian sentence, **always wrap it in `\lr{...}`** to ensure correct rendering and avoid text corruption.
+
+
+---------------------
+  
+## Fonts
+- Set main Persian font with `\settextfont{...}` ; font must be installed or compilation fails.
+- Always set Latin font with `\setlatintextfont{...}` to avoid “Missing character” warnings in labels/Latin text.
+- If using `\textbf`, ensure bold variant is available/declared for `xepersian`.
+- Fallback: `ParsiMatn` works well for Persian and mixed scripts.
+- Unsupported Unicode (e.g., emojis) will trigger “Missing character” warnings; remove or choose a font with coverage.
+
+## Mixed Persian and Latin text
+- Wrap Latin text inside Persian (RTL) context with `\lr{...}` to prevent directionality issues (even single letters like `y`).
+- **CRITICAL**: Do not use `\lr{...}` inside math mode (`$ ... ). Units and Latin text inside math environments should be handled with `\text{...}` or `\mathrm{...}` instead.
+
+, `$v = 10 \mathrm{m/s}## Project: LaTeX (Persian) with xepersian
+
+- **Primary package**: `xepersian` (MiKTeX on Windows)
+- **Engine**: Compile with `xelatex`.
+- **User preference**: Respond in English.
+
+I will convert the Markdown file to LaTeX incrementally, compiling after each step to catch and fix errors as they arise. This follows the best practice of building a complex
+  document step-by-step.
+
+
+-----------------
+
+---
+
+### **Key Takeaway for Future Reference: Handling Mixed RTL and LTR Text in `xepersian`**
+
+**The Problem:**
+When short LTR (Left-to-Right) strings like `STP`, `g/mol`, or other acronyms are placed directly inside an RTL (Right-to-Left) Persian paragraph, the typesetting engine can get confused about the text directionality. This results in jumbled or incorrectly ordered output, where the LTR text and the surrounding Persian words are rendered improperly.
+
+**The Solution:**
+The correct way to handle this is to wrap the LTR text with the `\lr{...}` command, which is provided by the `xepersian` package.
+
+**Example:**
+- **Incorrect:** `...با فرض شرایط STP به حجم...`
+- **Correct:** `...با فرض شرایط \lr{STP} به حجم...`
+
+**How It Works:**
+The `\lr{...}` command creates a small, self-contained **LTR island** inside the main RTL text flow. This explicitly tells the XeLaTeX engine to typeset the content within the braces from left to right, preventing the surrounding RTL context from interfering with it and ensuring the final output is correctly ordered.
+
+**Rule of Thumb:**
+Whenever embedding any non-mathematical English/Latin text, units, or acronyms within a Persian sentence, **always wrap it in `\lr{...}`** to ensure correct rendering and avoid text corruption.
+
+
+---------------------
+  
+## Fonts
+- Set main Persian font with `\settextfont{...}` ; font must be installed or compilation fails.
+- Always set Latin font with `\setlatintextfont{...}` to avoid “Missing character” warnings in labels/Latin text.
+- If using `\textbf`, ensure bold variant is available/declared for `xepersian`.
+- Fallback: `ParsiMatn` works well for Persian and mixed scripts.
+- Unsupported Unicode (e.g., emojis) will trigger “Missing character” warnings; remove or choose a font with coverage.
+
+## Mixed Persian and Latin text
+- Wrap Latin text inside Persian (RTL) context with `\lr{...}` to prevent directionality issues (even single letters like `y`).
+- **CRITICAL**: Do not use `\lr{...}` inside math mode (`$ ... ). Units and Latin text inside math environments should be handled with `\text{...}` or `\mathrm{...}` instead.
+
+.
+  - **CRITICAL**: Do not use these commands for regular text that is *not* inside a math environment (`$ ... ## Project: LaTeX (Persian) with xepersian
+
+- **Primary package**: `xepersian` (MiKTeX on Windows)
+- **Engine**: Compile with `xelatex`.
+- **User preference**: Respond in English.
+
+I will convert the Markdown file to LaTeX incrementally, compiling after each step to catch and fix errors as they arise. This follows the best practice of building a complex
+  document step-by-step.
+
+
+-----------------
+
+---
+
+### **Key Takeaway for Future Reference: Handling Mixed RTL and LTR Text in `xepersian`**
+
+**The Problem:**
+When short LTR (Left-to-Right) strings like `STP`, `g/mol`, or other acronyms are placed directly inside an RTL (Right-to-Left) Persian paragraph, the typesetting engine can get confused about the text directionality. This results in jumbled or incorrectly ordered output, where the LTR text and the surrounding Persian words are rendered improperly.
+
+**The Solution:**
+The correct way to handle this is to wrap the LTR text with the `\lr{...}` command, which is provided by the `xepersian` package.
+
+**Example:**
+- **Incorrect:** `...با فرض شرایط STP به حجم...`
+- **Correct:** `...با فرض شرایط \lr{STP} به حجم...`
+
+**How It Works:**
+The `\lr{...}` command creates a small, self-contained **LTR island** inside the main RTL text flow. This explicitly tells the XeLaTeX engine to typeset the content within the braces from left to right, preventing the surrounding RTL context from interfering with it and ensuring the final output is correctly ordered.
+
+**Rule of Thumb:**
+Whenever embedding any non-mathematical English/Latin text, units, or acronyms within a Persian sentence, **always wrap it in `\lr{...}`** to ensure correct rendering and avoid text corruption.
+
+
+---------------------
+  
+## Fonts
+- Set main Persian font with `\settextfont{...}` ; font must be installed or compilation fails.
+- Always set Latin font with `\setlatintextfont{...}` to avoid “Missing character” warnings in labels/Latin text.
+- If using `\textbf`, ensure bold variant is available/declared for `xepersian`.
+- Fallback: `ParsiMatn` works well for Persian and mixed scripts.
+- Unsupported Unicode (e.g., emojis) will trigger “Missing character” warnings; remove or choose a font with coverage.
+
+## Mixed Persian and Latin text
+- Wrap Latin text inside Persian (RTL) context with `\lr{...}` to prevent directionality issues (even single letters like `y`).
+- **CRITICAL**: Do not use `\lr{...}` inside math mode (`$ ... ). Units and Latin text inside math environments should be handled with `\text{...}` or `\mathrm{...}` instead.
+
+ or `\[ ... \]`). It is unnecessary and can lead to errors. If it's normal text, just type it directly.
+
 
 ## Lists and numbering
 - Persian alphabetical labels: use `\alph*`. Do not use `\asbuk*` (Cyrillic).

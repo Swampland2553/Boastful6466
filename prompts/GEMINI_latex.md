@@ -34,7 +34,7 @@ Whenever embedding any non-mathematical English/Latin text, units, or acronyms w
 ---------------------
   
 ## Fonts
-- Set main Persian font with `\settextfont{...}`; font must be installed or compilation fails.
+- Set main Persian font with `\settextfont{...}` ; font must be installed or compilation fails.
 - Always set Latin font with `\setlatintextfont{...}` to avoid “Missing character” warnings in labels/Latin text.
 - If using `\textbf`, ensure bold variant is available/declared for `xepersian`.
 - Fallback: `ParsiMatn` works well for Persian and mixed scripts.
@@ -42,12 +42,12 @@ Whenever embedding any non-mathematical English/Latin text, units, or acronyms w
 
 ## Mixed Persian and Latin text
 - Wrap Latin text inside Persian (RTL) context with `\lr{...}` to prevent directionality issues (even single letters like `y`).
-- **CRITICAL**: Do not use `\lr{...}` inside math mode (`$ ... $`). Units and Latin text inside math environments should be handled with `\text{...}` or `\mathrm{...}` instead.
+- **CRITICAL**: Do not use `\lr{...}` inside math mode (`$ ... ). Units and Latin text inside math environments should be handled with `\text{...}` or `\mathrm{...}` instead.
 
 ## Math and notation
-- Enclose math with `$ ... $`; ensure math is properly closed to avoid “Command \\end{...} invalid in math mode”.
+- Enclose math with `$ ...  ; ensure math is properly closed to avoid “Command \end{...} invalid in math mode”.
 - Sets: use `\{` and `\}` for curly braces inside math.
-- Units: place inside math and use `\mathrm{...}`, e.g., `$v = 10~\mathrm{m/s}$`.
+- Units: place inside math and use `\mathrm{...}`, e.g., `$v = 10~\mathrm{m/s}.
 - Avoid accidental double backslashes (e.g., `\\mathbb{R}` is wrong; use `\mathbb{R}`).
 
 ## Lists and numbering
@@ -56,7 +56,7 @@ Whenever embedding any non-mathematical English/Latin text, units, or acronyms w
 - Avoid `\persian{}` directly in `label=...` (can cause `Argument of \enit@refstar@i has an extra }`).
 
 ## Tables and layout
-- `tabularx` (especially `>{\RaggedRight}X`) can conflict with `xepersian` and cause errors like “Extra }, or forgotten \\endgroup”. Prefer one of:
+- `tabularx` (especially `>{\RaggedRight}X`) can conflict with `xepersian` and cause errors like “Extra }, or forgotten \endgroup”. Prefer one of:
   - Standard `tabular` with fixed-width `p{...}` columns
   - `tabular*` with `@{\\extracolsep{\\fill}}` for flexible width
   - `longtable` for multipage tables
@@ -81,9 +81,9 @@ Whenever embedding any non-mathematical English/Latin text, units, or acronyms w
 - “Font not found” → install the font or choose an installed font; set both `\settextfont` and `\setlatintextfont`.
 - “Missing character” → character unsupported by chosen font; remove or select a font with coverage.
 - “Missing number, treated as zero” → invalid `enumitem` option (e.g., `rightmargin=*`); remove/fix.
-- “Argument of \\enit@refstar@i has an extra }” → avoid `\persian{}` inside `label=...` with `enumitem`.
+- “Argument of \enit@refstar@i has an extra }” → avoid `\persian{}` inside `label=...` with `enumitem`.
 - “Undefined control sequence” from `\asbuk*` → use `\alph*` for Persian alphabetical lists.
-- “Command \\end{...} invalid in math mode” → unterminated math (`$` missing) earlier.
+- “Command \end{...} invalid in math mode” → unterminated math (` missing) earlier.
 - Acrobat display errors → avoid `tcolorbox`.
 - `mdframed` under `xepersian` failing → prefer `framed` or very simple environments.
 - `\dotfill` inside certain columns under `xepersian` → directionality-related; reconsider layout.
@@ -101,7 +101,7 @@ Whenever embedding any non-mathematical English/Latin text, units, or acronyms w
 - Output: complete LaTeX document.
 - Numerals and symbols: use English digits/operators and `.` as decimal separator when required by the task.
 - Layout: single-column (`article`), avoid wide/fixed-width elements; use legible font sizes for mobile.
-- Math: use `$...$`; escape braces as `\{` and `\}` inside math.
+- Math: use `$...; escape braces as `\{` and `\}` inside math.
 - Acrobat compatibility: prefer `mdframed` over `tcolorbox`.
 
 ## Additional notes
@@ -129,13 +129,13 @@ This document summarizes the key techniques and debugging solutions discovered d
 - **`mhchem` is Superior**: For chemical formulas and equations, the `mhchem` package is much more robust and syntactically cleaner than standard math mode. 
   - **Usage**: `\usepackage[version=4]{mhchem}`
   - **Formulas**: `\ce{H2O}`, `\ce{KClO3}`, `\ce{H+}`
-  - **Equations**: `\[ \ce{N2(g) + 3H2(g) <=> 2NH3(g)} \]`
+  - **Equations**: `\[ \ce{N2(g) + 3H2(g) <=> 2NH3(g)} \]
 - **Display Math**: For standalone equations, the `\[ ... \]` environment should be used. Do not include surrounding text or punctuation inside the math delimiters.
 
 ## 3. Typesetting Mixed-Language Text (RTL/LTR)
 
 - **Latin in Persian**: For short, non-mathematical Latin acronyms or words within a Persian paragraph, use `\lr{...}`. Example: `\lr{STP}`.
-- **Critical Rule**: **Do not** wrap math environments (`$...$`, `\[... \]`) or complex commands like `\ce{...}` inside `\lr{...}`. This was a major source of compilation errors (`Extra }`).
+- **Critical Rule**: **Do not** wrap math environments (`$..., `\[... \]`) or complex commands like `\ce{...}` inside `\lr{...}`. This was a major source of compilation errors (`Extra }`).
 
 ## 4. Lists and Enumeration
 
@@ -153,7 +153,7 @@ The incremental compilation approach was key to isolating the following errors:
   - **Cause**: Wrapping a math environment or another fragile command inside `\lr{...}`.
 
 - **Error**: `Missing character: There is no ... in font ...`
-  - **Cause**: Placing Persian text inside a math environment (`$...$`). LaTeX attempts to render the text using a math font that lacks the required Persian glyphs.
+  - **Cause**: Placing Persian text inside a math environment (`$...). LaTeX attempts to render the text using a math font that lacks the required Persian glyphs.
 
 - **Error**: `Lonely \item`
   - **Cause**: A structural mistake in the document, such as a misplaced `\end{enumerate}`, which leaves an `\item` command outside of a valid list environment.
@@ -176,16 +176,16 @@ The error occurred because `\ce` and the subsequent `\mathrm` were not inside a 
 
 ## The Solution
 
-The problem was solved by enclosing every `\ce{...}` command and its associated text within math delimiters (`$...$`).
+The problem was solved by enclosing every `\ce{...}` command and its associated text within math delimiters (`$...).
 
-**The key takeaway is that `\ce{...}` commands, in this context, must be wrapped in `$` signs to ensure they are processed correctly by the LaTeX engine.**
+**The key takeaway is that `\ce{...}` commands, in this context, must be wrapped in ` signs to ensure they are processed correctly by the LaTeX engine.**
 
 ### Corrected Example
 
-By placing `$` around the chemical formulas and the units, the compilation succeeds:
+By placing ` around the chemical formulas and the units, the compilation succeeds:
 
 ```latex
-... ($\ce{Ca}=40$, $\ce{Cl}=35.5$ $\mathrm{g/mol}$)
+... ($\\ce{Ca}=40$, $\\ce{Cl}=35.5$ $\\mathrm{g/mol}$)
 ```
 
 This ensures that all parts of the expression are correctly interpreted in math mode, resolving the error.
@@ -196,7 +196,7 @@ This ensures that all parts of the expression are correctly interpreted in math 
 
 ## The Problem
 
-A common mistake when working with Persian documents containing mathematical expressions with units is to wrap units with `\lr{...}` even when they are inside math mode (`$ ... $`). This causes compilation errors and incorrect rendering.
+A common mistake when working with Persian documents containing mathematical expressions with units is to wrap units with `\lr{...}` even when they are inside math mode (`$ ... ). This causes compilation errors and incorrect rendering.
 
 **Example of INCORRECT usage:**
 ```latex
@@ -206,17 +206,17 @@ $10^{-5} \lr{J}$     % WRONG: \lr{...} inside math mode causes errors
 
 ## The Solution
 
-**Inside math mode (`$ ... $`), never use `\lr{...}` for units or Latin text.** Instead:
+**Inside math mode (`$ ... ), never use `\lr{...}` for units or Latin text.** Instead:
 
-- Use `\text{...}` for units: `$10^{-5} \text{ J}$`
-- Use `\mathrm{...}` for upright text: `$10^{-5} \mathrm{J}$`
-- Write variables and numbers directly: `$m = 2 \text{ kg}$`
+- Use `\text{...}` for units: `$10^{-5} \text{ J}
+- Use `\mathrm{...}` for upright text: `$10^{-5} \mathrm{J}
+- Write variables and numbers directly: `$m = 2 \text{ kg}
 
 **Example of CORRECT usage:**
 ```latex
 الف) $10^{-7} J$                    % Correct: simple unit in math
 ب) $10^{-5} \text{ J}$              % Correct: unit with \text{...}
-ج) $\rho = 800 \text{ kg/m}^3$      % Correct: complex unit with \text{...}
+ج) $\\rho = 800 \text{ kg/m}^3$      % Correct: complex unit with \text{...}
 ```
 
 ## Key Rules
@@ -273,3 +273,60 @@ $g = 10 \text{ m/s}^2$                   % Correct: ^2 instead of ²
 4. **Font compatibility**: LaTeX mathematical notation works with any font, while Unicode special characters depend on font support
 
 This approach ensures compatibility across all fonts and prevents missing character warnings.
+```
+
+### **Advanced Debugging: A Critical `xepersian` Conflict**
+
+This section details a critical and subtle error encountered when using display math environments (`\[ ... \]`) within a `xepersian` document.
+
+**The Problem: `Bad math environment delimiter`**
+
+A persistent `Bad math environment delimiter` error occurred even when using the correct `\[ ... \]` syntax for display math. The error was not immediately obvious from the code.
+
+**The Root Cause and Solution:**
+
+The error was not caused by the math environment itself, but by the command used for vertical spacing immediately before it.
+
+*   **Incorrect Method:** Using `\[10pt]` to add vertical space. The `[` in this command was misinterpreted by the LaTeX compiler as the beginning of a math environment, which was never properly closed, leading to the error.
+    ```latex
+    % INCORRECT - Causes "Bad math environment delimiter"
+    \item Some text
+    \[10pt] % This is the source of the error
+    \[ a = b + c \]
+    ```
+
+*   **Correct Method:** The proper command for adding vertical space is `\vspace{...}`. This command does not conflict with math environments.
+    ```latex
+    % CORRECT
+    \item Some text
+    \vspace{10pt}
+    \[ a = b + c \]
+    ```
+
+**Key Takeaway:** Never use `\[...]` to add vertical spacing between paragraphs or before environments. Always use `\vspace{...}` or other dedicated spacing commands like `\medskip`.
+
+--- 
+
+### **Best Practice: Package Loading Order**
+
+To prevent potential conflicts between packages, it is a recommended best practice to load math-related packages (`amsmath`, `amssymb`, etc.) **before** loading the `xepersian` package.
+
+**Example Preamble:**
+```latex
+\documentclass[12pt]{article}
+
+% Load math packages FIRST
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+
+% Load xepersian LAST
+\usepackage{xepersian}
+
+% Font setup...
+\settextfont{ParsiMatn}
+\setlatintextfont{Times New Roman}
+
+\begin{document}
+...
+\end{document}
+```

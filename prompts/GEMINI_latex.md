@@ -109,7 +109,38 @@ I will convert the Markdown file to LaTeX incrementally, compiling after each st
 
 -----------------
 
----
+This session's key learning was how to resolve a deep package conflict between `titlesec` and `xepersian` when formatting starred sectioning commands in LaTeX.
+
+**The Problem:**
+- Attempting to format `\subsection*` with the `titlesec` package in a `xepersian` document leads to catastrophic compilation errors (e.g., `Missing \endcsname inserted`, `TeX capacity exceeded`).
+- Standard `titlesec` solutions, including the `[explicit]` package option, fail to resolve the conflict, indicating a fundamental incompatibility in this specific context.
+
+**The Debugging Process:**
+1.  Initial attempts to use `\titleformat` and `\titleformat*` failed, pointing to a syntax or package loading issue.
+2.  Isolating the problem by commenting out the `titlesec` commands for `\subsection*` resulted in a successful compilation, confirming these lines were the source of the error.
+3.  Re-introducing the commands with the `[explicit]` package option also failed, revealing the conflict was deeper than just a syntax issue.
+
+**The Solution: Manual Redefinition**
+The most robust solution was to abandon `titlesec` for the problematic command and redefine it manually in the preamble. This bypasses the package conflict entirely.
+
+**Implementation:**
+The following code was added to the preamble to make `\subsection*` titles bold and large without using `titlesec`:
+
+```latex
+% Robust redefinition of \subsection* to make titles bold
+\makeatletter
+\let\origsubsection\subsection
+\renewcommand\subsection{\@ifstar{\starsubsection}{\origsubsection}}
+\newcommand\starsubsection[1]{\origsubsection*{\normalfont\large\bfseries #1}}
+\makeatother
+```
+
+**Key Takeaway:**
+When facing intractable errors from package conflicts (like `titlesec` vs. `xepersian`), the most effective strategy is often to stop using the problematic package feature for the specific command and implement the desired functionality manually. A robust redefinition using internal LaTeX commands (`\makeatletter`, `\@ifstar`, etc.) is a powerful and reliable alternative.
+
+------------------
+
+
 
 ### **Key Takeaway for Future Reference: Handling Mixed RTL and LTR Text in `xepersian`**
 

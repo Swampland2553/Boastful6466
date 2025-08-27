@@ -9,7 +9,50 @@ I will convert the Markdown file to LaTeX incrementally, compiling after each st
 
 
 -----------------
+# Session Learning Notes
 
+This file summarizes the key lessons learned during the interactive LaTeX build session.
+
+## 1. Handling Mixed RTL and LTR Text
+
+**Lesson:** When embedding short left-to-right (LTR) phrases (like English words) within a right-to-left (RTL) context in a `xepersian` document, the LTR text must be wrapped with the `\lr{...}` command.
+
+**Example:**
+```latex
+% Incorrect
+متن فارسی (English Text) متن فارسی
+
+% Correct
+متن فارسی \lr{(English Text)} متن فارسی
+```
+This ensures correct typesetting and avoids font or directional issues.
+
+## 2. Workaround for `\maketitle` Errors
+
+**Issue:** Using `\maketitle` with `xepersian` can sometimes cause a `TeX capacity exceeded` error, likely due to an internal loop when processing complex RTL text in the title.
+
+**Solution:** A reliable workaround is to bypass `\maketitle` entirely and format the title manually.
+
+**Example:**
+```latex
+\begin{document}
+
+\begin{center}
+    \Large\textbf{Your Title Here}
+\end{center}
+
+% ... rest of the document
+```
+
+## 3. Importance of Literal Search
+
+**Lesson:** My initial high-level cognitive scan of files can miss specific terms. To ensure accuracy, I must follow up any high-level analysis with a literal search using the `search_file_content` tool, even if my initial scan finds nothing. This is a mandatory verification step.
+
+## 4. General Vigilance
+
+**Lesson:** Be careful with typos, especially when mixing languages or transliterating (e.g., the `شayستگی‌های` vs. `شایستگی‌های` correction). Always double-check the output.
+
+```
 ---
 
 ### **Key Takeaway for Future Reference: Handling Mixed RTL and LTR Text in `xepersian`**
